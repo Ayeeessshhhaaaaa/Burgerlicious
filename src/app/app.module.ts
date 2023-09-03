@@ -4,18 +4,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './Components/test/test.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AdminComponent } from './admin/admin.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: AppComponent },
+  { path: 'admin', component: AdminComponent }
+ 
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(routes)
 
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
