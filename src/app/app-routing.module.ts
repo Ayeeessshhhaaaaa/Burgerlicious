@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SplashScreenComponent } from './Pages/splash-screen/splash-screen.component';
+import { HomeScreenComponent } from './Pages/home-screen/home-screen.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SplashScreenComponent,
+    component: HomeScreenComponent,
+  },
+  {
+    path: 'home',
+    component: HomeScreenComponent,
   },
 ];
 

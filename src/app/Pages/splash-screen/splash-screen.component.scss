@@ -27,6 +27,12 @@
                 color:#5C2E0F;
                 display: block; /* Display the span on a new line */
             }
+            @media screen and (max-width:768px)
+            {
+                font-size: 41px;
+                line-height: 1.2;
+                padding-top: 12%;
+            }
         }
     }
 
@@ -46,6 +52,21 @@
             position: absolute;
             left: -150px;
             top: 5%;
+
+            @media screen and (max-width:768px)
+            {
+                height: 500px;
+                width: 680px;
+                position: absolute;
+                left: -150px;
+                top: -80px;
+            }
         }
+
+        @media screen and (max-width:768px)
+            {
+                height: 350px;
+                width: 380px;
+            }
     }
 }
