@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './Components/test/test.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SplashScreenComponent } from './Pages/splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    SplashScreenComponent,
   ],
   imports: [
     BrowserModule,
