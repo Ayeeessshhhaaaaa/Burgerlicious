@@ -1,0 +1,70 @@
+.card{
+    margin-top: 10px;
+    width: 225px;
+    height: 330px;
+    border-radius: 10px;
+
+  @media screen and (max-width: 610px) {
+    height: 350px;
+    max-width: 100%;
+  }
+}
+
+.product-card {
+    height: 200px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #D1BD9E;
+
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
+  }
+  
+
+    .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name {
+    color: #5E4C43;
+    font-size: 15px;
+    font-family: 'Paytone One', sans-serif;
+    margin-bottom: 8px;
+  }
+
+  .burger-name{
+    width: 80%;
+    text-align: center;
+    color: #281F1A;
+    font-size: 20px;
+    font-family: 'Paytone One', sans-serif;
+    line-height: 25px;
+    margin-bottom: 8px;
+  }
+
+
+  .featured-image {
+    width: 200px;
+    height: auto;
+
+    @media screen and ( max-width: 768px){
+      width: 200px;
+    }
+  }
+
+
+  .image-content {
+    height: 80px; /* Adjust this value to control the height of the visible part of the image */
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .material-symbols-outlined {
+    color: #cc9122;
+  }
+

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Path } from 'typescript';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
+  constructor(private router: Router){}
+  onClick(Path: string)
+  {
+    this.router.navigate([Path])
+  }
 }
