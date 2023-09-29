@@ -33,26 +33,27 @@ export class AdminOrderAddComponent {
   }
 
   orderForm = new FormGroup({
-    'customerName': new FormControl('', Validators.required),
-    'phoneNumber': new FormControl('', Validators.required),
-    'email': new FormControl('', Validators.required),
-    'specialNotes': new FormControl('', Validators.required),
-    'total': new FormControl(this.finalTotal, Validators.required)
+    'UserID': new FormControl('', Validators.required),
+    // 'customerName': new FormControl('', Validators.required),
+    // 'phoneNumber': new FormControl('', Validators.required),
+    // 'email': new FormControl('', Validators.required),
+    // 'specialNotes': new FormControl('', Validators.required),
+    'TotalAmount': new FormControl(this.finalTotal, Validators.required)
 
   });
 
   orderProductForm = new FormGroup({
-    'product_no': new FormControl('', Validators.required),
-    'product_name': new FormControl('', Validators.required),
-    'quantity': new FormControl('', Validators.required),
-    'total': new FormControl(this.total, Validators.required)
+    'IngredientID': new FormControl('', Validators.required),
+    'IngredientName': new FormControl('', Validators.required),
+    'Quantity': new FormControl('', Validators.required),
+    'Subtotal': new FormControl(this.total, Validators.required)
 
   });
 
   orderSubmit() {
     if (this.orderForm.valid && this.cartProductArray.length>=1) {
 
-      this.orderForm.value.total = this.finalTotal; //update final total
+      this.orderForm.value.TotalAmount = this.finalTotal; //update final total
 
       this.service.createOrder(this.orderForm.value).subscribe((res) => {
 
@@ -79,13 +80,13 @@ export class AdminOrderAddComponent {
 
   orderProductSubmit() {
     if (this.orderProductForm.valid) {
-      this.orderProductForm.value.total = this.total; //otherwise it did not seems to update the value and still showed 0 (the intial total amount assigned)
+      this.orderProductForm.value.Subtotal = this.total; //otherwise it did not seems to update the value and still showed 0 (the intial total amount assigned)
       this.cartProductArray.push(this.orderProductForm.value);
 
       //update final total
       this.finalTotal = 0;
       for (let i = 0; i < this.cartProductArray.length; i++) {
-        this.finalTotal = (parseFloat(this.finalTotal) + parseFloat(this.cartProductArray[i].total)).toFixed(2); //to 2 decimal places
+        this.finalTotal = (parseFloat(this.finalTotal) + parseFloat(this.cartProductArray[i].Subtotal)).toFixed(2); //to 2 decimal places
       }
     }
     else {
@@ -98,9 +99,9 @@ export class AdminOrderAddComponent {
 
     this.service.getProductById(this.productNo).subscribe((res) => {
       this.quantity = 1;
-      this.price = res.data[0].price;
-      this.total = res.data[0].price;
-      this.product_name = res.data[0].product_name;
+      this.price = res.data[0].Price;
+      this.total = res.data[0].Price;
+      this.product_name = res.data[0].IngredientName;
     });
 
 
@@ -122,7 +123,7 @@ export class AdminOrderAddComponent {
     //update final total
     this.finalTotal = 0;
     for (let i = 0; i < this.cartProductArray.length; i++) {
-      this.finalTotal = (parseFloat(this.finalTotal) + parseFloat(this.cartProductArray[i].total)).toFixed(2); //to 2 decimal places
+      this.finalTotal = (parseFloat(this.finalTotal) + parseFloat(this.cartProductArray[i].Subtotal)).toFixed(2); //to 2 decimal places
     }
   }
 

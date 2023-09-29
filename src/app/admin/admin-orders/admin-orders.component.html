@@ -156,35 +156,32 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
-              <th>Order No</th>
-              <th>Customer Name</th>
-              <th>Customer Email</th>
-              <th>Customer Phone Number</th>
-              <th>Total</th>
+              <th>Order ID</th>
+              <th>User ID</th>
+              <th>Order Date</th>
+              <th>Total Amount</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
             </thead>
             <tbody>
               <tr *ngFor ='let order of allOrders'>
-                <td>{{order.order_no}}</td>
-                <td>{{order.customer_name}}</td>
-                <td>{{order.customer_email}}</td>
-                <td>{{order.customer_phone}}</td>
-                <td>{{order.total}}</td>
-                <td>{{order.status}}</td>
+                <td>{{order.OrderID}}</td>
+                <td>{{order.UserID}}</td>
+                <td>{{order.OrderDate}}</td>
+                <td>{{order.TotalAmount}}</td>
+                <td>{{order.Status}}</td>
                 <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
               </tr>
             </tbody>
             <tfoot>
             <tr>
-              <th>Order No</th>
-              <th>Customer Name</th>
-              <th>Customer Email</th>
-              <th>Customer Phone Number</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Action</th>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Order Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
             </tfoot>
           </table>

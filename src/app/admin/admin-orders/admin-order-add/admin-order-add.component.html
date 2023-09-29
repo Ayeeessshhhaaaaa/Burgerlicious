@@ -168,6 +168,11 @@
           </div>
           <div class="card-body">
             <div class="form-group">
+              <label for="UserID">User ID</label>
+              <input type="text" class="form-control" id="UserID" formControlName="UserID"
+                placeholder="Enter Customer Name">
+            </div>
+            <!-- <div class="form-group">
               <label for="customerName">Customer Name</label>
               <input type="text" class="form-control" id="customerName" formControlName="customerName"
                 placeholder="Enter Customer Name">
@@ -180,12 +185,7 @@
             <div class="form-group">
               <label for="email">Email address</label>
               <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="specialNotes">Special Notes</label>
-              <textarea class="form-control" rows="3" formControlName="specialNotes"
-                placeholder="Enter any Special Notes"></textarea>
-            </div>
+            </div> -->
           </div>
           <!-- /.card-body -->
   
@@ -207,7 +207,7 @@
   
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Product</h3>
+          <h3 class="card-title">Ingredient</h3>
         </div>
         <!-- /.card-header -->
   
@@ -218,23 +218,23 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Products</label>
-                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()" formControlName="product_no">
-                    <option *ngFor='let product of allProducts' value="{{product.product_id}}">{{product.product_name}}
+                  <label>Ingredients</label>
+                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()" formControlName="IngredientID">
+                    <option *ngFor='let product of allProducts' value="{{product.IngredientID}}">{{product.IngredientName}}
                     </option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" id="product_name" formControlName="product_name"
+                <input type="number" class="form-control" id="IngredientName" formControlName="IngredientName"
                   [(ngModel)]="product_name" value="{{product_name}}" hidden>
               </div>
               <div class="col-md-1">
               </div>
               <div class="col-md-1">
               <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input type="number" class="form-control" id="quantity" min="1" formControlName="quantity"
+                <label for="Quantity">Quantity</label>
+                <input type="number" class="form-control" id="Quantity" min="1" formControlName="Quantity"
                   value="{{quantity}}" [(ngModel)]="quantity" (input)="onChangeQuantity()">
               </div>
             </div>
@@ -251,7 +251,7 @@
           <!-- /.card-body -->
   
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary" style="float:right">Add Product To Order</button>
+            <button type="submit" class="btn btn-primary" style="float:right">Add Ingredient To Order</button>
           </div>
         </form>
       </div>
@@ -259,8 +259,8 @@
   
   
       <div class="card-header">
-        <h3 class="card-title">Products Added for the Order</h3>
-        <h5 style="float:right; color:white">Total : {{finalTotal}}</h5>
+        <h3 class="card-title">Ingredients Added for the Order</h3>
+        <h3 style="float:right; color:white">Total : {{finalTotal}}</h3>
       </div>
       <!-- /.card-header -->
       <div class="card-body">
@@ -268,7 +268,7 @@
           <thead>
             <tr>
               <th style="width: 10px">#</th>
-              <th>Product Name</th>
+              <th>Ingredient Name</th>
               <th>Quantity</th>
               <th>Subtotal</th>
               <th style="width: 40px">Action</th>
@@ -278,9 +278,9 @@
             <tr *ngFor='let product of cartProductArray;index as i'>
   
               <td>{{i+1}}</td>
-              <td>{{product.product_name}}</td>
-              <td>{{product.quantity}}</td>
-              <td>{{product.total}}</td>
+              <td>{{product.IngredientName}}</td>
+              <td>{{product.Quantity}}</td>
+              <td>{{product.Subtotal}}</td>
               <td><span (click)="deleteItemFromCartProductsArray(i)"><i class="fas fa-trash"></i></span></td>
   
             </tr>

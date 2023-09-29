@@ -32,7 +32,7 @@ db.connect(err => {
 
 app.get('/orders', (req, res) => {
 
-    let query = 'select * from orders';
+    let query = "SELECT OrderID, UserID, DATE_FORMAT(OrderDate, '%Y-%m-%d %H:%i:%s') AS OrderDate, TotalAmount, Status from orders";
     db.query(query, (err, result) => {
         if (err) {
             console.log("Error Retrieving Orders");
@@ -48,14 +48,11 @@ app.get('/orders', (req, res) => {
 });
 
 app.post('/addOrder', (req, res) => {
-    let customerName = req.body.customerName;
-    let phoneNumber = req.body.phoneNumber;
-    let email = req.body.email;
-    let specialNotes = req.body.specialNotes;
-    let total = req.body.total;
-    let status = 'Received'; //always when added the order, status will be received 
+    let UserID = req.body.UserID;
+    let TotalAmount = req.body.TotalAmount;
+    let Status = 'Received'; //always when added the order, status will be received 
 
-    db.query("insert into orders (status,customer_name,customer_email,total,special_notes,customer_phone) values (?,?,?,?,?,?)", [status, customerName, email, total, specialNotes,phoneNumber], (err, result) => {
+    db.query("insert into orders (Status,UserID,TotalAmount,OrderDate) values (?,?,?,NOW())", [Status, UserID, TotalAmount], (err, result) => {
 
         if (err) {
 
@@ -75,7 +72,7 @@ app.post('/addOrder', (req, res) => {
 
 app.get('/products', (req, res) => {
 
-    let query = 'select * from products';
+    let query = 'select * from ingredients';
     db.query(query, (err, result) => {
         if (err) {
             console.log("Error Retrieving Products");
@@ -93,7 +90,7 @@ app.get('/products', (req, res) => {
 app.get('/products/:id', (req, res) => {
 
     let id = parseInt(req.params.id);
-    db.query("select * from products where product_id = ?", [id], (err, result) => {
+    db.query("select * from ingredients where IngredientID = ?", [id], (err, result) => {
         if (err) {
             console.log("Error Retrieving Product");
             console.log(err);
@@ -115,7 +112,7 @@ app.post('/addOrderProducts', (req, res) => {
     for (let i=0;i<data.length;i++) {
 
         let product = data[i];
-        db.query("insert into order_product (order_no,quantity,subtotal,product_no) values (?,?,?,?)", [parseInt(orderId), product.quantity, product.total, parseInt(product.product_no)], (err, result) => {
+        db.query("insert into ordercustomizations (OrderID,Quantity,Subtotal,IngredientID) values (?,?,?,?)", [parseInt(orderId), product.Quantity, product.Subtotal, parseInt(product.IngredientID)], (err, result) => {
 
             if (err) {
                 console.log(err);
