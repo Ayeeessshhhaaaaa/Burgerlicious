@@ -16,15 +16,19 @@ import { MatListModule } from '@angular/material/list';
 import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
+import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
-  { path: 'admin', component: AdminComponent }
- 
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent },
+  { path: 'admin/orders/add', component: AdminOrderAddComponent }
 ]
 
 @NgModule({
@@ -38,7 +42,9 @@ const routes: Routes = [
     FeedbackDetailsScreenComponent,
     RatingComponent,
     FeedbackFormComponent,
-    AdminComponent
+    AdminComponent,
+    AdminOrdersComponent,
+    AdminOrderAddComponent
   ],
   imports: [
     BrowserModule,
@@ -48,13 +54,14 @@ const routes: Routes = [
     HttpClientModule,
     MatListModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forRoot(routes)
 
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [AdminOrderServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
