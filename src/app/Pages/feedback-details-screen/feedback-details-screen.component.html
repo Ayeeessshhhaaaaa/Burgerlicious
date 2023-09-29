@@ -1,0 +1,36 @@
+<div class="containers">
+    <app-navbar></app-navbar> 
+    <div class="dark-container">
+    <div class="textbox">Feedback & Review Details</div> 
+    <div class="light-container">
+        <div class="burger-name">{{feedbackData.burgerName}}</div>
+        <div fxLayout="row">
+            <div class="left-column" fxLayout="column" fxFlex="40" >
+                <img [src]="feedbackData.imageURL" alt="burger" class="burger">
+                <div class="description">{{feedbackData.Comment}}</div>
+            </div>
+            <div class="right-column" fxLayout="column" fxFlex="60">
+                <div class="ingredients">
+                    <span class="ingredient-heading">Ingredients Chosen to build the burger:</span>
+                    <ul>
+                      <li *ngFor="let ingredient of feedbackData.IngredientNames" class="ingredient-names">
+                        {{ ingredient }}
+                      </li>
+                    </ul>
+                  </div>                  
+                <div fxLayout="row" class="burger-details">
+                    <div class="burger-details-containers">
+                        <div class="burger-details-text"> <span class="burger-details-text-heading"> Price: <br> </span>{{feedbackData.TotalAmount}}</div>
+                    </div>
+                    <div class="burger-details-containers">
+                        <div class="burger-details-text"> <span class="burger-details-text-heading"> Size: <br> </span>  Large </div>
+                    </div>
+                    <div class="burger-details-containers">
+                        <div class="burger-details-text"> <span class="burger-details-text-heading"> Energy: <br> </span>  1200 KCal </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>  
+    </div>
+</div>

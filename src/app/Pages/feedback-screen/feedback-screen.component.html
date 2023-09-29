@@ -1,0 +1,45 @@
+<div class="Containers">
+    <app-navbar></app-navbar>
+    <div class="textbox">Feedback & Reviews</div>
+      <div fxLayout="row" fxLayout.xs="column">
+          <div fxFlex="1 1 auto" fxFlex.xs="100%" class="product-column">
+                <div
+                  class="scrollable-content"
+                  fxLayout="row wrap"
+                  fxLayoutGap="40px calc(100% - 40px)"
+                  fxLayoutAlign="space-evenly">
+                  <ng-container
+                  *ngIf="feedbackData && feedbackData.length > 0; else noResults">
+                  <div class="data-blocks" *ngFor="let data of feedbackData">
+                    <app-feedback-block
+                      [ReviewID]="data.ReviewID"
+                      [OrderID]="data.OrderID"
+                      [UserID]="data.UserID"
+                      [Name]="data.Name"
+                      [burgerName]="data.burgerName"
+                      [Comment]="data.Comment"
+                      [Rating]="data.Rating"
+                      [imageURL]="data.imageURL"
+                    ></app-feedback-block>
+                  </div>
+                </ng-container>
+                  <ng-template #noResults>
+                    <div
+                      fxLayout="column"
+                      class="no-results"
+                      fxLayoutAlign="center center"
+                      fxFlex="1 1 auto"
+                    >
+                      No Feedbacks and Reviews
+                    </div>
+                  </ng-template>
+                  </div>
+          </div>
+          
+      </div>
+      <div fxLayoutAlign="space-evenly">
+        <img [src]="imageUrl" alt="eclipse" class="burger-container">
+   </div>
+  </div>
+
+ 

@@ -1,0 +1,150 @@
+.containers {
+    background-color: #5C2E0F;
+    height: 100vh;
+    width: 100%;
+    position: relative; /* Set the parent container to relative positioning */
+}
+
+app-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.textbox {
+    color: #D1BD9E;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Paytone One', sans-serif;
+    text-align: center;
+    z-index: 1;
+    padding-top: 2%;
+}
+
+.dark-container {
+    height: 300px;
+    width: 1300px;
+    border-radius: 25px;
+    padding: 20px;
+    position: absolute;
+    background-color: #281F1A;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Set the z-index to 2 to appear below light-container */
+}
+
+.light-container {
+    height: 450px; /* Adjusted height for light-container */
+    width: 1000px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #D1BD9E;
+    position: absolute;
+    top: 30%; /* Adjust the top position to overlap dark-container */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Set the z-index to 3 to appear above dark-container */
+}
+.burger-name {
+    color: #5C2E0F;
+    font-size: 35px;
+    font-weight: 600px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: center;
+    z-index: 1;
+    padding-top: 1%;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger {
+    width: 254px;
+    height: auto;
+    margin: 0 auto; /* Center horizontally */
+    padding-top: 10%;
+}
+
+.description {
+    color: #3A3533;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: center;
+    width: 80%;
+    word-wrap: break-word;
+    z-index: 1;
+    padding-top: 5%;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    padding-top: 2%;
+}
+.ingredient-heading
+{
+    color: #E89222;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: left;
+    z-index: 1;
+    padding-top: 5%;
+}
+.ingredients
+{
+    width: 70%;
+    height: 70%;
+    word-wrap: break-word;
+    color: #281F1A;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: left;
+    z-index: 1;
+    padding-top: 5%;
+}
+.ingredient-names 
+{
+    color: #281F1A;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: left;
+    z-index: 1;
+    line-height: 2;
+}
+.burger-details
+{
+    margin-top: 25px;
+}
+.burger-details-containers
+{
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #D1BD9E;
+    border: solid 2px #E89222;
+    margin: 10px;
+}
+.burger-details-text-heading
+{
+    color: #5C2E0F;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: left;
+    z-index: 1;
+    padding-top: 2%;
+}
+.burger-details-text
+{
+    color: #281F1A;
+    font-size: 16px;
+    font-family: 'Paytone One', sans-serif;
+    text-align: left;
+    z-index: 1;
+    padding-top: 5%;
+}
