@@ -17,6 +17,10 @@ import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.compo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarComponent } from './Components/snackbar/snackbar.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -30,6 +34,7 @@ import {FormsModule} from '@angular/forms';
     FeedbackDetailsScreenComponent,
     RatingComponent,
     FeedbackFormComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-
+    MatSnackBarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

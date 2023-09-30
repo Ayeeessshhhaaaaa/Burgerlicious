@@ -22,4 +22,12 @@ export class FeedbackServiceService {
   sendFeedback(feedbackData: any) {
     return this.http.post(`${this.apiUrl}/orderreviews`, feedbackData);
   }
+  deleteFeedback(ReviewID: number): Observable<any> {
+    const url = `${this.apiUrl}/orderreviews/${ReviewID}`;
+    return this.http.delete(url);
+  }
+  updateFeedback(feedbackData: any)
+  {
+    return this.http.put(`${this.apiUrl}/orderreviews/${feedbackData.ReviewID}`, feedbackData);
+  }
 }
