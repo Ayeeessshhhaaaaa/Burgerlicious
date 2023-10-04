@@ -2,27 +2,37 @@
     <app-navbar></app-navbar>
     <div class="left-container" fxFlex="50">
         <div class="card">
-            <form class="Feedback" (ngSubmit)="onSubmit(form)" #form="ngForm">
-                <div class="Heading"> Please Leave a Feedback Here!</div>
-                <mat-form-field appearance="outline">
-                  <mat-label>Name</mat-label>
-                  <input matInput [(ngModel)]="formData.name" name="name" placeholder="Enter your name" required>
-                </mat-form-field>
-              
-                <mat-form-field appearance="outline">
-                  <mat-label>Burger Name</mat-label>
-                  <input matInput [(ngModel)]="formData.burgerName" name="burgerName" placeholder="Enter your Burger Name" required>
-                </mat-form-field>
-              
-                <mat-form-field appearance="outline">
-                  <mat-label>Leave a Feedback</mat-label>
-                  <textarea matInput [(ngModel)]="formData.feedback" name="feedback" placeholder="Please enter your Feedback" required></textarea>
-                </mat-form-field>
-              
-                <button mat-raised-button color="primary" type="submit" class="mb-4">
-                  Add your Feedback
-                </button>
-              </form>
+          <form class="Feedback" (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="Heading">
+              {{ editStatus ? 'Please Update Your Feedback' : 'Please Leave a Feedback Here!' }}
+            </div>            
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="formData.Name" name="Name" placeholder="Enter your name" required>
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline">
+              <mat-label>Burger Name</mat-label>
+              <input matInput [(ngModel)]="formData.burgerName" name="burgerName" placeholder="Enter your Burger Name" required>
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline">
+              <mat-label>Leave a Feedback</mat-label>
+              <textarea matInput [(ngModel)]="formData.Comment" name="Comment" placeholder="Please enter your Feedback" required></textarea>
+            </mat-form-field>
+
+            <div class="rating-container" fxLayout="row" fxLayoutAlign="center center">
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+            </div>
+
+            <button mat-raised-button color="primary" type="submit" class="mb-4">
+              {{editStatus ? 'Update your Feedback' : 'Add your Feedback'}}
+            </button>
+          </form>      
               
         </div>
     </div>

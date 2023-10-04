@@ -46,10 +46,19 @@
         mat-form-field {
           width: 90%;
         }
+
+        .material-symbols-outlined
+        {
+            color: rgb(220, 147, 50);
+            margin-bottom: 20px;
+            font-size: 40px;
+            margin-left: 5px;
+        }
       }
       
       button {
         width: 90%;
+        font-size: 15px;
       }
     }
           

@@ -17,6 +17,10 @@ import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.compo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarComponent } from './Components/snackbar/snackbar.component';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -45,6 +49,7 @@ const routes: Routes = [
     AdminComponent,
     AdminOrdersComponent,
     AdminOrderAddComponent
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forRoot(routes)
-
+    MatSnackBarModule,
+    MatIconModule,
   ],
   exports: [RouterModule],
   providers: [AdminOrderServiceService],

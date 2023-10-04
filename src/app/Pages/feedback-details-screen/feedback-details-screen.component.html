@@ -29,6 +29,12 @@
                         <div class="burger-details-text"> <span class="burger-details-text-heading"> Energy: <br> </span>  1200 KCal </div>
                     </div>
                 </div>
+                <div fxLayout="row" class="update-delete">
+                    <div class="button">
+                        <button mat-raised-button (click)="onUpdateFeedback(feedbackData)">Update your Feedback</button>
+                        <button mat-raised-button (click)="onDelete(feedbackData.ReviewID)">Delete your Feedback</button>
+                    </div>
+                    </div>
             </div>            
         </div>
     </div>  
