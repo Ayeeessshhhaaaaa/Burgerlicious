@@ -25,7 +25,7 @@ export class AdminOrderAddComponent {
 
 
   ngOnInit(): void {
-    this.service.getAllProducts().subscribe((res) => {
+    this.service.getAllIngredients().subscribe((res) => {
       // console.log(res.data);
       this.allProducts = res.data;
     });
@@ -60,7 +60,7 @@ export class AdminOrderAddComponent {
         console.log(this.cartProductArray,"cartProductArray");
         let lastInsertID=res.data.insertId;
         let productArray=this.cartProductArray;
-        this.service.createOrderProducts(productArray,lastInsertID).subscribe((res2)=>{
+        this.service.createOrderCustomizations(productArray,lastInsertID).subscribe((res2)=>{
           // this.router.navigate(['admin/orders']); //does not seem to load properly, hangs up at burger load logo
           window.location.href = "/admin/orders";
         });
@@ -97,7 +97,7 @@ export class AdminOrderAddComponent {
 
   onChange() {
 
-    this.service.getProductById(this.productNo).subscribe((res) => {
+    this.service.getIngredientById(this.productNo).subscribe((res) => {
       this.quantity = 1;
       this.price = res.data[0].Price;
       this.total = res.data[0].Price;
