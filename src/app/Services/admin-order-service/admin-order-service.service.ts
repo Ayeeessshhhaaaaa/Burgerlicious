@@ -10,35 +10,35 @@ export class AdminOrderServiceService {
   constructor(private _http:HttpClient) { }
 
   getAllOrders():Observable<any>{
-    let apiUrl = 'http://localhost:3600/orders';
+    let apiUrl = 'http://localhost:3600/admin/orders';
     return this._http.get(apiUrl);
   }
 
   createOrder(data:any):Observable<any>{
-    let apiUrl = 'http://localhost:3600/addOrder';
+    let apiUrl = 'http://localhost:3600/admin/orders/addOrder';
     console.log(data,'create order')
     return this._http.post(apiUrl,data);
   }
 
-  getAllProducts():Observable<any>{
-    let apiUrl = 'http://localhost:3600/products';
+  getAllIngredients():Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/ingredients';
     return this._http.get(apiUrl);
   }
 
-  getProductById(id:any):Observable<any>{
-    let apiUrl = 'http://localhost:3600/products/'+id;
+  getIngredientById(id:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/ingredients/'+id;
     return this._http.get(apiUrl);
   }
 
-  createOrderProducts(data:any,orderId:any):Observable<any>{
-    let apiUrl = 'http://localhost:3600/addOrderProducts';
-    //we need to pass the last inserted order Id to insert for the order product table
+  createOrderCustomizations(data:any,orderId:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/addOrderCustomizations';
+    //we need to pass the last inserted order Id to insert for the orderCustomizations table
     let finalData = {
       orderId:orderId,
       data:data
 
     }
-    console.log(finalData,'create order products')
+    console.log(finalData,'create order ingredients')
     return this._http.post(apiUrl,finalData);
   }
 }
