@@ -11,11 +11,6 @@ import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/adm
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/orders', component: AdminOrdersComponent },
-  { path: 'admin/orders/add', component: AdminOrderAddComponent }
-]
-const routes: Routes = [
   {
     path: '',
     component: HomeScreenComponent,
