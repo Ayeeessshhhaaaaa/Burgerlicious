@@ -5,6 +5,16 @@ import { HomeScreenComponent } from './Pages/home-screen/home-screen.component';
 import { FeedbackScreenComponent } from './Pages/feedback-screen/feedback-screen.component';
 import { FeedbackDetailsScreenComponent } from './Pages/feedback-details-screen/feedback-details-screen.component';
 import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
+import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+
+const routes: Routes = [
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent },
+  { path: 'admin/orders/add', component: AdminOrderAddComponent }
+]
 const routes: Routes = [
   {
     path: '',
@@ -26,6 +36,18 @@ const routes: Routes = [
     path: 'feedback-form',
     component: FeedbackFormComponent
   },
+  {
+    path: 'admin', 
+    component: AdminComponent
+  },
+ {
+    path: 'admin/orders',
+    component: AdminOrdersComponent 
+ },
+  {
+   path: 'admin/orders/add', 
+    component: AdminOrderAddComponent
+  }
 ];
 
 @NgModule({
