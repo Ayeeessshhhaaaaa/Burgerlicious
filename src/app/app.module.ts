@@ -17,23 +17,16 @@ import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.compo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
 
-import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { LoginComponent } from './Pages/login/login.component';
+import { SignupComponent } from './Pages/signup/signup.component';
 
-const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/orders', component: AdminOrdersComponent },
-  { path: 'admin/orders/add', component: AdminOrderAddComponent }
-]
+
 
 @NgModule({
   declarations: [
@@ -46,10 +39,9 @@ const routes: Routes = [
     FeedbackDetailsScreenComponent,
     RatingComponent,
     FeedbackFormComponent,
-    AdminComponent,
-    AdminOrdersComponent,
-    AdminOrderAddComponent
     SnackbarComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +54,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule.forRoot(routes)
     MatSnackBarModule,
     MatIconModule,
   ],

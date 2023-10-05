@@ -5,6 +5,9 @@ import { HomeScreenComponent } from './Pages/home-screen/home-screen.component';
 import { FeedbackScreenComponent } from './Pages/feedback-screen/feedback-screen.component';
 import { FeedbackDetailsScreenComponent } from './Pages/feedback-details-screen/feedback-details-screen.component';
 import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { SignupComponent } from './Pages/signup/signup.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -26,6 +29,14 @@ const routes: Routes = [
     path: 'feedback-form',
     component: FeedbackFormComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  }
 ];
 
 @NgModule({

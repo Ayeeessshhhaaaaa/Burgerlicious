@@ -1,0 +1,45 @@
+<div class="Containers" fxLayout.lt-md="column">
+    <app-navbar> </app-navbar>
+
+    <div class="left-container" fxFlex="50">
+     <div fxLayout="column">
+
+        <div class="textbox">
+            LOGIN TO <span class="mustard">BURGERLICIOUS</span>
+        </div>
+        <div class="card">
+            <form class="Feedback"  (ngSubmit)="login(form)" #form="ngForm">
+              <div class="Heading">
+               
+              </div>            
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="formData.Name" name="Name" placeholder="Enter your name" required>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline">
+                <mat-label>Burger Name</mat-label>
+                <input matInput [(ngModel)]="formData.burgerName" name="burgerName" placeholder="Enter your Burger Name" required>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline">
+                <mat-label>Leave a Feedback</mat-label>
+                <textarea matInput [(ngModel)]="formData.Comment" name="Comment" placeholder="Please enter your Feedback" required></textarea>
+              </mat-form-field>
+  
+              <button mat-raised-button color="primary" type="submit" class="mb-4">
+               Login Now
+              </button>
+            </form>      
+                
+          </div>
+
+    </div>
+
+    <div class="right-container" fxLayout="center center">
+        <div class="burger-container">
+            <img [src]="imageUrl" alt="homescreen-image" class="burger-image">
+        </div>
+    </div>
+</div>
+
