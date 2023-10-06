@@ -13,6 +13,7 @@ import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.com
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'cart-page',
+    component: CartPageComponent
   },
  {
     path: 'admin/orders',
