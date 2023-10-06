@@ -47,11 +47,11 @@ const routes: Routes = [
     component: AdminOrderAddComponent
   },
   {
-    path: 'admin-user',
+    path: 'admin-users',
     component: AdminUsersComponent
   },
   {
-    path: 'admin-add-user',
+    path: 'admin-add-users',
     component: AdminAddUserComponent
   }
 ];
