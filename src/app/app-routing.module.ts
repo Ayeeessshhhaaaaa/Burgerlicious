@@ -11,6 +11,8 @@ import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/adm
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { SignupComponent } from './Pages/signup/signup.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,14 @@ const routes: Routes = [
   {
     path: 'admin', 
     component: AdminComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
  {
     path: 'admin/orders',
