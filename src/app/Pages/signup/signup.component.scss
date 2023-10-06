@@ -19,19 +19,25 @@
     background-color: #D1BD9E;
     z-index: 1;
     font-family: 'Paytone One', sans-serif;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    border-radius: 0 55px 55px 0;
+    justify-content: center; /* Horizontally center the card */
+    align-items: center; /* Vertically center the card */
 
     .textbox
         {
             color:#5C2E0F;
-            width: 80%;
-            font-size: 80px;
+            width: 90%;
+            font-size: 40px;
             font-weight: 600px;
             font-family: 'Paytone One', sans-serif;
             line-height: 1;
-            text-align: left;
+            text-align: center;
             z-index: 1;
-            padding-top: 20%;
-            padding-left: 5%;
+            margin-bottom: 10%;
+            padding-left: 8%;
 
             .mustard
             {
@@ -44,22 +50,51 @@
                 z-index: 9999;
             }
         }
-    button
-    {
-        background-color: #5C2E0F;
-        color: #D1BD9E;
-        font-size: 20px;
-        font-weight: 5px;
-        font-family: 'Paytone One', sans-serif;
-        border-radius: 30px;
-        padding: 23px 12px 23px 12px;
-        
-    }
-    .button
-    {
-        padding-left: 5%;
-        margin-top: 7%;  
-}
+        .card {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            background-color: #D1BD9E;
+            z-index: 3;
+            text-align: center; /* Center-align child elements */
+          
+            .Heading {
+              color: #5C2E0F;
+              width: 100%;
+              font-size: 40px;
+              font-family: 'Paytone One', sans-serif;
+              line-height: 1;
+              text-align: center;
+              z-index: 1;
+              padding-top: 5%;
+              padding-bottom: 10%;
+            }
+          
+            mat-form-field {
+              width: 90%;
+              padding: 20px;
+              .name
+              {
+                width: 50%;
+                height: 100vh;
+                display: flex;
+              }
+
+            }
+    
+            .material-symbols-outlined
+            {
+                color: rgb(220, 147, 50);
+                margin-bottom: 20px;
+                font-size: 40px;
+                margin-left: 5px;
+            }
+          }
+          
+          button {
+            width: 90%;
+            font-size: 15px;
+          }
 
 @media screen and (max-width: 768px)
             {

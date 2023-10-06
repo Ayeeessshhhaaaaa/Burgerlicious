@@ -17,15 +17,21 @@ import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.compo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
-import { AdminComponent } from './admin/admin.component';
+
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './Pages/login/login.component';
+import { SignupComponent } from './Pages/signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+
 
 @NgModule({
   declarations: [
@@ -38,9 +44,15 @@ import { AdminOrderServiceService } from './Services/admin-order-service/admin-o
     FeedbackDetailsScreenComponent,
     RatingComponent,
     FeedbackFormComponent,
+    SnackbarComponent,
+    LoginComponent,
+    SignupComponent,
     AdminComponent,
     AdminOrdersComponent,
     AdminOrderAddComponent,
+    AdminUsersComponent,
+    AdminAddUserComponent,
+    CartPageComponent,
     SnackbarComponent,
   ],
   imports: [

@@ -9,6 +9,9 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+
 
 const routes: Routes = [
   {
@@ -42,6 +45,14 @@ const routes: Routes = [
   {
    path: 'admin/orders/add', 
     component: AdminOrderAddComponent
+  },
+  {
+    path: 'admin-user',
+    component: AdminUsersComponent
+  },
+  {
+    path: 'admin-add-user',
+    component: AdminAddUserComponent
   }
 ];
 

@@ -127,33 +127,34 @@
                 </li>
               </ul>
             </li>
+
             <li class="nav-item menu-open">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-hamburger"></i>
-                <p>
-                  Users
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./admin-users" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View Users
-                    </p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./admin-add-users" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add User
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-hamburger"></i>
+                  <p>
+                    Users
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin-users" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View Users
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin-add-users" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add User
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -168,7 +169,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">New Order</h1>
+              <h1 class="m-0">New User</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -184,137 +185,49 @@
   
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">New Order Details</h3>
+          <h3 class="card-title">New User Details</h3>
         </div>
         <!-- /.card-header -->
   
         <!-- form start -->
-        <form [formGroup]="orderForm" (ngSubmit)="orderSubmit()">
+        <form [formGroup]="userForm" (ngSubmit)="Submit()">
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary" style="float:right">Submit Order</button>
+            <button type="submit" class="btn btn-primary" style="float:right">Submit User</button>
           </div>
           <div class="card-body">
             <div class="form-group">
               <label for="UserID">User ID</label>
               <input type="text" class="form-control" id="UserID" formControlName="UserID"
-                placeholder="Enter Customer Name">
-            </div>
-            <!-- <div class="form-group">
-              <label for="customerName">Customer Name</label>
-              <input type="text" class="form-control" id="customerName" formControlName="customerName"
-                placeholder="Enter Customer Name">
+                placeholder="Enter Customer ID">
             </div>
             <div class="form-group">
-              <label for="phoneNumber">Customer Phone Number</label>
-              <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"
-                placeholder="Enter Customer Phone Number">
+              <label for="Name">Name</label>
+              <input type="text" class="form-control" id="Name" formControlName="Name"
+                placeholder="Enter Customer Name">
             </div>
+
             <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
-            </div> -->
+              <label for="Email">Email</label>
+              <input type="text" class="form-control" id="Email" formControlName="Email"
+                placeholder="Enter Customer Email">
+            </div>
+
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="text" class="form-control" id="Password" formControlName="Password"
+                placeholder="Enter Customer Password">
+            </div>
+          
           </div>
-          <!-- /.card-body -->
-  
-          <!-- <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Add Order</button>
-            </div> -->
+         
         </form>
       </div>
-      <!-- /.card -->
-  
-      <!--Alerts-->
-      <div class="alert alert-danger alert-dismissible" *ngIf="cartError">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-        {{cartError}}
-      </div>
-  
-      <!-- 2card -->
-  
-      <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Ingredient</h3>
-        </div>
-        <!-- /.card-header -->
-  
-        <!-- form start -->
-        <form [formGroup]="orderProductForm" (ngSubmit)="orderProductSubmit()">
-          <div class="card-body">
-            <!-- extra work for products -->
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Ingredients</label>
-                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()" formControlName="IngredientID">
-                    <option *ngFor='let product of allProducts' value="{{product.IngredientID}}">{{product.IngredientName}}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="number" class="form-control" id="IngredientName" formControlName="IngredientName"
-                  [(ngModel)]="product_name" value="{{product_name}}" hidden>
-              </div>
-              <div class="col-md-1">
-              </div>
-              <div class="col-md-1">
-              <div class="form-group">
-                <label for="Quantity">Quantity</label>
-                <input type="number" class="form-control" id="Quantity" min="1" formControlName="Quantity"
-                  value="{{quantity}}" [(ngModel)]="quantity" (input)="onChangeQuantity()">
-              </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-                <label>Subtotal</label> <br>
-                <label for="total"> Rs. {{total}}</label>
-              </div>
-            </div>
-          </div>
-          </div>
-          <!-- /.card-body -->
-  
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary" style="float:right">Add Ingredient To Order</button>
-          </div>
-        </form>
-      </div>
+    
+
       <!-- /2card -->
   
   
-      <div class="card-header">
-        <h3 class="card-title">Ingredients Added for the Order</h3>
-        <h3 style="float:right; color:white">Total : {{finalTotal}}</h3>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th style="width: 10px">#</th>
-              <th>Ingredient Name</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
-              <th style="width: 40px">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let product of cartProductArray;index as i'>
-  
-              <td>{{i+1}}</td>
-              <td>{{product.IngredientName}}</td>
-              <td>{{product.Quantity}}</td>
-              <td>{{product.Subtotal}}</td>
-              <td><span (click)="deleteItemFromCartProductsArray(i)"><i class="fas fa-trash"></i></span></td>
-  
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- /.card-body -->
+      
   
   
       <!-- /.content -->
