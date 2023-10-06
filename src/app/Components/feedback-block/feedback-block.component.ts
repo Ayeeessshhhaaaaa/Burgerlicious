@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./feedback-block.component.scss']
 })
 export class FeedbackBlockComponent {
-  imageUrl: string = 'assets/burger.png';
   @Input() ReviewID: number | undefined;
   @Input() OrderID: number | undefined;
   @Input() UserID: number | undefined;
@@ -17,9 +16,7 @@ export class FeedbackBlockComponent {
   @Input() imageURL: string | undefined;
   @Input() burgerName: string | undefined;
   @Input() Name: string | undefined;
-sanitizedImageUrl: SafeUrl;
 constructor(private sanitizer: DomSanitizer, private router:Router) {
-this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
 }
 redirectToDetailsPage()
 {
