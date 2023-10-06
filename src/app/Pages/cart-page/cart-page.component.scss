@@ -1,0 +1,183 @@
+.app
+{
+    background-color: #5C2E0F;
+    color: #5C2E0F;
+    height: 100vh;
+    
+}
+
+*{
+    margin:0;
+}
+
+.overlay 
+{
+    margin: auto;
+    position: absolute;
+    top: 110px; left: 110px;
+    bottom: 40px; right: 40px;
+    background-color: #D1BD9E;
+    z-index:5;
+    display: inline-block;
+    border-radius: 25px;
+}
+
+
+.cart
+{
+    color: #D1BD9E;
+    font-size: large;
+    text-align: center;
+    font-family: 'Paytone One', sans-serif;
+    text-justify: auto;
+}
+
+
+.container 
+{
+    position: top right;
+    text-align: right;
+     /* Set the width and height of the container as needed */
+
+}
+  
+.icon {
+    position: top right;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    /* You can also add padding or margin to the icon for spacing if needed */
+}
+
+.container :hover 
+{
+    
+    color: black;
+}
+
+*{
+    margin: 0;
+}
+
+
+.box1
+{
+  width: 1000px;
+  padding: 50px;
+  border: 3px solid #5C2E0F;
+  margin: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  border-radius: 20px;
+  padding: 25px 50px 75px 10px;
+  
+}
+.favbtn
+{
+   border-radius: 150%;
+}
+
+.box2
+{
+  width: 1000px;
+  padding: 50px;
+  border: 3px solid #5C2E0F;
+  margin: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  border-radius: 20px;
+  padding: 25px 50px 75px 10px;
+}
+
+.box3
+{
+  width: 1000px;
+  padding: 50px;
+  border: 3px solid #5C2E0F;
+  margin: 60px;
+  margin-top: 20px;
+  align-items: center;
+  border-radius: 20px;
+  padding: 25px 50px 75px 10px;
+}
+
+.promo
+{
+    color: black;
+    font-size: xx-small;
+    text-align: justify;
+    margin-right: 100px;
+    font-family: 'Paytone One', sans-serif;
+    text-justify: auto;
+    margin: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.promo-code
+{
+    word-spacing: 30px;
+}
+
+
+.overlay button
+ {
+    height: 30px;
+    width: 120px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    /*transition: all 0.2s ease;*/
+    background: #5C2E0F;
+    font-family: 'Paytone One', sans-serif;
+    border-radius: 12px;
+    margin-right: 50px;
+     margin-top: 20px;
+    margin-bottom: 100px;
+  
+ }
+
+.hr
+{
+    border: 10px #5C2E0F;
+}
+
+.order 
+{
+    color: black;
+    font-size: xx-small;
+    text-align: justify;
+    margin-right: 100px;
+    font-family: 'Paytone One', sans-serif;
+    text-justify: auto;
+    margin: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-flex;
+
+}
+
+.order button
+{
+    height: 30px;
+    width: 120px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    /*transition: all 0.2s ease;*/
+    background: #5C2E0F;
+    font-family: 'Paytone One', sans-serif;
+    border-radius: 12px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}

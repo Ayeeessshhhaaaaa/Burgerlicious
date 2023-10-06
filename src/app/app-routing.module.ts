@@ -13,6 +13,7 @@ import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/adm
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'admin-add-users',
     component: AdminAddUserComponent
+  },
+  {
+    path: 'cart-page',
+    component: CartPageComponent
   }
 ];
 
