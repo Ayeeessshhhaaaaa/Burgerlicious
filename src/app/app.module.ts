@@ -20,11 +20,15 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
-
 import { RouterModule, Routes } from '@angular/router';
-import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
 import { LoginComponent } from './Pages/login/login.component';
 import { SignupComponent } from './Pages/signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
+import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 
 
 
@@ -42,6 +46,11 @@ import { SignupComponent } from './Pages/signup/signup.component';
     SnackbarComponent,
     LoginComponent,
     SignupComponent,
+    AdminComponent,
+    AdminOrdersComponent,
+    AdminOrderAddComponent,
+    AdminUsersComponent,
+    AdminAddUserComponent
   ],
   imports: [
     BrowserModule,

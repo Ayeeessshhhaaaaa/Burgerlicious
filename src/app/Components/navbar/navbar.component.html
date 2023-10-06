@@ -3,12 +3,6 @@
         <img src="" alt="" class="icon">
     </div>
     <div class="nav">
-        <div class="nav-item"(click)="onClick('/login')">
-            login
-        </div>
-        <div class="nav-item"(click)="onClick('/signup')">
-            signup
-        </div>
         <div class="nav-item"(click)="onClick('/home')">
             Home
         </div>
@@ -24,6 +18,11 @@
         <div class="nav-item"(click)="onClick('/feedback')">
             <span class="material-symbols-outlined">
                 shopping_bag
+            </span>
+        </div>
+        <div *ngIf="!userID" class="nav-item"(click)="onClick('/signup')">
+            <span class="material-symbols-outlined">
+                tv_signin
             </span>
         </div>
     </div>

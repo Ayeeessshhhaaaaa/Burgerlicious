@@ -7,6 +7,12 @@ import { FeedbackDetailsScreenComponent } from './Pages/feedback-details-screen/
 import { FeedbackFormComponent } from './Pages/feedback-form/feedback-form.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { SignupComponent } from './Pages/signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
+import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 
 const routes: Routes = [
   {
@@ -36,6 +42,26 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'admin', 
+    component: AdminComponent
+  },
+ {
+    path: 'admin/orders',
+    component: AdminOrdersComponent 
+ },
+  {
+   path: 'admin/orders/add', 
+    component: AdminOrderAddComponent
+  },
+  {
+    path: 'admin-users',
+    component: AdminUsersComponent
+  },
+  {
+    path: 'admin-add-users',
+    component: AdminAddUserComponent
   }
 ];
 

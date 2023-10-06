@@ -13,11 +13,11 @@ export class AuthServiceService {
   constructor(private http: HttpClient) {}
 
   postFormData(formData: any) {
-    return this.http.post(`${this.apiUrl}/register`, formData);
+    return this.http.post(`${this.apiUrl}/signup`, formData);
   }
 
   login(username: string, password: string): Observable<any> {
     const body = { username, password };
-    return this.http.post(`${this.apiUrl}/login`, body);
+    return this.http.post(`${this.apiUrl}/signin`, body);
   }
 }

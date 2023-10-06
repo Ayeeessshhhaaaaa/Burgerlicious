@@ -26,6 +26,7 @@ export class LoginComponent {
       this.authService.login(Username, Password).subscribe(
         (response) => {
           // Handle successful login response
+          localStorage.setItem('userID', Username);
           console.log('Login Successful:', response);
         },
         (error) => {
