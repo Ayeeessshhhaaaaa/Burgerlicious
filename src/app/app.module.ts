@@ -20,6 +20,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
+
+import { AdminComponent } from './admin/admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Pages/login/login.component';
 import { SignupComponent } from './Pages/signup/signup.component';
@@ -30,7 +32,6 @@ import { AdminOrderServiceService } from './Services/admin-order-service/admin-o
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
-
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     AdminOrderAddComponent,
     AdminUsersComponent,
     AdminAddUserComponent,
-    CartPageComponent
+    CartPageComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
