@@ -31,6 +31,8 @@ import { AdminOrderServiceService } from './Services/admin-order-service/admin-o
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
+import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
 
 
 @NgModule({
@@ -54,6 +56,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
+    AdminIngredientsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     MatIconModule,
   ],
   exports: [RouterModule],
-  providers: [AdminOrderServiceService],
+  providers: [AdminOrderServiceService, AdminIngredientServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

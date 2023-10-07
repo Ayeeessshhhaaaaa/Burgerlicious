@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
 
-  private apiUrl =  'http://localhost:3000/api';
+  private apiUrl =  'http://localhost:3600/api';
 
   constructor(private http: HttpClient) { }
 
