@@ -1,0 +1,29 @@
+<div fxLayout="row" class="nav-bar" fxHide.lt-md>
+    <div class="icon-container">
+        <img src="" alt="" class="icon">
+    </div>
+    <div class="nav">
+        <div class="nav-item"(click)="onClick('/home')">
+            Home
+        </div>
+        <div class="nav-item"(click)="onClick('/feedback')">
+            Customize
+        </div>
+        <div class="nav-item"(click)="onClick('/feedback')">
+            Shop
+        </div>
+        <div class="nav-item" (click)="onClick('/feedback')">
+            Feedback
+        </div>
+        <div class="nav-item"(click)="onClick('/cart-page')">
+            <span class="material-symbols-outlined">
+                shopping_bag
+            </span>
+        </div>
+        <div *ngIf="!userID" class="nav-item"(click)="onClick('/signup')">
+            <span class="material-symbols-outlined">
+                tv_signin
+            </span>
+        </div>
+    </div>
+</div>

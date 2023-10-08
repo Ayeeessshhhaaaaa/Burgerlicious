@@ -1,0 +1,32 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-between; // This separates the icon-container and nav
+    align-items: center; // Vertically aligns items in the middle
+    padding: 10px;
+
+    .icon-container {
+        margin-left: 10px; // Adjust the margin as needed to position the icon-container
+    }
+
+    .nav {
+        display: flex;
+        gap: 20px; // Adjust the gap between nav items as needed
+        margin-right: 10px; // Adjust the margin as needed to position the nav
+        align-items: center; // Vertically aligns items in the middle
+
+        .nav-item {
+            color: #D1BD9E;
+            font-size: 15px;
+            font-family: 'Paytone One', sans-serif;
+
+            &:hover
+            {
+                color: #E89222;
+            }
+        }
+
+        .material-symbols-outlined {
+            // Add styles for the shopping cart icon as needed
+        }
+    }
+}

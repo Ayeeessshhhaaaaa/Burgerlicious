@@ -1,0 +1,29 @@
+<div class="contain">
+      <app-navbar></app-navbar>
+      <div class="textbox">Cart</div>
+        <div class="overlay" fxLayout="row">
+
+                <div
+                class="scrollable-content"
+                fxLayout="row wrap"
+                fxLayoutGap="40px calc(100% - 40px)"
+                fxLayoutAlign="space-evenly">
+
+                <div *ngFor="let product of cartData" class="product-item">
+                  <h3>{{ product.ProductName }}</h3>
+                  <p>{{ product.Description }}</p>
+                  <p>Price: ${{ product.TotalAmount }}</p>
+                </div>
+
+              
+                </div>
+
+
+                <div fxLayout="column">
+                  <p>Total Amount: ${{ totalAmount | number: '1.2-2' }}</p> <!-- Display the total amount here -->
+                  <button>Place order</button>
+                </div>
+
+         </div>
+</div>
+  
