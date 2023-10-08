@@ -22,12 +22,21 @@
             </mat-form-field>
 
             <div class="rating-container" fxLayout="row" fxLayoutAlign="center center">
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
+              <span
+                class="material-symbols-outlined"
+                *ngFor="let star of stars; let i = index"
+                (mouseover)="onStarHover(i)"
+                (mouseout)="onMouseOut()"
+                (click)="onStarClick(i)"
+                [ngClass]="{ 'selected': i + 1 <= selectedStar!, 'hovered': i + 1 <= hoveredStar! }"
+                [style.color]="i < selectedStar! ? 'darkorange' : 'goldenrod'"
+              >
+                {{ star }}
+              </span>
             </div>
+            
+            
+            
 
             <button mat-raised-button color="primary" type="submit" class="mb-4">
               {{editStatus ? 'Update your Feedback' : 'Add your Feedback'}}

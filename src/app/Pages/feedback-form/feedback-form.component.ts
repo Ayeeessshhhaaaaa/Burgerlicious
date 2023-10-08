@@ -17,6 +17,9 @@ export class FeedbackFormComponent implements OnInit {
   formData: any = {};
   feedbackData: any;  
   editStatus: boolean = false;
+  stars = ['star', 'star', 'star', 'star', 'star'];
+  selectedStar: number | null = null;
+  hoveredStar: number | null = null;
 
 constructor(private sanitizer: DomSanitizer, private service: FeedbackServiceService, private SnackBar: MatSnackBar, private datashare: DataSharingService) {
 this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
@@ -31,18 +34,22 @@ ngOnInit(): void {
   // Initialize formData with the first item from feedbackData
   if (this.feedbackData) {
     this.formData = { ...this.feedbackData };
+
+    this.selectedStar = this.formData.Rating;
+    console.log(this.selectedStar);
   }
 }
-
 onSubmit(form: NgForm) {
   if (form.valid) {
-    if(this.editStatus)
-    {
+    if (this.editStatus) {
+      this.formData.selectedStar = this.selectedStar; // Set the selected star number in formData
+      console.log(this.formData);
       this.service.updateFeedback(this.formData).subscribe(
         (response) => {
           console.log('Feedback updated successfully:', response);
           this.datashare.setEditStatus(false);
           form.resetForm();
+          this.selectedStar = null; // Reset the star rating
           this.openSnackBar('Successfully submitted Feedback');
         },
         (error) => {
@@ -50,11 +57,13 @@ onSubmit(form: NgForm) {
           // Handle errors, display an error message, etc.
         }
       );
-    }else{
+    } else {
+      this.formData.selectedStar = this.selectedStar; // Set the selected star number in formData
       this.service.sendFeedback(this.formData).subscribe(
         (response) => {
           console.log('Feedback sent successfully:', response);
           form.resetForm();
+          this.selectedStar = null; // Reset the star rating
           this.openSnackBar('Successfully submitted Feedback');
         },
         (error) => {
@@ -63,16 +72,29 @@ onSubmit(form: NgForm) {
         }
       );
     }
-
   } else {
     console.log('Form is invalid. Please check the input fields.');
   }
 }
+
 openSnackBar(message: string) {
   this.SnackBar.openFromComponent(SnackbarComponent, {
     data: { message },
     duration: 3000,
     });
+}
+
+onStarHover(index: number): void {
+  this.hoveredStar = index + 1;
+}
+
+onMouseOut(): void {
+  this.hoveredStar = null;
+}
+
+onStarClick(index: number): void {
+  this.selectedStar = index + 1;
+  console.log(`Selected: ${this.selectedStar}`);
 }
 
 }

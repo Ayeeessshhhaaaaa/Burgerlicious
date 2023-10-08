@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent {
-
+  @Input() Rating: number | undefined;
+  stars: any[] = Array(5).fill('star');
 }

@@ -53,7 +53,12 @@
             margin-bottom: 20px;
             font-size: 40px;
             margin-left: 5px;
+
+            &:hover{
+              color: white;
+            }
         }
+
       }
       
       button {
@@ -89,4 +94,13 @@
         height: 800px; /* Ensure the image doesn't exceed the container's height */
     }}
 
-
+    .material-symbols-outlined.star {
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .material-symbols-outlined.star.selected {
+      color: gold; /* Change the color for selected stars */
+    }
+    

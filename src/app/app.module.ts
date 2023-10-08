@@ -33,6 +33,7 @@ import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.com
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
+import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AdminIngredientServiceService } from './Services/admin-ingredient-servi
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
-    AdminIngredientsComponent
+    AdminIngredientsComponent,
+    CustomizeScreenComponent
   ],
   imports: [
     BrowserModule,

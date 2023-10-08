@@ -15,6 +15,7 @@ import { SignupComponent } from './Pages/signup/signup.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
+import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'cart-page',
     component: CartPageComponent
+  },
+  {
+    path: 'customize-screen',
+    component: CustomizeScreenComponent
   },
  {
     path: 'admin/orders',
