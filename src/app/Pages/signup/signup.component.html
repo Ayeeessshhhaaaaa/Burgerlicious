@@ -1,0 +1,64 @@
+<div class="Containers" fxLayout.lt-md="column">
+    <app-navbar> </app-navbar>
+
+    <div class="left-container" fxFlex="50">
+        <div fxLayout="column">
+
+            <div class="textbox">
+                WELCOME TO <span class="mustard">BURGERLICIOUS</span>
+            </div>
+
+            <div class="card" style="padding: 10px">
+                <form class="Feedback"(ngSubmit)="onSubmit(form)" #form="ngForm" style="flex-direction: row;box-sizing: border-box;display: flex;align-content: space-around;flex-wrap: wrap;justify-content: space-evenly;align-items: flex-end;">
+                    <div fxLayout="row" fxFlex="100">
+
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>First Name</mat-label>
+                            <input matInput [(ngModel)]="formData.FirstName" name="FirstName" placeholder="Enter your first name" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput [(ngModel)]="formData.LastName" name="LastName" placeholder="Enter your last name" required>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="row" fxFlex="100">
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>E-mail Address</mat-label>
+                            <input matInput [(ngModel)]="formData.Email" name="Email" placeholder="Enter your E-mail address" required>
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="row" fxFlex="100">
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>Password</mat-label>
+                            <input matInput [(ngModel)]="formData.Password" name="Password" placeholder="Please enter your Password" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row" fxFlex="100">
+                        <div fxFlex="50">
+                    <button mat-raised-button color="primary" type="submit" class="mb-4">
+                        Sign Up Now
+                       </button>
+                    </div>
+                    <div fxFlex="50">
+                       <button mat-raised-button color="primary" type="submit" class="mb-4" (click)="login()">
+                        Login Now
+                       </button>
+                    </div>
+                    </div>
+                </form>      
+            </div>
+        </div>
+    </div>
+
+
+    <div class="right-container" fxLayout="center center">
+        <div class="burger-container">
+            <img [src]="imageUrl" alt="homescreen-image" class="burger-image">
+        </div>
+    </div>
+</div>
+

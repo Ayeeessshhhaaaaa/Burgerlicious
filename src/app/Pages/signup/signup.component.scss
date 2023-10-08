@@ -1,0 +1,141 @@
+.Containers
+{
+    background-color: #5C2E0F;
+    height: 100vh;
+    width: 100%;
+    position: relative; /* Set the parent container to relative positioning */
+
+    app-navbar {
+        position: absolute; /* Set app-navbar to absolute positioning */
+        top: 0; /* Position it at the top */
+        left: 0; /* Position it at the left */
+        width: 100%; /* Make it cover the entire width */
+        z-index: 999; /* Ensure it appears above other content */
+    }
+}
+
+.left-container
+{
+    background-color: #D1BD9E;
+    z-index: 1;
+    font-family: 'Paytone One', sans-serif;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    border-radius: 0 55px 55px 0;
+    justify-content: center; /* Horizontally center the card */
+    align-items: center; /* Vertically center the card */
+
+    .textbox
+        {
+            color:#5C2E0F;
+            width: 90%;
+            font-size: 40px;
+            font-weight: 600px;
+            font-family: 'Paytone One', sans-serif;
+            line-height: 1;
+            text-align: center;
+            z-index: 1;
+            margin-bottom: 10%;
+            padding-left: 8%;
+
+            .mustard
+            {
+                color: #E89222;
+            }
+            
+            @media screen and (max-width: 768px)
+            {
+                font-size: 60px;
+                z-index: 9999;
+            }
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            background-color: #D1BD9E;
+            z-index: 3;
+            text-align: center; /* Center-align child elements */
+          
+            .Heading {
+              color: #5C2E0F;
+              width: 100%;
+              font-size: 40px;
+              font-family: 'Paytone One', sans-serif;
+              line-height: 1;
+              text-align: center;
+              z-index: 1;
+              padding-top: 5%;
+              padding-bottom: 10%;
+            }
+          
+            mat-form-field {
+              width: 90%;
+              padding: 20px;
+              .name
+              {
+                width: 50%;
+                height: 100vh;
+                display: flex;
+              }
+
+            }
+    
+            .material-symbols-outlined
+            {
+                color: rgb(220, 147, 50);
+                margin-bottom: 20px;
+                font-size: 40px;
+                margin-left: 5px;
+            }
+          }
+          
+          button {
+            width: 90%;
+            font-size: 15px;
+          }
+
+@media screen and (max-width: 768px)
+            {
+                font-size: 60px;
+                z-index:1;
+            }
+}
+
+.right-container {
+    .burger-container {
+        background-color: rgba(#D1BD9E, 0.2);
+        width: 450px; /* Adjust the size of the circle */
+        height: 450px; /* Should be equal to width to create a perfect circle */
+        border-radius: 50%; /* Makes it a circle */
+        z-index: 1;
+        position: absolute;
+        top: 55%; /* Center vertically */
+        left: 75%; /* Center horizontally */
+        transform: translate(-50%, -50%);
+
+        @media screen and (max-width: 768px)
+            {
+                font-size: 60px;
+            }
+    }
+    
+    .burger-image {
+        position: absolute;
+        top: 45%; /* Center vertically within burger-container */
+        left: 50%; /* Center horizontally within burger-container */
+        transform: translate(-50%, -50%); /* Center the image within its parent (.burger-container) */
+        width: 600px; /* Ensure the image doesn't exceed the container's width */
+        height: 800px; /* Ensure the image doesn't exceed the container's height */
+        
+        @media screen and (max-width: 768px)
+            {
+                position: absolute;
+                top: 45%;
+                left: 60%;
+                z-index: 9999;
+            }
+    }
+
+}

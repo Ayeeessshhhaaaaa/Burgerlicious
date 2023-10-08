@@ -7,8 +7,14 @@ import { Path } from 'typescript';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
-  constructor(private router: Router){}
+export class NavbarComponent{
+  userID : string | null | undefined;
+
+  constructor(private router: Router){
+    this.userID = localStorage.getItem('userID');
+  }
+
+
   onClick(Path: string)
   {
     this.router.navigate([Path])

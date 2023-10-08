@@ -15,9 +15,14 @@
         <div class="nav-item" (click)="onClick('/feedback')">
             Feedback
         </div>
-        <div class="nav-item"(click)="onClick('/feedback')">
+        <div class="nav-item"(click)="onClick('/cart-page')">
             <span class="material-symbols-outlined">
                 shopping_bag
+            </span>
+        </div>
+        <div *ngIf="!userID" class="nav-item"(click)="onClick('/signup')">
+            <span class="material-symbols-outlined">
+                tv_signin
             </span>
         </div>
     </div>

@@ -9,12 +9,14 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminOrderAddComponent } from './admin/admin-orders/admin-order-add/admin-order-add.component';
 import { AdminOrderServiceService } from './Services/admin-order-service/admin-order-service.service';
+import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { SignupComponent } from './Pages/signup/signup.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 
-const routes: Routes = [
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/orders', component: AdminOrdersComponent },
-  { path: 'admin/orders/add', component: AdminOrderAddComponent }
-]
+
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +42,18 @@ const routes: Routes = [
     path: 'admin', 
     component: AdminComponent
   },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'cart-page',
+    component: CartPageComponent
+  },
  {
     path: 'admin/orders',
     component: AdminOrdersComponent 
@@ -47,7 +61,19 @@ const routes: Routes = [
   {
    path: 'admin/orders/add', 
     component: AdminOrderAddComponent
-  }
+  },
+  {
+    path: 'admin-users',
+    component: AdminUsersComponent
+  },
+  {
+    path: 'admin-add-users',
+    component: AdminAddUserComponent
+  },
+  {
+    path: 'admin/ingredients',
+    component: AdminIngredientsComponent 
+ }
 ];
 
 @NgModule({

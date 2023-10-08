@@ -1,3 +1,4 @@
+<div class="hold-transition dark-mode layout-navbar-fixed">
 <div class="wrapper">
 
     <!-- Preloader -->
@@ -81,7 +82,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
+                 with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -100,33 +101,93 @@
                 </li>
               </ul>
             </li>
+
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-receipt"></i>
+                  <p>
+                    Orders
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin/orders" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View Orders
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin/orders/add" class="nav-link active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add Order
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+
+            <!-- User Nav Bar -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-hamburger"></i>
+                <i class="nav-icon fas fa-user"></i>
                 <p>
-                  Orders
+                  Users
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./admin/orders" class="nav-link">
+                  <a href="./admin-users" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View Orders
+                    <p>View Users
                     </p>
                   </a>
                 </li>
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./admin/orders/add" class="nav-link active">
+                  <a href="./admin-add-users" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add Order
+                    <p>Add User
                     </p>
                   </a>
                 </li>
               </ul>
             </li>
+
+            <!--Ingredients Nav Bar-->
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-hamburger"></i>
+                  <p>
+                    Ingredients
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin/ingredients" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>View Ingredients
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./admin/ingredients/add" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add Ingredient
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -310,4 +371,5 @@
     </footer>
   </div>
   <!-- ./wrapper -->
+</div>
   <router-outlet></router-outlet>
