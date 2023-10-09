@@ -18,8 +18,13 @@ export class AdminAddUserComponent {
     Password: new FormControl('', Validators.required),
   });
 
+  loaderFixScriptElement: HTMLScriptElement;
+
   constructor(private userService: AdminUserService, private route: Router)
   {
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
   }
 
   Submit() {

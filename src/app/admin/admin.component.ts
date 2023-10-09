@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  loaderFixScriptElement: HTMLScriptElement;
+
+  constructor() { 
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
+  }
+
 }
+

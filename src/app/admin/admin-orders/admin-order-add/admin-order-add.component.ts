@@ -9,7 +9,14 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
   styleUrls: ['./admin-order-add.component.scss']
 })
 export class AdminOrderAddComponent {
-  constructor(private service: AdminOrderServiceService, private router: Router) { }
+
+  loaderFixScriptElement: HTMLScriptElement;
+
+  constructor(private service: AdminOrderServiceService, private router: Router) {
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
+  }
 
   allProducts: any;
   productNo: any;
@@ -20,7 +27,7 @@ export class AdminOrderAddComponent {
   quantity: any = 1;
   finalTotal: any = 0;
   product_name: any;
-  cartProductArray:any = [];
+  cartProductArray: any = [];
 
 
 
@@ -51,25 +58,25 @@ export class AdminOrderAddComponent {
   });
 
   orderSubmit() {
-    if (this.orderForm.valid && this.cartProductArray.length>=1) {
+    if (this.orderForm.valid && this.cartProductArray.length >= 1) {
 
       this.orderForm.value.TotalAmount = this.finalTotal; //update final total
 
       this.service.createOrder(this.orderForm.value).subscribe((res) => {
 
-        console.log(this.cartProductArray,"cartProductArray");
-        let lastInsertID=res.data.insertId;
-        let productArray=this.cartProductArray;
-        this.service.createOrderCustomizations(productArray,lastInsertID).subscribe((res2)=>{
+        console.log(this.cartProductArray, "cartProductArray");
+        let lastInsertID = res.data.insertId;
+        let productArray = this.cartProductArray;
+        this.service.createOrderCustomizations(productArray, lastInsertID).subscribe((res2) => {
           // this.router.navigate(['admin/orders']); //does not seem to load properly, hangs up at burger load logo
           window.location.href = "/admin/orders";
         });
-        
+
 
       });
 
     }
-    else if(this.cartProductArray.length<1){
+    else if (this.cartProductArray.length < 1) {
       this.error = "No Products in the Order";
     }
     else {

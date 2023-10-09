@@ -1,11 +1,11 @@
 <div class="hold-transition dark-mode layout-navbar-fixed">
-<div class="wrapper">
+  <div class="wrapper">
 
     <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
+    <div class="preloader flex-column justify-content-center align-items-center" id="preloader">
       <img class="animation__wobble" src="assets/img/by-removebg-preview 1.png" alt="Logo" height="60" width="60">
     </div>
-  
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
@@ -17,7 +17,7 @@
           <a href="index3.html" class="nav-link">Home</a>
         </li>
       </ul>
-  
+
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
@@ -44,157 +44,10 @@
       </ul>
     </nav>
     <!-- /.navbar -->
-  
+
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <img src="assets/img/by-removebg-preview 1.png" alt="Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <span class="brand-text font-weight-light">Burgerlicious</span>
-      </a>
-  
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="assets/img/icon-5359553_640.png" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">Admin</a>
-          </div>
-        </div>
-  
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./admin" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+    <app-admin-navbar></app-admin-navbar>
 
-            <li class="nav-item menu-open">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-receipt"></i>
-                  <p>
-                    Orders
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./admin/orders" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>View Orders
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./admin/orders/add" class="nav-link active">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add Order
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-            </li>
-
-            <!-- User Nav Bar -->
-            <li class="nav-item menu-open">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                  Users
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./admin-users" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View Users
-                    </p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./admin-add-users" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add User
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!--Ingredients Nav Bar-->
-            <li class="nav-item menu-open">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-hamburger"></i>
-                  <p>
-                    Ingredients
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./admin/ingredients" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>View Ingredients
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./admin/ingredients/add" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add Ingredient
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-            </li>
-
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-  
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -208,20 +61,20 @@
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-  
+
       <!--Alerts-->
       <div class="alert alert-danger alert-dismissible" *ngIf="error">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-ban"></i> Alert!</h5>
         {{error}}
       </div>
-  
+
       <div class="card card-primary">
         <div class="card-header">
           <h3 class="card-title">New Order Details</h3>
         </div>
         <!-- /.card-header -->
-  
+
         <!-- form start -->
         <form [formGroup]="orderForm" (ngSubmit)="orderSubmit()">
           <div class="card-footer">
@@ -249,29 +102,29 @@
             </div> -->
           </div>
           <!-- /.card-body -->
-  
+
           <!-- <div class="card-footer">
               <button type="submit" class="btn btn-primary">Add Order</button>
             </div> -->
         </form>
       </div>
       <!-- /.card -->
-  
+
       <!--Alerts-->
       <div class="alert alert-danger alert-dismissible" *ngIf="cartError">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-ban"></i> Alert!</h5>
         {{cartError}}
       </div>
-  
+
       <!-- 2card -->
-  
+
       <div class="card card-primary">
         <div class="card-header">
           <h3 class="card-title">Ingredient</h3>
         </div>
         <!-- /.card-header -->
-  
+
         <!-- form start -->
         <form [formGroup]="orderProductForm" (ngSubmit)="orderProductSubmit()">
           <div class="card-body">
@@ -280,8 +133,10 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Ingredients</label>
-                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()" formControlName="IngredientID">
-                    <option *ngFor='let product of allProducts' value="{{product.IngredientID}}">{{product.IngredientName}}
+                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()"
+                    formControlName="IngredientID">
+                    <option *ngFor='let product of allProducts' value="{{product.IngredientID}}">
+                      {{product.IngredientName}}
                     </option>
                   </select>
                 </div>
@@ -293,32 +148,32 @@
               <div class="col-md-1">
               </div>
               <div class="col-md-1">
-              <div class="form-group">
-                <label for="Quantity">Quantity</label>
-                <input type="number" class="form-control" id="Quantity" min="1" formControlName="Quantity"
-                  value="{{quantity}}" [(ngModel)]="quantity" (input)="onChangeQuantity()">
+                <div class="form-group">
+                  <label for="Quantity">Quantity</label>
+                  <input type="number" class="form-control" id="Quantity" min="1" formControlName="Quantity"
+                    value="{{quantity}}" [(ngModel)]="quantity" (input)="onChangeQuantity()">
+                </div>
+              </div>
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-1">
+                <div class="form-group">
+                  <label>Subtotal</label> <br>
+                  <label for="total"> Rs. {{total}}</label>
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-                <label>Subtotal</label> <br>
-                <label for="total"> Rs. {{total}}</label>
-              </div>
-            </div>
-          </div>
           </div>
           <!-- /.card-body -->
-  
+
           <div class="card-footer">
             <button type="submit" class="btn btn-primary" style="float:right">Add Ingredient To Order</button>
           </div>
         </form>
       </div>
       <!-- /2card -->
-  
-  
+
+
       <div class="card-header">
         <h3 class="card-title">Ingredients Added for the Order</h3>
         <h3 style="float:right; color:white">Total : {{finalTotal}}</h3>
@@ -337,30 +192,30 @@
           </thead>
           <tbody>
             <tr *ngFor='let product of cartProductArray;index as i'>
-  
+
               <td>{{i+1}}</td>
               <td>{{product.IngredientName}}</td>
               <td>{{product.Quantity}}</td>
               <td>{{product.Subtotal}}</td>
               <td><span (click)="deleteItemFromCartProductsArray(i)"><i class="fas fa-trash"></i></span></td>
-  
+
             </tr>
           </tbody>
         </table>
       </div>
       <!-- /.card-body -->
-  
-  
+
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-  
+
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-  
+
     <!-- Main Footer -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -372,4 +227,4 @@
   </div>
   <!-- ./wrapper -->
 </div>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

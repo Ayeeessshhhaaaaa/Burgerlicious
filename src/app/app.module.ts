@@ -34,6 +34,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { CustomizeScreenComponent } from './Pages/customize-screen/customize-scr
     CartPageComponent,
     SnackbarComponent,
     AdminIngredientsComponent,
-    CustomizeScreenComponent
+    CustomizeScreenComponent,
+    AdminNavbarComponent
   ],
   imports: [
     BrowserModule,
