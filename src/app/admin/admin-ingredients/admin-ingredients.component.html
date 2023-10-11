@@ -1,4 +1,3 @@
-<div class="hold-transition dark-mode layout-navbar-fixed">
 <div class="wrapper">
 
     <!-- Preloader -->
@@ -49,8 +48,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="assets/img/by-removebg-preview 1.png" alt="Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
+        <img src="assets/img/by-removebg-preview 1.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Burgerlicious</span>
       </a>
   
@@ -121,7 +119,7 @@
                 </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./admin/orders/add" class="nav-link active">
+                    <a href="./admin/orders/add" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Add Order
                       </p>
@@ -170,7 +168,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./admin/ingredients" class="nav-link">
+                    <a href="./admin/ingredients" class="nav-link active">
                       <i class="far fa-circle nav-icon"></i>
                       <p>View Ingredients
                       </p>
@@ -191,6 +189,7 @@
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
+        
       </div>
       <!-- /.sidebar -->
     </aside>
@@ -202,155 +201,45 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">New Order</h1>
+              <h1 class="m-0">Ingredients</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
   
-      <!--Alerts-->
-      <div class="alert alert-danger alert-dismissible" *ngIf="error">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-        {{error}}
-      </div>
-  
-      <div class="card card-primary">
+      <div class="card">
         <div class="card-header">
-          <h3 class="card-title">New Order Details</h3>
+          <h3 class="card-title">All Ingredients</h3>
         </div>
         <!-- /.card-header -->
-  
-        <!-- form start -->
-        <form [formGroup]="orderForm" (ngSubmit)="orderSubmit()">
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary" style="float:right">Submit Order</button>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label for="UserID">User ID</label>
-              <input type="text" class="form-control" id="UserID" formControlName="UserID"
-                placeholder="Enter Customer Name">
-            </div>
-            <!-- <div class="form-group">
-              <label for="customerName">Customer Name</label>
-              <input type="text" class="form-control" id="customerName" formControlName="customerName"
-                placeholder="Enter Customer Name">
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Customer Phone Number</label>
-              <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"
-                placeholder="Enter Customer Phone Number">
-            </div>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
-            </div> -->
-          </div>
-          <!-- /.card-body -->
-  
-          <!-- <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Add Order</button>
-            </div> -->
-        </form>
-      </div>
-      <!-- /.card -->
-  
-      <!--Alerts-->
-      <div class="alert alert-danger alert-dismissible" *ngIf="cartError">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-        {{cartError}}
-      </div>
-  
-      <!-- 2card -->
-  
-      <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Ingredient</h3>
-        </div>
-        <!-- /.card-header -->
-  
-        <!-- form start -->
-        <form [formGroup]="orderProductForm" (ngSubmit)="orderProductSubmit()">
-          <div class="card-body">
-            <!-- extra work for products -->
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Ingredients</label>
-                  <select class="form-control" [(ngModel)]="productNo" (change)="onChange()" formControlName="IngredientID">
-                    <option *ngFor='let product of allProducts' value="{{product.IngredientID}}">{{product.IngredientName}}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="number" class="form-control" id="IngredientName" formControlName="IngredientName"
-                  [(ngModel)]="product_name" value="{{product_name}}" hidden>
-              </div>
-              <div class="col-md-1">
-              </div>
-              <div class="col-md-1">
-              <div class="form-group">
-                <label for="Quantity">Quantity</label>
-                <input type="number" class="form-control" id="Quantity" min="1" formControlName="Quantity"
-                  value="{{quantity}}" [(ngModel)]="quantity" (input)="onChangeQuantity()">
-              </div>
-            </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-                <label>Subtotal</label> <br>
-                <label for="total"> Rs. {{total}}</label>
-              </div>
-            </div>
-          </div>
-          </div>
-          <!-- /.card-body -->
-  
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary" style="float:right">Add Ingredient To Order</button>
-          </div>
-        </form>
-      </div>
-      <!-- /2card -->
-  
-  
-      <div class="card-header">
-        <h3 class="card-title">Ingredients Added for the Order</h3>
-        <h3 style="float:right; color:white">Total : {{finalTotal}}</h3>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        <table class="table table-bordered">
-          <thead>
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
             <tr>
-              <th style="width: 10px">#</th>
+              <th>Ingredient ID</th>
               <th>Ingredient Name</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
-              <th style="width: 40px">Action</th>
+              <th>Action</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let product of cartProductArray;index as i'>
-  
-              <td>{{i+1}}</td>
-              <td>{{product.IngredientName}}</td>
-              <td>{{product.Quantity}}</td>
-              <td>{{product.Subtotal}}</td>
-              <td><span (click)="deleteItemFromCartProductsArray(i)"><i class="fas fa-trash"></i></span></td>
-  
+            </thead>
+            <tbody>
+              <tr *ngFor ='let i of allIngredients'>
+                <td>{{i.IngredientID}}</td>
+                <td>{{i.IngredientName}}</td>
+                <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
+                <th>Action</th>
             </tr>
-          </tbody>
-        </table>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.card-body -->
       </div>
-      <!-- /.card-body -->
-  
-  
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -371,5 +260,6 @@
     </footer>
   </div>
   <!-- ./wrapper -->
-</div>
   <router-outlet></router-outlet>
+
+

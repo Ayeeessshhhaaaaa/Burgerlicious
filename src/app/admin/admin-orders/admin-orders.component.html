@@ -1,3 +1,4 @@
+<div class="hold-transition dark-mode layout-navbar-fixed">
 <div class="wrapper">
 
     <!-- Preloader -->
@@ -99,9 +100,10 @@
                 </li>
               </ul>
             </li>
+
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-hamburger"></i>
+                  <i class="nav-icon fas fa-receipt"></i>
                   <p>
                     Orders
                     <i class="right fas fa-angle-left"></i>
@@ -125,38 +127,70 @@
                     </a>
                   </li>
                 </ul>
-              </li>
+            </li>
 
-              <li class="nav-item menu-open">
+            <!-- User Nav Bar -->
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Users
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./admin-users" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Users
+                    </p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./admin-add-users" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add User
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!--Ingredients Nav Bar-->
+            <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-hamburger"></i>
                   <p>
-                    Users
+                    Ingredients
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./admin-users" class="nav-link">
+                    <a href="./admin/ingredients" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>View Users
+                      <p>View Ingredients
                       </p>
                     </a>
                   </li>
                 </ul>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./admin-add-users" class="nav-link">
+                    <a href="./admin/ingredients/add" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Add User
+                      <p>Add Ingredient
                       </p>
                     </a>
                   </li>
                 </ul>
-              </li>
+            </li>
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
       </div>
       <!-- /.sidebar -->
     </aside>
@@ -199,7 +233,7 @@
                 <td>{{order.OrderDate}}</td>
                 <td>{{order.TotalAmount}}</td>
                 <td>{{order.Status}}</td>
-                <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
+                <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button (click)="delete(order.OrderID)" style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
               </tr>
             </tbody>
             <tfoot>
@@ -236,6 +270,7 @@
     </footer>
   </div>
   <!-- ./wrapper -->
+</div>
   <router-outlet></router-outlet>
 
 

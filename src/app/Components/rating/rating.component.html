@@ -1,7 +1,11 @@
-<div fxLayout="row"> 
-<span class="material-symbols-outlined">star</span>
-<span class="material-symbols-outlined">star</span>
-<span class="material-symbols-outlined">star</span>
-<span class="material-symbols-outlined">star</span>
-<span class="material-symbols-outlined">star</span>
-</div>
+<div fxLayout="row">
+    <span
+      class="material-symbols-outlined star"
+      *ngFor="let star of stars; let i = index"
+      [ngClass]="{ 'selected': i + 1 <= Rating! }"
+      [style.color]="i < Rating! ? 'darkorange' : 'goldenrod'"
+    >
+      {{ star }}
+    </span>
+  </div>
+  

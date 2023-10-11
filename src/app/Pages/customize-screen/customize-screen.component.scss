@@ -20,14 +20,22 @@
     font-weight: 600;
     font-family: 'Paytone One', sans-serif;
     text-align: center;
+<<<<<<< HEAD
     z-index: 9999;
+=======
+    z-index: 1;
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 0;
     margin-top: 4%;
+<<<<<<< HEAD
     padding-left: 4%;
+=======
+    margin-left: 2%;
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 
     .cream {
         color: #5C2E0F;
@@ -43,8 +51,11 @@
     background-color: #5C2E0F;
     z-index: 1;
     font-family: 'Paytone One', sans-serif;
+<<<<<<< HEAD
     padding-top: 150px;
     padding-left: 20px;
+=======
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 
     @media screen and (max-width: 768px) {
         font-size: 60px;
@@ -53,10 +64,15 @@
 }
 
 .right-container {
+<<<<<<< HEAD
+=======
+    width: 588px; /* Set the width as needed */
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+<<<<<<< HEAD
     
     h3
 {
@@ -66,6 +82,8 @@
     margin-right: 310px;
     margin-bottom: 55px;
 }
+=======
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 
     .button-container
     {

@@ -32,8 +32,14 @@ import { AdminOrderServiceService } from './Services/admin-order-service/admin-o
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+<<<<<<< HEAD
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { IngredientsSliderComponent } from './Components/ingredients-slider/ingredients-slider.component';
+=======
+import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
+import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
+import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 
 
 @NgModule({
@@ -57,8 +63,13 @@ import { IngredientsSliderComponent } from './Components/ingredients-slider/ingr
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
+<<<<<<< HEAD
     CustomizeScreenComponent,
     IngredientsSliderComponent,
+=======
+    AdminIngredientsComponent,
+    CustomizeScreenComponent
+>>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
   ],
   imports: [
     BrowserModule,
@@ -76,7 +87,7 @@ import { IngredientsSliderComponent } from './Components/ingredients-slider/ingr
     CarouselModule.forRoot(),
   ],
   exports: [RouterModule],
-  providers: [AdminOrderServiceService],
+  providers: [AdminOrderServiceService, AdminIngredientServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
