@@ -1,0 +1,51 @@
+.container
+{
+    width: 600px;
+}
+.carousel-container
+{
+    width: 600px;
+}
+.card
+{
+    background-color: #D1BD9E;
+    width: 121px;
+    height: 113px;
+    border-radius: 13px;
+    
+
+    .ingredients
+    {
+        padding-top: 2px;
+    }
+
+    .ingredient
+    {
+        width: 105px;
+        height: 56px;
+        margin-left: 4px;
+        padding-top: 15px;
+    }
+
+    .ingredient-name
+    {
+        font-family: 'Paytone One', sans-serif;
+        font-size: 15px;
+        font-weight: 100;
+        text-align: center;
+        padding-top: 15px;
+    }
+}
+.large-carousel-container
+{
+    width: 600px;
+    margin-top: 80px;
+    padding-right: 60px;
+}
+.ingredient-image
+{
+    width: 335px;
+    height: 155px;
+    margin-left: 100px;
+    margin-top: 60px;
+}

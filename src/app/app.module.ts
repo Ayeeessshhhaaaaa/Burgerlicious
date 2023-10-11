@@ -20,6 +20,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Pages/login/login.component';
@@ -31,6 +32,8 @@ import { AdminOrderServiceService } from './Services/admin-order-service/admin-o
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminAddUserComponent } from './admin/admin-add-user/admin-add-user.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
+import { IngredientsSliderComponent } from './Components/ingredients-slider/ingredients-slider.component';
 
 
 @NgModule({
@@ -54,6 +57,8 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
+    CustomizeScreenComponent,
+    IngredientsSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
     MatInputModule,
     MatSnackBarModule,
     MatIconModule,
+    CarouselModule.forRoot(),
   ],
   exports: [RouterModule],
   providers: [AdminOrderServiceService],

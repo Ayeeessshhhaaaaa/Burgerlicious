@@ -1,0 +1,25 @@
+<div class="container" fxLayout="column">
+    <div class="carousel-container">
+    <carousel [itemsPerSlide]="3" [interval]="0" [showIndicators]="false">
+      <slide *ngFor="let ingredient of ingredients">
+        <div class="card" fxLayout="column">
+          <div class="ingredients" fxLayoutAlign="center center" fxLayout="column">
+            <img [src]="ingredient.imageUrl" alt="ingredient" class="ingredient">
+            <div class="ingredient-name">{{ ingredient.name }}</div>
+          </div>
+        </div>
+      </slide>
+    </carousel>
+   </div>
+   <div class="large-carousel-container">
+    <carousel [itemsPerSlide]="1" [interval]="0" [showIndicators]="false">
+        <slide *ngFor="let ingredientImage of ingredientsImage">
+            <div class="ingredient-card">
+                <div class="ingredients-images">
+                    <img [src]="ingredientImage.imageUrl" alt="ingredient" class="ingredient-image">
+                </div>
+            </div>
+        </slide>
+    </carousel>
+    </div>
+   </div>

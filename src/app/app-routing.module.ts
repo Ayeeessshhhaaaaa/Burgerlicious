@@ -14,6 +14,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
+import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path: 'admin-add-users',
     component: AdminAddUserComponent
+  },
+  {
+    path: 'customize-screen',
+    component: CustomizeScreenComponent
   }
 ];
 
