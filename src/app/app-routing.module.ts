@@ -14,10 +14,6 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
-<<<<<<< HEAD
-=======
-import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
->>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 
 
@@ -79,15 +75,9 @@ const routes: Routes = [
     component: AdminAddUserComponent
   },
   {
-<<<<<<< HEAD
     path: 'customize-screen',
     component: CustomizeScreenComponent
   }
-=======
-    path: 'admin/ingredients',
-    component: AdminIngredientsComponent 
- }
->>>>>>> 560d8a6cec4c2f2e76c5b3ee41acc3eea0b21e9d
 ];
 
 @NgModule({

@@ -12,9 +12,11 @@ import { DataSharingService } from 'src/app/Services/shared/data-sharing.service
 export class FeedbackDetailsScreenComponent implements OnInit {
   ReviewID: number|undefined;
   feedbackData:any;
+  showLoader: boolean=false;
   constructor(private router: ActivatedRoute, private feedbackService: FeedbackServiceService, private datashare: DataSharingService, private route: Router) {
 }
 ngOnInit(): void {
+  this.loader(true);
   this.router.paramMap.subscribe((params) => {
     this.ReviewID = Number(params.get('ReviewID'));
     console.log(this.ReviewID);
@@ -22,6 +24,7 @@ ngOnInit(): void {
       (data) => {
         // Handle the API response data here
         this.feedbackData = data;
+
         console.log(data);
       },
       (error) => {
@@ -52,5 +55,9 @@ onUpdateFeedback(feedbackData: any) {
 
   // Navigate to the "feedback-form" route
   this.route.navigate(['/feedback-form']);
+}
+loader(state:boolean)
+{
+  this.showLoader=state;
 }
 }
