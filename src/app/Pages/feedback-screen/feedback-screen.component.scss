@@ -20,7 +20,6 @@
     z-index: 1;
 }
 
-
 .textbox {
     color: #D1BD9E;
     font-size: 50px;
@@ -29,6 +28,10 @@
     text-align: center;
     z-index: 1;
     padding-top: 2%;
+
+    @media screen and (max-width: 600px) {
+        font-size: 40px;
+    }
 }
 
 .data-blocks {
@@ -36,9 +39,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    @media screen and (max-width: 968px) {
-        height: 350px;
-        max-width: 98%;
+    @media screen and (max-width: 600px) {
+        width: 100%;
         margin-top: 45px;
     }
 }
@@ -51,6 +53,10 @@
     margin-top: 15px;
     max-height: 80vh;
     overflow-y: auto;
+
+    @media screen and (max-width: 600px) {
+        margin-top: 1px;
+    }
 }
 
 .scrollable-content::-webkit-scrollbar {
@@ -65,12 +71,16 @@
 .product-column {
     z-index: 2;
 
-    @media screen and (max-width: 768px) {
-        margin-top: 160px;
+    @media screen and (max-width: 600px) {
+        margin-top: 20px;
     }
 }
 
 app-feedback-block {
     /* Add styles for app-feedback-block as needed */
     margin: 50px 50px 0px 50px; /* Adjust the margin as needed */
+    
+    @media screen and (max-width: 600px) {
+        margin: 0px 0px 0px 0px; /* Adjust the margin as needed */
+    }
 }

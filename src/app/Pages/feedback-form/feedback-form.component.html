@@ -1,6 +1,7 @@
-<div class="Containers">
+<app-page-loader *ngIf="showLoader"></app-page-loader>
+<div class="Containers" fxLayout="row" fxLayout.lt-md="column">
     <app-navbar></app-navbar>
-    <div class="left-container" fxFlex="50">
+    <div class="left-container" fxFlex="50" fxFlex.sm="100" fxLayout.lt-md="row">
         <div class="card">
           <form class="Feedback" (ngSubmit)="onSubmit(form)" #form="ngForm">
             <div class="Heading">
@@ -45,10 +46,8 @@
               
         </div>
     </div>
-    <div class="right-container" fxLayout="center center">
-        <div class="burger-container">
-            <img [src]="imageUrl" alt="homescreen-image" class="burger-image">
-        </div>
+    <div class="right-container" fxLayout="center center"  fxLayout.lt-md="row" fxFlex.sm="100">
+ 
     </div>
 </div>
 

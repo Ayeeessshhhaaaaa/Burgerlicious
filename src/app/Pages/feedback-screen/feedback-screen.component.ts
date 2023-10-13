@@ -12,10 +12,12 @@ export class FeedbackScreenComponent implements OnInit{
   feedbackData: feedbackModel[] | undefined;
   imageUrl: string = 'assets/Ellipse.png';
 sanitizedImageUrl: SafeUrl;
+showLoader: boolean=false;
 constructor(private sanitizer: DomSanitizer, private feedbackService: FeedbackServiceService,private router: Router) {
 this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
 }
 ngOnInit(): void {
+  this.loader(true, 4000);
   this.feedbackService.getFeedback().subscribe(
     (data) => {
       // Handle the API response data here
@@ -27,6 +29,17 @@ ngOnInit(): void {
       console.error(error);
     }
   );
+}
+
+loader(state: boolean, duration: number) {
+  this.showLoader = state;
+
+  if (state) {
+    // If the state is true (show loader), set a timeout to hide it after the specified duration
+    setTimeout(() => {
+      this.showLoader = false;
+    }, duration);
+  }
 }
 
 }

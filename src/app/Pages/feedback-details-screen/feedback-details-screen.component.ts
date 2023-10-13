@@ -16,7 +16,7 @@ export class FeedbackDetailsScreenComponent implements OnInit {
   constructor(private router: ActivatedRoute, private feedbackService: FeedbackServiceService, private datashare: DataSharingService, private route: Router) {
 }
 ngOnInit(): void {
-  this.loader(true);
+  this.loader(true, 6000);
   this.router.paramMap.subscribe((params) => {
     this.ReviewID = Number(params.get('ReviewID'));
     console.log(this.ReviewID);
@@ -24,7 +24,6 @@ ngOnInit(): void {
       (data) => {
         // Handle the API response data here
         this.feedbackData = data;
-
         console.log(data);
       },
       (error) => {
@@ -35,6 +34,7 @@ ngOnInit(): void {
    });
 }
 onDelete(ReviewID: number) {
+  this.loader(true, 6000);
   if (confirm('Are you sure you want to delete this feedback?')) {
     this.feedbackService.deleteFeedback(ReviewID).subscribe(
       (response) => {
@@ -49,6 +49,7 @@ onDelete(ReviewID: number) {
   }
 }
 onUpdateFeedback(feedbackData: any) {
+  this.loader(true, 6000);
   // Set the feedback data in the shared service
   this.datashare.setFeedbackData(feedbackData);
   this.datashare.setEditStatus(true);
@@ -56,8 +57,17 @@ onUpdateFeedback(feedbackData: any) {
   // Navigate to the "feedback-form" route
   this.route.navigate(['/feedback-form']);
 }
-loader(state:boolean)
-{
-  this.showLoader=state;
+
+
+loader(state: boolean, duration: number) {
+  this.showLoader = state;
+
+  if (state) {
+    // If the state is true (show loader), set a timeout to hide it after the specified duration
+    setTimeout(() => {
+      this.showLoader = false;
+    }, duration);
+  }
 }
+
 }

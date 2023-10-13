@@ -20,7 +20,7 @@ import { CustomizeScreenComponent } from './Pages/customize-screen/customize-scr
 const routes: Routes = [
   {
     path: '',
-    component: HomeScreenComponent,
+    component: SplashScreenComponent,
   },
   {
     path: 'home',
