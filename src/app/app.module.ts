@@ -38,6 +38,8 @@ import { AdminIngredientServiceService } from './Services/admin-ingredient-servi
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { IngredientsSliderComponent } from './Components/ingredients-slider/ingredients-slider.component';
 import { PageLoaderComponent } from './Components/page-loader/page-loader.component';
+import { FeedbackSearchComponent } from './Components/feedback-search/feedback-search.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -65,7 +67,8 @@ import { PageLoaderComponent } from './Components/page-loader/page-loader.compon
     IngredientsSliderComponent,
     AdminIngredientsComponent,
     CustomizeScreenComponent,
-    PageLoaderComponent
+    PageLoaderComponent,
+    FeedbackSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ import { PageLoaderComponent } from './Components/page-loader/page-loader.compon
     MatInputModule,
     MatSnackBarModule,
     MatIconModule,
+    MatDialogModule,
     CarouselModule.forRoot(),
     MatProgressSpinnerModule,
   ],
