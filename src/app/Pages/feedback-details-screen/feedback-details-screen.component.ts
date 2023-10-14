@@ -16,7 +16,7 @@ export class FeedbackDetailsScreenComponent implements OnInit {
   constructor(private router: ActivatedRoute, private feedbackService: FeedbackServiceService, private datashare: DataSharingService, private route: Router) {
 }
 ngOnInit(): void {
-  this.loader(true, 6000);
+  //this.loader(true, 6000);
   this.router.paramMap.subscribe((params) => {
     this.ReviewID = Number(params.get('ReviewID'));
     console.log(this.ReviewID);

@@ -34,6 +34,12 @@
       color: #e89222;
     }
 
+    @media screen and (max-width: 1024px) {
+      padding-top: 40px;
+      width: 70%;
+      z-index: 9999;
+    }
+
     @media screen and (max-width: 600px) {
       padding-top: 40px;
       font-size: 40px;
@@ -73,6 +79,13 @@
     left: 75%; /* Center horizontally */
     transform: translate(-50%, -50%);
 
+    @media screen and (max-width: 1024px) {
+      height: 575px;
+      width: 575px;
+      top: 70%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+    }
+
     @media screen and (max-width:600px)
     {
         height: 350px;
@@ -92,6 +105,13 @@
     ); 
     width: 600px; 
     height: 760px;
+    
+    @media screen and (max-width:1024px)
+    {
+        top: 45%;
+        z-index: 9999;
+        width: auto;
+    }
 
     @media screen and (max-width:600px)
     {
