@@ -20,7 +20,6 @@
     z-index: 1;
 }
 
-
 .textbox {
     color: #D1BD9E;
     font-size: 50px;
@@ -29,6 +28,15 @@
     text-align: center;
     z-index: 1;
     padding-top: 2%;
+
+    @media screen and (max-width: 600px) {
+        font-size: 40px;
+    }
+}
+
+.search{
+    position: absolute;
+    right: 20px;
 }
 
 .data-blocks {
@@ -36,9 +44,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    @media screen and (max-width: 968px) {
-        height: 350px;
-        max-width: 98%;
+    @media screen and (max-width: 600px) {
+        width: 100%;
         margin-top: 45px;
     }
 }
@@ -51,6 +58,10 @@
     margin-top: 15px;
     max-height: 80vh;
     overflow-y: auto;
+
+    @media screen and (max-width: 600px) {
+        margin-top: 1px;
+    }
 }
 
 .scrollable-content::-webkit-scrollbar {
@@ -65,12 +76,74 @@
 .product-column {
     z-index: 2;
 
-    @media screen and (max-width: 768px) {
-        margin-top: 160px;
+    @media screen and (max-width: 600px) {
+        margin-top: 20px;
     }
 }
 
 app-feedback-block {
     /* Add styles for app-feedback-block as needed */
     margin: 50px 50px 0px 50px; /* Adjust the margin as needed */
+    
+    @media screen and (max-width: 600px) {
+        margin: 0px 0px 0px 0px; /* Adjust the margin as needed */
+    }
 }
+
+.search-icon {
+    position: absolute;
+    z-index: 99;
+    right: 10px;
+    bottom: 80px;
+    border-radius: 55px;
+    background-color: #D1BD9E;
+    cursor: pointer;
+
+    .search-iconn{
+        height: 50px;
+    }
+}
+
+.search-icon1 {
+    position: absolute;
+    z-index: 9;
+    right: 38px;
+    bottom: 80px;
+    border-radius: 55px 0px 0px 55px;
+    background-color: #D1BD9E;
+    padding: 4px 18px 4px 8px;
+    cursor: pointer;
+
+
+    .search-iconn{
+        color: white;
+        font-size: 15px;
+        z-index: 999;
+        padding-top: 8px;
+        margin-right: 10px;
+    }
+}
+
+.search-bar {
+    position: relative;
+    transition: width 0.3s ease-in-out;
+    width: 0;
+    overflow: hidden;
+    margin-right: 4px;
+  }
+  
+  .search-bar.expanded {
+    width: 200px; /* Adjust the width as needed */
+  }
+  
+  
+  .search-input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 200px;
+    box-sizing: border-box;
+  }
+
+  
+

@@ -29,4 +29,24 @@ export class AdminIngredientsComponent {
       this.allIngredients=res.data;
     });
 
-}}
+  }
+
+  delete(IngredientID: number) {
+    if (confirm('Are you sure you want to delete this ingredient?')) {
+      console.log(IngredientID);
+      this.service.deleteIngredient(IngredientID).subscribe((res) => {
+        if (res) {
+          console.log('Ingredient deleted successfully:', res);
+
+          location.reload(); //Reload the page
+
+        }
+        else {
+          console.error('Error deleting ingredient');
+
+        }
+      });
+    }
+  }
+
+}

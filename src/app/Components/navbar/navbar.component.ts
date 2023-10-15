@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Path } from 'typescript';
+import { MatDialog } from '@angular/material/dialog';
+import { FeedbackSearchComponent } from '../feedback-search/feedback-search.component';
 
 @Component({
   selector: 'app-navbar',
@@ -19,4 +21,5 @@ export class NavbarComponent{
   {
     this.router.navigate([Path])
   }
+
 }

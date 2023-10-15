@@ -13,26 +13,38 @@ export class CartPageComponent {
   cartData =[
     {
       "ProductID": 1,
-      "ProductName": "Product A",
-      "Description": "Description of Product A",
+      "ProductName": "Cheese Burger ",
+      "Description": "Description of Cheese Burger",
       "TotalAmount": 19.99
     },
     {
       "ProductID": 2,
-      "ProductName": "Product B",
-      "Description": "Description of Product B",
+      "ProductName": "veggi Burger",
+      "Description": "Description of veggi Burger",
       "TotalAmount": 29.99
     },
     {
       "ProductID": 3,
-      "ProductName": "Product C",
-      "Description": "Description of Product C",
+      "ProductName": "chicken Burger",
+      "Description": "Description of chicken Burger",
       "TotalAmount": 9.99
     },
     {
       "ProductID": 4,
-      "ProductName": "Product D",
-      "Description": "Description of Product D",
+      "ProductName": "beef Burger",
+      "Description": "Description of beef Burger",
+      "TotalAmount": 49.99
+    },
+    {
+      "ProductID": 4,
+      "ProductName": "vegan Burger",
+      "Description": "Description of vegan Burger",
+      "TotalAmount": 49.99
+    },
+    {
+      "ProductID": 5,
+      "ProductName": "mushroom Burger",
+      "Description": "Description of mushroom Burger",
       "TotalAmount": 49.99
     }
   ];

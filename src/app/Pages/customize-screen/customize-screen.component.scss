@@ -20,14 +20,14 @@
     font-weight: 600;
     font-family: 'Paytone One', sans-serif;
     text-align: center;
-    z-index: 1;
+    z-index: 9999;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 0;
     margin-top: 4%;
-    margin-left: 2%;
+    padding-left: 4%;
 
     .cream {
         color: #5C2E0F;
@@ -43,6 +43,8 @@
     background-color: #5C2E0F;
     z-index: 1;
     font-family: 'Paytone One', sans-serif;
+    padding-top: 150px;
+    padding-left: 20px;
 
     @media screen and (max-width: 768px) {
         font-size: 60px;
@@ -56,6 +58,16 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+
+    
+    h3
+{
+    font-family: 'Paytone One', sans-serif;
+    color: #5C2E0F;
+    font-size: 20px;
+    margin-right: 310px;
+    margin-bottom: 55px;
+}
 
     .button-container
     {

@@ -1,6 +1,9 @@
+<app-page-loader *ngIf="showLoader"></app-page-loader>
 <div class="Containers">
     <app-navbar></app-navbar>
+
     <div class="textbox">Feedback & Reviews</div>
+
       <div fxLayout="row" fxLayout.xs="column">
           <div fxFlex="1 1 auto" fxFlex.xs="100%" class="product-column">
                 <div
@@ -32,14 +35,34 @@
                     >
                       No Feedbacks and Reviews
                     </div>
-                  </ng-template>
+                  </ng-template>
                   </div>
           </div>
           
       </div>
-      <div fxLayoutAlign="space-evenly">
-        <img [src]="imageUrl" alt="eclipse" class="burger-container">
-   </div>
+
+  <!--
+
+<div>
+      <div class="search-icon" (click)="toggleSearch()">
+          <img src="assets/burgerbuild.gif" alt="Loading..." class="search-iconn">
+      </div>
+
+      <div class="search-icon1" fxLayout="row">
+        <span class="material-symbols-outlined search-iconn">
+          search
+      </span>
+      <div class="search-bar" [ngClass]="{ 'expanded': isSearchExpanded }">
+        <input class="search-input" type="text" placeholder="Search"
+        [(ngModel)]="searchQuery"
+        (keyup)="onKeyUp($event)"
+        [autofocus]="false">
+      </div>
+    </div>
+  </div>
+
+  -->   
+
   </div>
 
  

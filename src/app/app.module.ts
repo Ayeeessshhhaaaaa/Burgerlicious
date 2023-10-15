@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -20,7 +21,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarComponent } from './Components/snackbar/snackbar.component';
 import {MatIconModule} from '@angular/material/icon';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Pages/login/login.component';
 import { SignupComponent } from './Pages/signup/signup.component';
@@ -35,6 +37,11 @@ import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingre
 import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
+import { IngredientsSliderComponent } from './Components/ingredients-slider/ingredients-slider.component';
+import { PageLoaderComponent } from './Components/page-loader/page-loader.component';
+import { FeedbackSearchComponent } from './Components/feedback-search/feedback-search.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -58,12 +65,18 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
+    CustomizeScreenComponent,
+    IngredientsSliderComponent,
     AdminIngredientsComponent,
     CustomizeScreenComponent,
     AdminNavbarComponent
+    AdminIngredientsAddComponent
+    PageLoaderComponent,
+    FeedbackSearchComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -75,6 +88,9 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
     MatInputModule,
     MatSnackBarModule,
     MatIconModule,
+    MatDialogModule,
+    CarouselModule.forRoot(),
+    MatProgressSpinnerModule,
   ],
   exports: [RouterModule],
   providers: [AdminOrderServiceService, AdminIngredientServiceService],
