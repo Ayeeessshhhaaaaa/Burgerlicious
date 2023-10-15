@@ -49,7 +49,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="assets/img/by-removebg-preview 1.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="assets/img/by-removebg-preview 1.png" alt="Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
         <span class="brand-text font-weight-light">Burgerlicious</span>
       </a>
   
@@ -100,7 +101,7 @@
                 </li>
               </ul>
             </li>
-
+  
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-receipt"></i>
@@ -128,7 +129,7 @@
                   </li>
                 </ul>
             </li>
-
+  
             <!-- User Nav Bar -->
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
@@ -149,7 +150,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./admin-add-users" class="nav-link">
+                  <a href="./admin-add-users" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add User
                     </p>
@@ -157,7 +158,7 @@
                 </li>
               </ul>
             </li>
-
+  
             <!--Ingredients Nav Bar-->
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
@@ -169,7 +170,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./admin/ingredients" class="nav-link active">
+                    <a href="./admin/ingredients" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>View Ingredients
                       </p>
@@ -186,11 +187,10 @@
                   </li>
                 </ul>
             </li>
-
+  
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
-        
       </div>
       <!-- /.sidebar -->
     </aside>
@@ -202,57 +202,79 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Ingredients</h1>
+              <h1 class="m-0">New Ingredient</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
   
-      <div class="card">
+      <!--Alerts-->
+      <div class="alert alert-danger alert-dismissible" *ngIf="error">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+        {{error}}
+      </div>
+  
+      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">All Ingredients</h3>
+          <h3 class="card-title">New Ingredient Details</h3>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th>Ingredient ID</th>
-              <th>Ingredient Name</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>ImageURL</th>
-              <th>CategoryID</th>
-              <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor ='let i of allIngredients'>
-                <td>{{i.IngredientID}}</td>
-                <td>{{i.IngredientName}}</td>
-                <td>{{i.Price}}</td>
-                <td>{{i.Description}}</td>
-                <td><img src="http://localhost:3600/ingredientImages/{{i.ImageURL}}" alt="Ingredient Image" style="width:100px; height: 100px;"></td>
-                <td>{{i.CategoryID }}</td>
-                <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button (click)="delete(i.IngredientID)" style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
-              </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <th>Ingredient ID</th>
-                <th>Ingredient Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>ImageURL</th>
-                <th>CategoryID</th>
-                <th>Action</th>
-            </tr>
-            </tfoot>
-          </table>
-        </div>
-        <!-- /.card-body -->
+  
+        <!-- form start -->
+        <form [formGroup]="ingredientForm" (ngSubmit)="ingredientSubmit()">
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary" style="float:right">Submit Ingredient</button>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <label for="IngredientName">Ingredient Name</label>
+              <input type="text" class="form-control" id="IngredientName" formControlName="IngredientName"
+                placeholder="Enter Ingredient Name">
+            </div>
+
+            <div class="form-group">
+                <label for="Price">Ingredient Price</label>
+                <input type="text" class="form-control" id="Price" formControlName="Price"
+                  placeholder="Enter Price">
+              </div>
+
+              <div class="form-group">
+                <label for="Description">Ingredient Description</label>
+                <input type="text" class="form-control" id="Description" formControlName="Description"
+                  placeholder="Enter Description">
+              </div>
+
+              <div class="form-group">
+                <label for="ImageURL">Ingredient Image</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="ImageURL" formControlName="ImageURL" (change)="onImageSelected($event)">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="CategoryID">Ingredient Category</label>
+                <input type="text" class="form-control" id="CategoryID" formControlName="CategoryID"
+                  placeholder="Enter Category ID">
+              </div>
+
+          </div>
+         
+        </form>
       </div>
+    
+
+      <!-- /2card -->
+  
+  
+      
+  
+  
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -272,8 +294,7 @@
       </div>
     </footer>
   </div>
-  <!-- ./wrapper -->
 </div>
+  <!-- ./wrapper -->
   <router-outlet></router-outlet>
-
 

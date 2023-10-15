@@ -14,4 +14,22 @@ export class AdminIngredientServiceService {
     let apiUrl = 'http://localhost:3600/admin/ingredients';
     return this._http.get(apiUrl);
   }
+
+  deleteIngredient(id: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/ingredients/deleteIngredient/' + id;
+    return this._http.delete(apiUrl);
+  }
+
+  uploadIngredientImage(image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', image);
+    let apiUrl = 'http://localhost:3600/admin/ingredients/addIngredientImage';
+    return this._http.post(apiUrl, formData);
+  }
+
+  createIngredient(data: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/ingredients/addIngredient';
+    return this._http.post(apiUrl, data);
+  }
+
 }
