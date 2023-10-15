@@ -36,6 +36,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { AdminIngredientServiceService } from './Services/admin-ingredient-service/admin-ingredient-service.service';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
 import { IngredientsSliderComponent } from './Components/ingredients-slider/ingredients-slider.component';
 import { PageLoaderComponent } from './Components/page-loader/page-loader.component';
@@ -68,6 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     IngredientsSliderComponent,
     AdminIngredientsComponent,
     CustomizeScreenComponent,
+    AdminNavbarComponent
     AdminIngredientsAddComponent
     PageLoaderComponent,
     FeedbackSearchComponent

@@ -10,10 +10,16 @@ export class AdminOrdersComponent {
   myScriptElement: HTMLScriptElement;
   allOrders: any;
 
+  loaderFixScriptElement: HTMLScriptElement;
+
   constructor(private service: AdminOrderServiceService) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
+
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
   }
 
   ngOnInit(): void {

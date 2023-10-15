@@ -8,12 +8,18 @@ import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user
 })
 export class AdminUsersComponent {
   myScriptElement: HTMLScriptElement;
-  allUsers:any;
+  allUsers: any;
 
-  constructor(private userService: AdminUserService) { 
+  loaderFixScriptElement: HTMLScriptElement;
+
+  constructor(private userService: AdminUserService) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
+
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
   }
 
   ngOnInit(): void {
@@ -36,7 +42,7 @@ export class AdminUsersComponent {
         (response) => {
           console.log('User deleted successfully:', response);
           // Reload the page after successful deletion
-        location.reload();
+          location.reload();
           // Handle success, e.g., remove the deleted item from the UI
         },
         (error) => {

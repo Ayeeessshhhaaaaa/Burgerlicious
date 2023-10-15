@@ -11,11 +11,16 @@ export class AdminIngredientsComponent {
   allIngredients:any;
   myScriptElement: HTMLScriptElement;
 
+  loaderFixScriptElement: HTMLScriptElement;
 
   constructor(private service:AdminIngredientServiceService){ 
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
+
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
   }
 
   ngOnInit(): void {

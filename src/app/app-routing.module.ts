@@ -68,11 +68,11 @@ const routes: Routes = [
     component: AdminOrderAddComponent
   },
   {
-    path: 'admin-users',
+    path: 'admin/users',
     component: AdminUsersComponent
   },
   {
-    path: 'admin-add-users',
+    path: 'admin/users/add',
     component: AdminAddUserComponent
   },
   {
