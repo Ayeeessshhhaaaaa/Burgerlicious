@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="header">
+        <span (click)="closeDialog()" class="close-icon">&times;</span>
+    </div>  
+
+    <div class="content">
+        <div
+        class="scrollable-content"
+        fxLayout="row wrap"
+        fxLayoutGap="40px calc(100% - 40px)"
+      >
+        <ng-container
+          *ngIf="searchData && searchData.length > 0; else noResults"
+        >
+          <div class="data-blocks" *ngFor="let result of searchData"  (click)="closeDialog()">
+            <app-feedback-block
+            [ReviewID]="data.ReviewID"
+            [OrderID]="data.OrderID"
+            [UserID]="data.UserID"
+            [Name]="data.Name"
+            [burgerName]="data.burgerName"
+            [Comment]="data.Comment"
+            [Rating]="data.Rating"
+            [imageURL]="data.imageURL"
+          ></app-feedback-block>
+          </div>
+        </ng-container>
+
+        <ng-template #noResults>
+          <div
+            fxLayout="column"
+            class="no-results"
+            fxLayoutAlign="center center"
+            fxFlex="1 1 auto"
+          >
+            No Results
+          </div>
+        </ng-template>
+      </div>
+    </div>
+</div>

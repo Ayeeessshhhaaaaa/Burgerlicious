@@ -20,8 +20,9 @@ export class FeedbackFormComponent implements OnInit {
   stars = ['star', 'star', 'star', 'star', 'star'];
   selectedStar: number | null = null;
   hoveredStar: number | null = null;
+  showLoader: boolean=false;
 
-constructor(private sanitizer: DomSanitizer, private service: FeedbackServiceService, private SnackBar: MatSnackBar, private datashare: DataSharingService) {
+constructor(private sanitizer: DomSanitizer, private service: FeedbackServiceService, private snackBar: MatSnackBar, private datashare: DataSharingService) {
 this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
 }
 
@@ -42,46 +43,58 @@ ngOnInit(): void {
 onSubmit(form: NgForm) {
   if (form.valid) {
     if (this.editStatus) {
-      this.formData.selectedStar = this.selectedStar; // Set the selected star number in formData
+      this.loader(true, 6000);
+      this.formData.Rating = this.selectedStar; // Set the selected star number in formData
       console.log(this.formData);
       this.service.updateFeedback(this.formData).subscribe(
         (response) => {
           console.log('Feedback updated successfully:', response);
+          this.openSnackBar('Successfully submitted Feedback');
           this.datashare.setEditStatus(false);
           form.resetForm();
           this.selectedStar = null; // Reset the star rating
-          this.openSnackBar('Successfully submitted Feedback');
         },
         (error) => {
           console.error('Error sending feedback:', error);
-          // Handle errors, display an error message, etc.
+          this.openErrorSnackBar('Error in Updating.');
         }
       );
     } else {
-      this.formData.selectedStar = this.selectedStar; // Set the selected star number in formData
+      this.loader(true, 6000);
+      this.formData.Rating = this.selectedStar; // Set the selected star number in formData
       this.service.sendFeedback(this.formData).subscribe(
         (response) => {
           console.log('Feedback sent successfully:', response);
+          this.openSnackBar('Successfully submitted Feedback');
           form.resetForm();
           this.selectedStar = null; // Reset the star rating
-          this.openSnackBar('Successfully submitted Feedback');
+        
         },
         (error) => {
           console.error('Error sending feedback:', error);
-          // Handle errors, display an error message, etc.
+          this.openErrorSnackBar('Error sending feedback.');
         }
       );
     }
   } else {
     console.log('Form is invalid. Please check the input fields.');
+    this.openErrorSnackBar('Form is invalid. Please check the input fields.');
   }
 }
 
 openSnackBar(message: string) {
-  this.SnackBar.openFromComponent(SnackbarComponent, {
+  this.snackBar.openFromComponent(SnackbarComponent, {
     data: { message },
     duration: 3000,
-    });
+    panelClass: 'success-snackbar',
+  });
+}
+openErrorSnackBar(message: string) {
+  this.snackBar.openFromComponent(SnackbarComponent, {
+    data: { message },
+    duration: 3000,
+    panelClass: 'error-snackbar',
+  });
 }
 
 onStarHover(index: number): void {
@@ -95,6 +108,17 @@ onMouseOut(): void {
 onStarClick(index: number): void {
   this.selectedStar = index + 1;
   console.log(`Selected: ${this.selectedStar}`);
+}
+
+loader(state: boolean, duration: number) {
+  this.showLoader = state;
+
+  if (state) {
+    // If the state is true (show loader), set a timeout to hide it after the specified duration
+    setTimeout(() => {
+      this.showLoader = false;
+    }, duration);
+  }
 }
 
 }

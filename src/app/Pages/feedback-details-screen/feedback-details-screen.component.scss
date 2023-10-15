@@ -3,6 +3,7 @@
     height: 100vh;
     width: 100%;
     position: relative; /* Set the parent container to relative positioning */
+
 }
 
 app-navbar {
@@ -21,6 +22,11 @@ app-navbar {
     text-align: center;
     z-index: 1;
     padding-top: 2%;
+
+    @media screen and (max-width: 600px)
+    {
+        font-size: 30px;
+    }
 }
 
 .dark-container {
@@ -33,11 +39,25 @@ app-navbar {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Set the z-index to 2 to appear below light-container */
+    z-index: 2;
+
+    @media screen and (max-width: 1024px)
+    {
+        height: 200px;
+        width: 94%;
+        top: 200px;
+    }
+    
+    @media screen and (max-width: 600px)
+    {
+        height: 200px;
+        width: 90%;
+        top: 120px;
+    }
 }
 
 .light-container {
-    height: 450px; /* Adjusted height for light-container */
+   
     width: 1000px;
     border-radius: 25px;
     background-color: #D1BD9E;
@@ -47,6 +67,18 @@ app-navbar {
     margin-top: 50px;
     transform: translateX(-50%);
     z-index: 3; /* Set the z-index to 3 to appear above dark-container */
+
+    @media screen and (max-width: 1024px)
+    {
+        width: 90%;
+        top: 45%;
+    }
+
+    @media screen and (max-width: 600px)
+    {
+        width: 90%;
+        top: 35%;
+    }
 }
 .burger-name {
     color: #5C2E0F;
@@ -96,18 +128,34 @@ app-navbar {
     text-align: left;
     z-index: 1;
     padding-top: 5%;
+
+    @media screen and (max-width: 600px)
+    {
+        font-size: 8px;
+        padding-top: 5%;
+    }
 }
 .ingredients
 {
     width: 70%;
-    height: 70%;
+    max-height: 180px; 
+    overflow-y: auto;
     word-wrap: break-word;
     color: #281F1A;
     font-size: 16px;
     font-family: 'Paytone One', sans-serif;
     text-align: left;
     z-index: 1;
-    padding-top: 5%;
+    padding-top: 3%;
+
+    @media screen and (max-width: 1024px){
+        max-height: 300px; 
+    }
+
+    @media screen and (max-width: 600px){
+        max-height: 120px; 
+    }
+
 }
 .ingredient-names 
 {
@@ -121,7 +169,13 @@ app-navbar {
 .burger-details
 {
     margin-top: 25px;
+
+    @media screen and (max-width: 600px)
+    {
+        margin-top: 8px;
+    }
 }
+
 .burger-details-containers
 {
     border-radius: 15px;
@@ -129,6 +183,11 @@ app-navbar {
     background-color: #D1BD9E;
     border: solid 2px #E89222;
     margin: 10px;
+
+    @media screen and (max-width: 600px)
+    {
+        padding: 10px;
+    }
 }
 .burger-details-text-heading
 {
@@ -160,6 +219,15 @@ button
     font-family: 'Paytone One', sans-serif;
     border-radius: 20px;   
     margin-right: 20px;
+
+    @media screen and (max-width: 600px)
+    {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+.button{
+    margin-bottom: 20px;
 }
 }
 

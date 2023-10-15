@@ -14,7 +14,6 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
-import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
 
@@ -22,7 +21,7 @@ import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-in
 const routes: Routes = [
   {
     path: '',
-    component: HomeScreenComponent,
+    component: SplashScreenComponent,
   },
   {
     path: 'home',
@@ -83,7 +82,11 @@ const routes: Routes = [
  {
   path: 'admin/ingredients/add', 
    component: AdminIngredientsAddComponent
- }
+ },
+  {
+    path: 'customize-screen',
+    component: CustomizeScreenComponent
+  }
 ];
 
 @NgModule({

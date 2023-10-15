@@ -1,4 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --primary-color: #153d77;
+  --secondary-color: #6c757d;
+  --white-color: #fff;
+  --success-color: #198754;
+  --delete-color: #dc3545;
+  --background-color: #f2f2f2;
+}
 
 html, body { height: 100vh; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar {
+    color: white;
+    z-index: 9999;
+    --mdc-snackbar-container-color: var(--success-color);
+  
+    .mat-simple-snackbar-action {
+      color: white;
+    }
+  }
+  
+  .error-snackbar {
+    color: white;
+    z-index: 9999;
+    --mdc-snackbar-container-color: var(--delete-color);
+    border-color: #f5c6cb;
+  
+    .mat-simple-snackbar-action {
+      color: white;
+    }
+  }
