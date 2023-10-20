@@ -16,6 +16,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
+import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
+import { ProductPageComponent } from './Pages/product-page/product-page.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,10 @@ const routes: Routes = [
   {
     path: 'cart-page',
     component: CartPageComponent
+  },
+  {
+    path: 'product-page',
+    component: ProductPageComponent
   },
   {
     path: 'customize-screen',
