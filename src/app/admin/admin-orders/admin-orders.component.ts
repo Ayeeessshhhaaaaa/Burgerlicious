@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/admin-order-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminOrdersComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private service: AdminOrderServiceService) {
+  constructor(private service: AdminOrderServiceService ,private router: Router) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -46,5 +47,9 @@ export class AdminOrdersComponent {
         }
       });
     }
+  }
+
+  updateOrderStatus(orderID: number) {
+    this.router.navigateByUrl("admin/orders/updateOrderStatus/"+orderID);
   }
 }
