@@ -12,6 +12,7 @@ export class AdminIngredientsAddComponent {
   error: any;
   selectedImage: any;
   customeFileScriptElement: HTMLScriptElement;
+  loaderFixScriptElement: HTMLScriptElement;
 
   ingredientForm: FormGroup = new FormGroup({
     IngredientName: new FormControl('', Validators.required),
@@ -28,6 +29,10 @@ export class AdminIngredientsAddComponent {
     this.customeFileScriptElement= document.createElement("script");
     this.customeFileScriptElement.src = "assets/scripts/customeFile.js";
     document.body.appendChild(this.customeFileScriptElement);
+
+    this.loaderFixScriptElement = document.createElement("script");
+    this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
+    document.body.appendChild(this.loaderFixScriptElement);
   }
 
   

@@ -1,0 +1,93 @@
+$main-bg-color: #5C2E0F;
+$text-color: #D1BD9E;
+$font-size: 50px;
+$font-weight: 600;
+$font-family: 'Paytone One', sans-serif;
+
+.Containers {
+    background-color: $main-bg-color;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+app-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.textbox {
+    color: $text-color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-family: $font-family;
+    z-index: 5;
+    padding-top: 2%;
+}
+
+.height {
+    height: 10vh;
+}
+
+
+.form {
+    position: relative;
+    z-index: 3;
+
+    .fa-search {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: #9ca3af;
+    }
+
+    .left-pan {
+        padding-left: 7px;
+
+        i {
+            padding-left: 10px;
+        }
+    }
+
+    .form-input {
+        height: 55px;
+        text-indent: 33px;
+        border-radius: 30px;
+        background-color: #f5ebe0;
+
+        &:focus {
+            box-shadow: none;
+            border: none;
+        }
+
+    }
+}
+
+.circle {
+    width: 58vw;
+    height: 58vw;
+    background-color: $text-color;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 66%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+
+
+
+.nav .nav-item .active{
+    background-color: #ee9b00;
+    border-radius: 25px;
+}
+
+.nav .nav-item .nav-link {
+    color: white;
+}
