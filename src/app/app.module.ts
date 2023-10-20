@@ -43,6 +43,7 @@ import { PageLoaderComponent } from './Components/page-loader/page-loader.compon
 import { FeedbackSearchComponent } from './Components/feedback-search/feedback-search.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
+import { ProductPageComponent } from './Pages/product-page/product-page.component';
 
 
 @NgModule({
@@ -75,6 +76,8 @@ import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-upda
     PageLoaderComponent,
     FeedbackSearchComponent,
     AdminUpdateOrderStatusComponent
+    ProductPageComponent
+
   ],
   imports: [
     BrowserModule,

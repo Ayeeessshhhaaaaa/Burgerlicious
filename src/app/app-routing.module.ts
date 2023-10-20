@@ -18,6 +18,7 @@ import { CustomizeScreenComponent } from './Pages/customize-screen/customize-scr
 import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
+import { ProductPageComponent } from './Pages/product-page/product-page.component';
 
 
 const routes: Routes = [
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'cart-page',
     component: CartPageComponent
+  },
+  {
+    path: 'product-page',
+    component: ProductPageComponent
   },
   {
     path: 'customize-screen',
