@@ -42,6 +42,7 @@ import { IngredientsSliderComponent } from './Components/ingredients-slider/ingr
 import { PageLoaderComponent } from './Components/page-loader/page-loader.component';
 import { FeedbackSearchComponent } from './Components/feedback-search/feedback-search.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
 
 
 @NgModule({
@@ -69,10 +70,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     IngredientsSliderComponent,
     AdminIngredientsComponent,
     CustomizeScreenComponent,
-    AdminNavbarComponent
-    AdminIngredientsAddComponent
+    AdminNavbarComponent,
+    AdminIngredientsAddComponent,
     PageLoaderComponent,
-    FeedbackSearchComponent
+    FeedbackSearchComponent,
+    AdminUpdateOrderStatusComponent
   ],
   imports: [
     BrowserModule,
