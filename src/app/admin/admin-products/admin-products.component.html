@@ -44,10 +44,10 @@
         </ul>
       </nav>
       <!-- /.navbar -->
-      
+
       <!-- Main Sidebar Container -->
       <app-admin-navbar></app-admin-navbar>
-    
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -55,79 +55,60 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">New Ingredient</h1>
+                <h1 class="m-0">Products</h1>
               </div><!-- /.col -->
             </div><!-- /.row -->
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
     
-        <!--Alerts-->
-        <div class="alert alert-danger alert-dismissible" *ngIf="error">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-          {{error}}
-        </div>
-    
-        <div class="card card-primary">
+        <div class="card">
           <div class="card-header">
-            <h3 class="card-title">New Ingredient Details</h3>
+            <h3 class="card-title">All Products</h3>
           </div>
           <!-- /.card-header -->
-    
-          <!-- form start -->
-          <form [formGroup]="ingredientForm" (ngSubmit)="ingredientSubmit()">
-            <div class="card-footer">
-              <button type="submit" class="btn btn-primary" style="float:right">Submit Ingredient</button>
-            </div>
-            <div class="card-body">
-  
-              <div class="form-group">
-                <label for="IngredientName">Ingredient Name</label>
-                <input type="text" class="form-control" id="IngredientName" formControlName="IngredientName"
-                  placeholder="Enter Ingredient Name">
-              </div>
-  
-              <div class="form-group">
-                  <label for="Price">Ingredient Price</label>
-                  <input type="text" class="form-control" id="Price" formControlName="Price"
-                    placeholder="Enter Price">
-                </div>
-  
-                <div class="form-group">
-                  <label for="Description">Ingredient Description</label>
-                  <input type="text" class="form-control" id="Description" formControlName="Description"
-                    placeholder="Enter Description">
-                </div>
-  
-                <div class="form-group">
-                  <label for="ImageURL">Ingredient Image</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="ImageURL" formControlName="ImageURL" (change)="onImageSelected($event)">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="form-group">
-                  <label for="CategoryID">Ingredient Category</label>
-                  <input type="text" class="form-control" id="CategoryID" formControlName="CategoryID"
-                    placeholder="Enter Category ID">
-                </div>
-  
-            </div>
-           
-          </form>
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>ImageURL</th>
+                <th>Rating</th>
+                <th>CategoryID</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor ='let p of allProducts'>
+                  <td>{{p.ProductID}}</td>
+                  <td>{{p.ProductName}}</td>
+                  <td>{{p.Price}}</td>
+                  <td>{{p.Description}}</td>
+                  <td><img src="http://localhost:3600/productImages/{{p.ImageURL}}" alt="Product Image" style="width:100px; height: 100px;"></td>
+                  <td>{{p.Rating}}</td>
+                  <td>{{p.CategoryID }}</td>
+                  <td><button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button><button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button><button (click)="delete(p.ProductID)" style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button></td>
+                </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>ImageURL</th>
+                <th>Rating</th>
+                <th>CategoryID</th>
+                <th>Action</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
         </div>
-      
-  
-        <!-- /2card -->
-    
-    
-        
-    
-    
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
@@ -147,8 +128,9 @@
         </div>
       </footer>
     </div>
-  </div>
     <!-- ./wrapper -->
+  </div>
     <router-outlet></router-outlet>
+  
   
   
