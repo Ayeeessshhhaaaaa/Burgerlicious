@@ -1,43 +1,77 @@
 <div class="Containers">
-    <app-navbar></app-navbar>
-    <div class="textbox">Products</div>
+  <app-navbar></app-navbar>
+  <div class="textbox">Products</div>
 
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-6">
-          <div class="form">
-            <i class="fa fa-search"></i>
-            <input type="text" class="form-control form-input" placeholder="Search products...">
-          </div>
-        </div>
+  <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="form">
+        <i class="fa fa-search"></i>
+        <input
+          type="text"
+          class="form-control form-input"
+          placeholder="Search products..."
+        />
+      </div>
     </div>
+  </div>
 
+  <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Burgers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Fries</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Drinks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Sides</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Desserts</a>
+    </li>
+  </ul>
 
+  <div class="circle"></div>
 
-    <ul class="nav nav-pills justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">All</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Burgers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Fries</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Drinks</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Sides</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Desserts</a>
-        </li>
-      </ul>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="1 1 auto" fxFlex.xs="100%" class="product-column">
+      <div
+        class="scrollable-content"
+        fxLayout="row wrap"
+        fxLayoutGap="40px calc(100% - 40px)"
+        fxLayoutAlign="space-evenly"
+      >
+        <ng-container
+          *ngIf="productData && productData.length > 0; else noResults"
+        >
+          <div class="data-blocks" *ngFor="let data of productData">
+            <app-product-block
+              [IngredientID]="data.IngredientID"
+              [IngredientName]="data.IngredientName"
+              [Price]="data.Price"
+              [Description]="data.Description"
+              [ImageURL]="data.ImageURL"
+              [CategoryID]="data.CategoryID"
+            ></app-product-block>
+          </div>
+        </ng-container>
 
-
-
-
-
-    <div class="circle"></div>
+        <ng-template #noResults>
+          <div
+            fxLayout="column"
+            class="no-results"
+            fxLayoutAlign="center center"
+            fxFlex="1 1 auto"
+          >
+            No Products Available
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 </div>
-

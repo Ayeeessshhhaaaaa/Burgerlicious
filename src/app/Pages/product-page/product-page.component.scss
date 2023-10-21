@@ -91,3 +91,71 @@ app-navbar {
 .nav .nav-item .nav-link {
     color: white;
 }
+
+
+
+
+.burger-container {
+    position: absolute;
+    bottom: 0;
+    width: 800px;
+    height: 580px;
+    z-index: 1;
+}
+
+.data-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        margin-top: 45px;
+    }
+}
+
+
+
+.scrollable-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 10px;
+    margin-top: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    @media screen and (max-width: 600px) {
+        margin-top: 1px;
+    }
+}
+
+.scrollable-content::-webkit-scrollbar {
+    width: 0;
+}
+
+.scrollable-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+
+
+
+.product-column {
+    z-index: 2;
+
+    @media screen and (max-width: 600px) {
+        margin-top: 20px;
+    }
+}
+
+
+app-product-block {
+    /* Add styles for app-feedback-block as needed */
+    margin: 50px 50px 0px 50px; /* Adjust the margin as needed */
+    
+    @media screen and (max-width: 600px) {
+        margin: 0px 0px 0px 0px; /* Adjust the margin as needed */
+    }
+}
