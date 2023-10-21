@@ -17,6 +17,7 @@ import { CartPageComponent } from './Pages/cart-page/cart-page.component';
 import { CustomizeScreenComponent } from './Pages/customize-screen/customize-screen.component';
 import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-ingredients-add/admin-ingredients-add.component';
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
+import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 
 
@@ -92,7 +93,11 @@ const routes: Routes = [
   {
     path: 'customize-screen',
     component: CustomizeScreenComponent
-  }
+  },
+  {
+    path: 'admin/orders/updateOrderStatus/:id',
+    component: AdminUpdateOrderStatusComponent,
+  },
 ];
 
 @NgModule({

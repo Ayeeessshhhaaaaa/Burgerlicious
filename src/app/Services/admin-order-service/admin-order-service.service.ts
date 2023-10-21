@@ -46,4 +46,13 @@ export class AdminOrderServiceService {
     let apiUrl = 'http://localhost:3600/admin/orders/deleteOrder/' + id;
     return this._http.delete(apiUrl);
   }
+  getOrderById(id:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/'+id;
+    return this._http.get(apiUrl);
+  }
+
+  updateOrderStatusById(data:any,orderId:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/updateOrderStatusById/'+orderId;
+    return this._http.put(apiUrl,data);
+  }
 }

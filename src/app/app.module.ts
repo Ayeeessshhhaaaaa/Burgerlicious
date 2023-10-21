@@ -42,6 +42,7 @@ import { IngredientsSliderComponent } from './Components/ingredients-slider/ingr
 import { PageLoaderComponent } from './Components/page-loader/page-loader.component';
 import { FeedbackSearchComponent } from './Components/feedback-search/feedback-search.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { ProductBlockComponent } from './Components/product-block/product-block.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
@@ -76,6 +77,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     AdminIngredientsAddComponent,
     PageLoaderComponent,
     FeedbackSearchComponent,
+    AdminUpdateOrderStatusComponent,
     ProductPageComponent,
     ProductBlockComponent,
     AdminProductsComponent
