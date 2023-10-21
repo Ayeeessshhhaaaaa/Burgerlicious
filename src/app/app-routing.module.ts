@@ -19,6 +19,8 @@ import { AdminIngredientsAddComponent } from './admin/admin-ingredients/admin-in
 import { AdminIngredientsComponent } from './admin/admin-ingredients/admin-ingredients.component';
 import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-update-order-status/admin-update-order-status.component';
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
 
 
 const routes: Routes = [
@@ -98,6 +100,14 @@ const routes: Routes = [
     path: 'admin/orders/updateOrderStatus/:id',
     component: AdminUpdateOrderStatusComponent,
   },
+  {
+    path: 'admin/products',
+    component: AdminProductsComponent
+ },
+ {
+  path: 'admin/products/add', 
+   component: AdminProductsAddComponent
+ },
 ];
 
 @NgModule({

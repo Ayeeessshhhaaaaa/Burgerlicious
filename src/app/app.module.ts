@@ -46,6 +46,7 @@ import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-upda
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { ProductBlockComponent } from './Components/product-block/product-block.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     AdminUpdateOrderStatusComponent,
     ProductPageComponent,
     ProductBlockComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AdminProductsAddComponent
   ],
   imports: [
     BrowserModule,

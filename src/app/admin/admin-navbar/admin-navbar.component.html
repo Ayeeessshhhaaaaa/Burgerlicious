@@ -135,6 +135,36 @@
         </li>
 
 
+        <!--Products Nav Bar-->
+        <li class="nav-item menu-open">
+          <a class="nav-link" [routerLink]="['/admin/products']" routerLinkActive="active">
+            <i class="nav-icon fas fa-hamburger"></i>
+            <p>
+              Products
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/products']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Products
+                </p>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/products/add']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Product
+                </p>
+              </a>
+            </li>
+          </ul>
+      </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

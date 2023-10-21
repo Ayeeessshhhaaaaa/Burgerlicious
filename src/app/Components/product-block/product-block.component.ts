@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ProductBlockComponent {
 
-  @Input() IngredientID : number | undefined;
-  @Input() IngredientName: string | undefined;
+  @Input() ProductID : number | undefined;
+  @Input() ProductName	: string | undefined;
   @Input() Price: number | undefined;
   @Input() Description: string | undefined;
   @Input() ImageURL: string | undefined;
+  @Input() Rating: string | undefined;
   @Input() CategoryID: number | undefined;
 
 
@@ -23,9 +24,9 @@ export class ProductBlockComponent {
 
   redirectToDetailsPage()
   {
-    if (this.IngredientID)
+    if (this.ProductID)
     {
-      this.router.navigate(['/feedback-details',this.IngredientID]);
+      this.router.navigate(['/feedback-details',this.ProductID]);
     } 
   }
 

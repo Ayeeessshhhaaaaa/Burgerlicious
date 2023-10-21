@@ -51,11 +51,12 @@
         >
           <div class="data-blocks" *ngFor="let data of productData">
             <app-product-block
-              [IngredientID]="data.IngredientID"
-              [IngredientName]="data.IngredientName"
+              [ProductID]="data.ProductID"
+              [ProductName]="data.ProductName"
               [Price]="data.Price"
               [Description]="data.Description"
               [ImageURL]="data.ImageURL"
+              [Rating]="data.Rating"
               [CategoryID]="data.CategoryID"
             ></app-product-block>
           </div>

@@ -1,9 +1,10 @@
 export class productModel {
-    IngredientID : number | undefined;
-    IngredientName: string | undefined;
+    ProductID : number | undefined;
+    ProductName: string | undefined;
     Price: number | undefined;
     Description: string | undefined;
     ImageURL: string | undefined;
+    Rating: string | undefined;
     CategoryID: number | undefined;
   }
   
