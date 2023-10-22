@@ -124,6 +124,7 @@ app-navbar {
     margin-top: 15px;
     max-height: 80vh;
     overflow-y: auto;
+    place-content: stretch space-evenly;
 
     @media screen and (max-width: 600px) {
         margin-top: 1px;
