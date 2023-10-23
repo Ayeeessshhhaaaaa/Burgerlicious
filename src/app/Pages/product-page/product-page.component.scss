@@ -98,9 +98,13 @@ app-navbar {
 .burger-container {
     position: absolute;
     bottom: 0;
-    width: 800px;
+    width: 200px;
     height: 580px;
     z-index: 1;
+}
+
+.product-column{
+    width: 50%;
 }
 
 .data-blocks {
@@ -119,8 +123,7 @@ app-navbar {
 .scrollable-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    padding: 10px;
+    gap: 5px;
     margin-top: 15px;
     max-height: 80vh;
     overflow-y: auto;
