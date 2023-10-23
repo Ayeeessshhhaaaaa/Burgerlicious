@@ -47,6 +47,7 @@ import { ProductPageComponent } from './Pages/product-page/product-page.componen
 import { ProductBlockComponent } from './Components/product-block/product-block.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
+import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { AdminProductsAddComponent } from './admin/admin-products/admin-products
     ProductPageComponent,
     ProductBlockComponent,
     AdminProductsComponent,
-    AdminProductsAddComponent
+    AdminProductsAddComponent,
+    ProductDetailsScreenComponent
   ],
   imports: [
     BrowserModule,

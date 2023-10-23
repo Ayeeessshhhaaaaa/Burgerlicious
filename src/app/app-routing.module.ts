@@ -21,6 +21,7 @@ import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-upda
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
+import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'feedback-details/:ReviewID',
     component: FeedbackDetailsScreenComponent
+  },
+  {
+    path: 'product-details/:ProductID',
+    component: ProductDetailsScreenComponent
   },
   {
     path: 'feedback-form',
