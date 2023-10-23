@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminIngredientServiceService } from 'src/app/Services/admin-ingredient-service/admin-ingredient-service.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AdminIngredientsComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private service:AdminIngredientServiceService){ 
+  constructor(private service:AdminIngredientServiceService,private router: Router){ 
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -47,6 +48,11 @@ export class AdminIngredientsComponent {
         }
       });
     }
+  }
+
+
+  updateIngredient(IngredientID: number) {
+    this.router.navigateByUrl("admin/ingredients/updateIngredient/"+IngredientID);
   }
 
 }
