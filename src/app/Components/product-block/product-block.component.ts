@@ -22,11 +22,11 @@ export class ProductBlockComponent {
   }
 
 
-  redirectToDetailsPage()
+  redirectToProductPage()
   {
     if (this.ProductID)
     {
-      this.router.navigate(['/feedback-details',this.ProductID]);
+      this.router.navigate(['/product-details',this.ProductID]);
     } 
   }
 
