@@ -42,9 +42,7 @@ export class AdminIngredientServiceService {
     return this._http.put(apiUrl,data);
   }
 
-  updateIngredient(id:any, data:any,image: File):Observable<any>{
-    const formData = new FormData();
-    formData.append('image', image);
+  updateIngredient(id:any, data:any):Observable<any>{
     let apiUrl = 'http://localhost:3600/admin/ingredients/updateIngredient/'+id;
     return this._http.put(apiUrl,data);
   }
