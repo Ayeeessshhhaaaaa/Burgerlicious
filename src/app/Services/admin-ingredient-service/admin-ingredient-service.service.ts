@@ -46,6 +46,12 @@ export class AdminIngredientServiceService {
     let apiUrl = 'http://localhost:3600/admin/ingredients/updateIngredient/'+id;
     return this._http.put(apiUrl,data);
   }
+
+
+  getAllCategories():Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/ingredients/getAllCategories';
+    return this._http.get(apiUrl);
+  }
   
 
 }

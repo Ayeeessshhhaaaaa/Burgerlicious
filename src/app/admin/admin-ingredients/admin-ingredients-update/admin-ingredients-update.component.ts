@@ -16,6 +16,7 @@ export class AdminIngredientsUpdateComponent {
   loaderFixScriptElement: HTMLScriptElement;
   ingredientID: any;
   ingredientDetails: any;
+  allCategories : any;
 
   ingredientForm: FormGroup = new FormGroup({
     IngredientName: new FormControl('', Validators.required),
@@ -46,6 +47,12 @@ export class AdminIngredientsUpdateComponent {
       this.ingredientDetails=res.data;
       console.log(this.ingredientDetails);
     });
+
+
+    this.service.getAllCategories().subscribe((res) => {
+      this.allCategories = res.data;
+    });
+
 
   }
 

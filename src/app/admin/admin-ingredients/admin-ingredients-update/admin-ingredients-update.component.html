@@ -99,13 +99,16 @@
                     <input type="text" class="form-control" id="Description" formControlName="Description" 
                     value="{{ingredientDetails[0].Description}}" [(ngModel)]="ingredientDetails[0].Description">
                   </div>
-    
-                  
+
                   <div class="form-group">
-                    <label for="CategoryID">Ingredient Category</label>
-                    <input type="text" class="form-control" id="CategoryID" formControlName="CategoryID"
-                    value="{{ingredientDetails[0].CategoryID}}" [(ngModel)]="ingredientDetails[0].CategoryID">
+                    <label>Ingredient Category</label>
+                    <select class="form-control" formControlName="CategoryID" [(ngModel)]="ingredientDetails[0].CategoryID">
+                      <option *ngFor='let category of allCategories' value="{{category.CategoryID}}">
+                        {{category.CategoryName}}
+                      </option>
+                    </select>
                   </div>
+
 
 
                   <div>
