@@ -1,28 +1,57 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { CustomizeServiceService } from 'src/app/Services/customize-service/customize-service.service';
+import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
 
 @Component({
   selector: 'app-ingredients-slider',
   templateUrl: './ingredients-slider.component.html',
   styleUrls: ['./ingredients-slider.component.scss']
 })
-export class IngredientsSliderComponent {
+export class IngredientsSliderComponent implements OnInit{
   imageUrl: string = 'assets/base-bun.png';
   sanitizedImageUrl: SafeUrl;
-  ingredients = [
-    { name: 'Base Bun', imageUrl: 'assets/base-bun.png' },
-    { name: 'Cheese', imageUrl: 'assets/cheese.png' },
-    { name: 'Patty', imageUrl: 'assets/patty.png' },
-    { name: 'Salads', imageUrl: 'assets/lettuce.png' },
-    { name: 'Extra Filling', imageUrl: 'assets/onion.png' },
-    { name: 'Sauces', imageUrl: 'assets/sauce.png' },
-    { name: 'Top Bun', imageUrl: 'assets/top-bun.png' },
-  ];
-  ingredientsImage = [
-    { name: 'Base Bun', imageUrl: 'assets/base-bun.png' },
-    { name: 'Base Bun', imageUrl: 'assets/base-bun.png' },
-  ];
-  constructor(private sanitizer: DomSanitizer) {
+
+  ingredients: any[]=[];
+  ingredientItems: any[]=[];
+  
+  constructor(private sanitizer: DomSanitizer, private customizeService:CustomizeServiceService, private CustomizeSessionService: CustomizeSessionSeriveService) {
     this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
+  } 
+
+   ngOnInit(): void {
+    
+    this.customizeService.getIngredients().subscribe(
+      (data) => {
+        this.ingredients = data; 
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
   }
+
+  // Function to handle item click in the carousel-container
+  onItemClick(CategoryID: number) {
+    // Make an API call to get the ingredient details based on its ID
+    this.customizeService.getItems(CategoryID).subscribe(
+      (data) => {
+        this.ingredientItems = data; 
+        console.log(this.ingredientItems);
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+
+  addToCustomization(Ingredient: any) {
+    try {
+      this.CustomizeSessionService.addToCustomization(Ingredient); 
+      console.log('Item Added to Customization');
+    } catch (error) {
+      console.log('Item failed');
+   }
+  }
+
 }
