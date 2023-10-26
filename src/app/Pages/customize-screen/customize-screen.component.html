@@ -3,16 +3,33 @@
     <div class="textbox">
         Customize &nbsp;<span class="cream"> Burger</span>
     </div>
+
     <div class="left-container" fxFlex="55">
-        <app-ingredients-slider></app-ingredients-slider>
+        <app-ingredients-slider (itemAdded)="recalculateTotalAmount()"></app-ingredients-slider>
     </div>
+
     <div class="right-container" fxFlex="588px" fxFlex="45" fxLayout="center center">
-        <div class="image"> <img src="base-bun.png" alt="burger"></div>
-        <div class="price">
-            <h3>Rs.2100</h3>
-        </div>
+
+        <div class="imageContainer">
+            <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image" [style.bottom.px]="-i * imageHeight">
+              <div class="image-wrapper">
+                <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
+                <div (click)="removeIngredient(i)" class="close-button"><span class="material-symbols-outlined"> delete </span>
+                </div>
+                <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span>
+                </div>
+                <div (click)="moveImageDown(i)" class="arrow-button down-button"><span class="material-symbols-outlined">expand_more</span>
+                </div>
+              </div>
+            </div>
+          </div>                           
+
+          <div class="price">
+            <h3>Rs.{{ totalPrice }}</h3>
+          </div>
+          
             <div class="button-container">
-                <button mat-raised-button class="button" >Finish Building</button>
+                <button mat-raised-button class="button" (click)="clearCustomization()">Finish Building</button>
             </div>
      </div>
 </div>

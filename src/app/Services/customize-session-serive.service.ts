@@ -10,19 +10,21 @@ export class CustomizeSessionSeriveService {
   // Define the array to store IngredientId values
   customizeIngredient: any[] = [];
 
+
   addToCustomization(Ingredient: any) {
-    console.log('addToCart - Before:', this.customizeIngredient);
-
+    console.log('addToCustomization - Before:', this.customizeIngredient);
+  
     const itemIndex = this.customizeIngredient.findIndex((item) => item.IngredientID === Ingredient.IngredientID);
-
-      this.customizeIngredient.push({ Ingredient });
-
-    console.log('addToCart - After:', this.customizeIngredient);
-
-    this.updatecustomizeStorage();
+  
+    // Check if the item is not already in the array
+    if (itemIndex === -1) {
+      this.customizeIngredient.unshift({ Ingredient }); // Add the new ingredient to the beginning
+      this.updatecustomizeStorage(); // Store the updated data in local storage
+    }
+  
+    console.log('addToCustomization - After:', this.customizeIngredient);
   }
-
-
+  
   removeCustomizationFromContainer(IngredientID: number) {
     this.customizeIngredient = this.customizeIngredient.filter((item) => item.IngredientID !== IngredientID);
     this.updatecustomizeStorage();

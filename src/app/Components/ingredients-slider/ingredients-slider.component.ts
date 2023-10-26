@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,EventEmitter, Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CustomizeServiceService } from 'src/app/Services/customize-service/customize-service.service';
 import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
@@ -14,6 +14,8 @@ export class IngredientsSliderComponent implements OnInit{
 
   ingredients: any[]=[];
   ingredientItems: any[]=[];
+
+  @Output() itemAdded = new EventEmitter<void>();
   
   constructor(private sanitizer: DomSanitizer, private customizeService:CustomizeServiceService, private CustomizeSessionService: CustomizeSessionSeriveService) {
     this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
@@ -52,6 +54,7 @@ export class IngredientsSliderComponent implements OnInit{
     } catch (error) {
       console.log('Item failed');
    }
+   this.itemAdded.emit();
   }
 
 }
