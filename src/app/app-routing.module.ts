@@ -21,6 +21,7 @@ import { AdminUpdateOrderStatusComponent } from './admin/admin-orders/admin-upda
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
+import { UserPageComponent } from './Pages/user-page/user-page.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'product-page',
     component: ProductPageComponent
+  },
+  {
+    path: 'user-page',
+    component: UserPageComponent
   },
   {
     path: 'customize-screen',
