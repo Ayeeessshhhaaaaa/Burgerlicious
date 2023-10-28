@@ -87,7 +87,7 @@
                 <td>{{order.TotalAmount}}</td>
                 <td>{{order.Status}}</td>
                 <td>
-                  <button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button>
+                  <button style="margin-left:15px;background:rgb(15, 90, 160);color:white;" (click)="viewOrder(order.OrderID)"><i class="fas fa-eye"></i></button>
                   <button style="margin-left:15px;background:rgb(90, 15, 160);color:white;" (click)="downloadInvoice(order.OrderID)"><i class="fas fa-file-invoice"></i></button>
                   <button style="margin-left:15px;background:rgb(187, 160, 7);color:white;" (click)="updateOrderStatus(order.OrderID)"><i class="fas fa-truck"></i></button>
                   <button style="margin-left:15px;background:rgb(13, 102, 20);color:white;"><i class="fas fa-edit"></i></button>
