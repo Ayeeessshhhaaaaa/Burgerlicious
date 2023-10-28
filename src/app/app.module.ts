@@ -50,6 +50,8 @@ import { AdminProductsAddComponent } from './admin/admin-products/admin-products
 import { UserPageComponent } from './Pages/user-page/user-page.component';
 import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
+import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
+import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
 
 @NgModule({
   declarations: [
@@ -85,9 +87,11 @@ import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin
     ProductBlockComponent,
     AdminProductsComponent,
     AdminProductsAddComponent,
-    UserPageComponent
+    UserPageComponent,
     ProductDetailsScreenComponent,
-    AdminIngredientsUpdateComponent
+    AdminIngredientsUpdateComponent,
+    AdminOrderViewComponent,
+    AdminOrderUpdateComponent
   ],
   imports: [
     BrowserModule,
