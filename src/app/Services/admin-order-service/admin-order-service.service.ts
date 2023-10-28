@@ -46,6 +46,7 @@ export class AdminOrderServiceService {
     let apiUrl = 'http://localhost:3600/admin/orders/deleteOrder/' + id;
     return this._http.delete(apiUrl);
   }
+  
   getOrderById(id:any):Observable<any>{
     let apiUrl = 'http://localhost:3600/admin/orders/'+id;
     return this._http.get(apiUrl);
@@ -65,4 +66,32 @@ export class AdminOrderServiceService {
     let apiUrl = 'http://localhost:3600/admin/orders/getAllOrderItemsByOrderID/'+orderId;
     return this._http.get(apiUrl);
   }
+
+  //For update
+  getAllUsers():Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/users';
+    return this._http.get(apiUrl);
+  }
+
+  updateOrderById(updateOrder:any,orderID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/updateOrderById/'+orderID;
+    return this._http.put(apiUrl,updateOrder);
+  }
+
+  //Order Item Update
+  getOrderItemById(orderItemID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/getOrderItemById/'+orderItemID;
+    return this._http.get(apiUrl);
+  }
+
+  updateOrderItemById(updateOrderItem:any,orderItemID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/updateOrderItemById/'+orderItemID;
+    return this._http.put(apiUrl,updateOrderItem);
+  }
+
+  updateOrderTotalAmount(totalAmountCalculate:any,orderID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/updateOrderTotalAmount/'+orderID;
+    return this._http.put(apiUrl,totalAmountCalculate);
+  }
+  
 }

@@ -24,7 +24,9 @@ import { AdminProductsAddComponent } from './admin/admin-products/admin-products
 import { UserPageComponent } from './Pages/user-page/user-page.component';
 import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
+import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+
 
 const routes: Routes = [
   {
@@ -124,6 +126,9 @@ const routes: Routes = [
   component: AdminIngredientsUpdateComponent,
 },
 {
+  path: 'admin/orders/viewOrder/:id',
+  component: AdminOrderViewComponent,
+},
   path: 'admin/feedback',
   component: AdminFeedbackComponent,
 }

@@ -202,14 +202,6 @@ export class AdminComponent implements OnInit {
     console.log(dataurl3);
     let fitArray:number[]=[500,500];
 
-    // let docDef = {
-    //   content: [
-    //     {
-    //       image: dataurl3,
-    //       fit: fitArray
-    //     }
-    //   ]
-    // };
     let docDef: {
       content: {
           image: string;
@@ -262,6 +254,39 @@ export class AdminComponent implements OnInit {
     };
   }
 
+  generateRevenuePDF(){
+    var canvar_bar = document.getElementById("revenuePerYearChart") as HTMLCanvasElement;
+    var dataurl3=canvar_bar.toDataURL('image/png');
+    console.log(dataurl3);
+
+    let docDef: {
+      content: {
+          image: string;
+          fit: [number, number]; 
+      }[];
+  } = {
+      content: [
+          {
+              image: dataurl3,
+              fit: [500, 500]
+          }
+         
+      ]
+  };
+
+    pdfMake.createPdf(docDef).open();
+    pdfMake.createPdf(docDef).download('revenuePerYearChart.pdf');
+  
+  }
+  
+  downloadRevenueImage() {
+    var canvar_bar = document.getElementById("revenuePerYearChart") as HTMLCanvasElement;
+    var dataurl3 = canvar_bar.toDataURL('image/png');
+    var link = document.createElement('a');
+    link.download = 'revenuePerYearChart.png';
+    link.href = dataurl3;
+    link.click();
 
 
+  }
 }
