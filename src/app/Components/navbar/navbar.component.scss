@@ -24,10 +24,38 @@
                 color: #E89222;
                 cursor: pointer;
             }
-        }
+  
+        }/* Assuming your CSS/SCSS file */
 
         .material-symbols-outlined {
             // Add styles for the shopping cart icon as needed
         }
     }
+
+   
+    
+.customize-item {
+
+    display: flex;
+    gap: 20px; // Adjust the gap between nav items as needed
+    margin-right: 10px; // Adjust the margin as needed to position the nav
+    align-items: center; // Vertically aligns items in the middle
+    
+
+    .nav-item {
+    color: #5C2E0F !important;
+    font-size: 15px;
+    font-family: 'Paytone One', sans-serif;
+    
+    &:hover
+    {
+        color: #E89222;
+        cursor: pointer;
+    }
+  }
+  
+  }
+
 }
+
+  

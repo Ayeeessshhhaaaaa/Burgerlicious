@@ -10,6 +10,7 @@
         left: 0;
         width: 100%;
         z-index: 999;
+
     }
 }
 
@@ -56,18 +57,69 @@
     width: 588px; /* Set the width as needed */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
 
+    .imageContainer {
+        width: 400px;
+        max-height: 400px;
+        padding: 2%;
+        position: relative;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
     
+    .stacked-image {
+        margin-bottom: -10px; /* Add spacing between stacked images */
+    }
+    
+    .individualIngredient {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .image-wrapper {
+        display: flex; /* Use flexbox to align items horizontally */
+        align-items: center; /* Vertically center-align items within .image-wrapper */
+      }
+
+    .close-button {
+        margin-left: 10px; /* Add some spacing between the image and the button */
+      }
+
+      .arrow-button {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #5C2E0F;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      
+      .up-button {
+        /* Style for the "Up" button */
+        position: absolute;
+        top: 0;
+        left: -30px;
+      }
+      
+      .down-button {
+        /* Style for the "Down" button */
+        position: absolute;
+        bottom: 0;
+        left: -30px;
+      }
+        
+       
     h3
-{
-    font-family: 'Paytone One', sans-serif;
-    color: #5C2E0F;
-    font-size: 20px;
-    margin-right: 310px;
-    margin-bottom: 55px;
-}
+    {
+        font-family: 'Paytone One', sans-serif;
+        color: #5C2E0F;
+        font-size: 20px;
+        margin-right: 310px;
+        margin-bottom: 55px;
+    }
 
     .button-container
     {

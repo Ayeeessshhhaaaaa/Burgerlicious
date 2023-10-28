@@ -22,6 +22,8 @@ import { ProductPageComponent } from './Pages/product-page/product-page.componen
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminProductsAddComponent } from './admin/admin-products/admin-products-add/admin-products-add.component';
 import { UserPageComponent } from './Pages/user-page/user-page.component';
+import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
+import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
 
 
 const routes: Routes = [
@@ -40,6 +42,10 @@ const routes: Routes = [
   {
     path: 'feedback-details/:ReviewID',
     component: FeedbackDetailsScreenComponent
+  },
+  {
+    path: 'product-details/:ProductID',
+    component: ProductDetailsScreenComponent
   },
   {
     path: 'feedback-form',
@@ -113,6 +119,10 @@ const routes: Routes = [
   path: 'admin/products/add', 
    component: AdminProductsAddComponent
  },
+ {
+  path: 'admin/ingredients/updateIngredient/:id',
+  component: AdminIngredientsUpdateComponent,
+}
 ];
 
 @NgModule({

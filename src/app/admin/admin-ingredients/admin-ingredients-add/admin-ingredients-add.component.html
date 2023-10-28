@@ -110,12 +110,16 @@
                   </div>
                 </div>
   
+
                 <div class="form-group">
-                  <label for="CategoryID">Ingredient Category</label>
-                  <input type="text" class="form-control" id="CategoryID" formControlName="CategoryID"
-                    placeholder="Enter Category ID">
+                  <label>Ingredient Category</label>
+                  <select class="form-control" formControlName="CategoryID">
+                    <option *ngFor='let category of allCategories' value="{{category.CategoryID}}">
+                      {{category.CategoryName}}
+                    </option>
+                  </select>
                 </div>
-  
+
             </div>
            
           </form>
