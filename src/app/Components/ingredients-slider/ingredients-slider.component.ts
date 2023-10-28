@@ -9,16 +9,13 @@ import { CustomizeSessionSeriveService } from 'src/app/Services/customize-sessio
   styleUrls: ['./ingredients-slider.component.scss']
 })
 export class IngredientsSliderComponent implements OnInit{
-  imageUrl: string = 'assets/base-bun.png';
-  sanitizedImageUrl: SafeUrl;
 
   ingredients: any[]=[];
   ingredientItems: any[]=[];
 
   @Output() itemAdded = new EventEmitter<void>();
   
-  constructor(private sanitizer: DomSanitizer, private customizeService:CustomizeServiceService, private CustomizeSessionService: CustomizeSessionSeriveService) {
-    this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
+  constructor(private customizeService:CustomizeServiceService, private CustomizeSessionService: CustomizeSessionSeriveService) {
   } 
 
    ngOnInit(): void {

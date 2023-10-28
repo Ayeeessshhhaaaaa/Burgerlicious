@@ -52,6 +52,7 @@ import { ProductDetailsScreenComponent } from './Pages/product-details-screen/pr
 import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
 import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
 import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
+import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-upda
     AdminIngredientsUpdateComponent,
     AdminOrderViewComponent,
     AdminOrderUpdateComponent
+    AdminFeedbackComponent,
   ],
   imports: [
     BrowserModule,
