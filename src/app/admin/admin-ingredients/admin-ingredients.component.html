@@ -76,7 +76,7 @@
                 <th>Price</th>
                 <th>Description</th>
                 <th>ImageURL</th>
-                <th>CategoryID</th>
+                <th>Category Name</th>
                 <th>Action</th>
               </tr>
               </thead>
@@ -87,7 +87,7 @@
                   <td>{{i.Price}}</td>
                   <td>{{i.Description}}</td>
                   <td><img src="http://localhost:3600/ingredientImages/{{i.ImageURL}}" alt="Ingredient Image" style="width:100px; height: 100px;"></td>
-                  <td>{{i.CategoryID }}</td>
+                  <td>{{i.CategoryName }}</td>
                   <td>
                     <button style="margin-left:15px;background:rgb(15, 90, 160);color:white;"><i class="fas fa-eye"></i></button>
                     <button style="margin-left:15px;background:rgb(13, 102, 20);color:white;" (click)="updateIngredient(i.IngredientID)"><i class="fas fa-edit"></i></button>
@@ -101,7 +101,7 @@
                   <th>Price</th>
                   <th>Description</th>
                   <th>ImageURL</th>
-                  <th>CategoryID</th>
+                  <th>Category Name</th>
                   <th>Action</th>
               </tr>
               </tfoot>

@@ -1,3 +1,4 @@
+<div class="hold-transition dark-mode layout-navbar-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -80,11 +81,13 @@
           <button type="submit" class="btn btn-primary" style="float:right">Submit User</button>
         </div>
         <div class="card-body">
-          <div class="form-group">
+
+          <!-- <div class="form-group">
             <label for="UserID">User ID</label>
             <input type="text" class="form-control" id="UserID" formControlName="UserID"
               placeholder="Enter Customer ID">
-          </div>
+          </div> -->
+
           <div class="form-group">
             <label for="Name">Name</label>
             <input type="text" class="form-control" id="Name" formControlName="Name" placeholder="Enter Customer Name">
@@ -94,6 +97,12 @@
             <label for="Email">Email</label>
             <input type="text" class="form-control" id="Email" formControlName="Email"
               placeholder="Enter Customer Email">
+          </div>
+
+          <div class="form-group">
+            <label for="Contact">Contact</label>
+            <input type="text" class="form-control" id="Email" formControlName="Contact"
+              placeholder="Enter Customer Contact">
           </div>
 
           <div class="form-group">
@@ -132,6 +141,7 @@
       <b>Version</b> 3.2.0
     </div>
   </footer>
+</div>
 </div>
 <!-- ./wrapper -->
 <router-outlet></router-outlet>

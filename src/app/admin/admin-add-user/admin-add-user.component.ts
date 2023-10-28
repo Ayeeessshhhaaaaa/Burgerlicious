@@ -15,6 +15,7 @@ export class AdminAddUserComponent {
     UserID: new FormControl('', Validators.required),
     Name: new FormControl('', Validators.required),
     Email: new FormControl('', [Validators.required, Validators.email]),
+    Contact: new FormControl('', Validators.required),
     Password: new FormControl('', Validators.required),
   });
 
