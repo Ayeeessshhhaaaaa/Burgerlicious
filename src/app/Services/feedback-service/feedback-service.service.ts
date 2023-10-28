@@ -17,8 +17,8 @@ export class FeedbackServiceService {
     return this.http.get<feedbackModel[]>(`${this.apiUrl}/orderreviews`);
   }
 
-  searchFeedback(query: string): Observable<feedbackModel[]> {
-    return this.http.get<feedbackModel[]>(`${this.apiUrl}/orderreviews/search?query=${query}`)
+  searchFeedback(keyword: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/orderreviews/${keyword}`);
   }
 
   getFeedbackDetails(ReviewID:number|undefined): Observable<any> {
