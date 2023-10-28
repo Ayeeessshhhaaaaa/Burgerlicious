@@ -10,20 +10,21 @@
 
     <div class="right-container" fxFlex="588px" fxFlex="45" fxLayout="center center">
 
-        <div class="imageContainer">
-            <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image" [style.bottom.px]="-i * imageHeight">
-              <div class="image-wrapper">
-                <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
-                <div (click)="removeIngredient(i)" class="close-button"><span class="material-symbols-outlined"> delete </span>
-                </div>
+      <div class="imageContainer">
+        <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image">
+          <div class="image-wrapper">
+            <div class="image-container">
+              <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
+            </div>
+          </div>
+        </div>
+      </div>                               
+                <!----
                 <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span>
                 </div>
                 <div (click)="moveImageDown(i)" class="arrow-button down-button"><span class="material-symbols-outlined">expand_more</span>
                 </div>
-              </div>
-            </div>
-          </div>                           
-
+                -->
           <div class="price">
             <h3>Rs.{{ totalPrice }}</h3>
           </div>
