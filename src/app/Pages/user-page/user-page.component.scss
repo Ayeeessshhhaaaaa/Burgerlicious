@@ -1,0 +1,89 @@
+.Containers {
+    background-color: #5C2E0F;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    user-select: none;
+}
+
+.left-container {
+    background-color: #D1BD9E;
+    font-family: 'Paytone One', sans-serif;
+    flex: 3;
+    height: 100vh;
+    display: flex;
+    border-radius: 0 55px 55px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container .card{
+    border-radius: 0px 35px 35px 0px;
+    background-color: #d7ccbbc6;
+    border: none;
+}
+
+.middle-container{
+    flex: 3;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.middle-container .card{
+    background-color: #D1BD9E;
+    height: 565px;
+    margin: 80px 5px 30px 20px ;
+    border-radius: 20px 0px 0px 20px;
+    padding: 50px;
+    flex: 2;
+    color: black;
+}
+
+.middle-container .card-body{
+    background-color: #d7ccbbc6;
+    height: 357px;
+    margin: 30px 5px 30px 20px ;
+    border-radius: 20px 0px 0px 20px;
+    padding: 50px;
+    flex: 2;
+    color: black;
+}
+
+.middle-container .cart .button
+{
+    background-color: #5C2E0F;
+}
+
+.right-container{
+    flex: 2;
+    font-family: 'Paytone One', sans-serif;
+}
+
+.right-container .card{
+    background-color: #D1BD9E;
+    height: 565px;
+    margin: 80px 30px 20px 10px ;
+    border-radius: 0px 20px 20px 0px;
+    padding: 50px;
+    flex: 1;
+    color: black;
+}
+
+.middle-container .shadow-sm{
+    background-color: #d2bda2;
+    border-radius: 25px;
+}
+
+.modal-content{
+    border-radius: 12px;
+    background-color: #d2bda2;
+}
+
+input{
+
+    background-color: #d2cabdc6;
+    border: none;
+}
+
+.modal-footer button{
+    border-radius: 5px;
+}

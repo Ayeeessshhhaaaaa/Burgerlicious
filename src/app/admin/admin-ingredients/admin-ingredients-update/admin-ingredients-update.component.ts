@@ -16,6 +16,7 @@ export class AdminIngredientsUpdateComponent {
   loaderFixScriptElement: HTMLScriptElement;
   ingredientID: any;
   ingredientDetails: any;
+  allCategories : any;
 
   ingredientForm: FormGroup = new FormGroup({
     IngredientName: new FormControl('', Validators.required),
@@ -47,6 +48,12 @@ export class AdminIngredientsUpdateComponent {
       console.log(this.ingredientDetails);
     });
 
+
+    this.service.getAllCategories().subscribe((res) => {
+      this.allCategories = res.data;
+    });
+
+
   }
 
   
@@ -67,24 +74,25 @@ export class AdminIngredientsUpdateComponent {
         });
     }
     else if(this.ingredientForm.valid && this.selectedImage!=undefined) {
+      this.service
+        .uploadIngredientImage(this.selectedImage)
+        .subscribe((res) => {
+          console.log(res.data);
+          this.ingredientForm.value.ImageURL=res.data;
+          console.log(this.ingredientForm.value);
+          this.service
+            .updateIngredient(this.ingredientID, this.ingredientForm.value)
+            .subscribe((res) => {
+              window.location.href = '/admin/ingredients';
+          });
+        });
+
+
       // this.service
-      //   .uploadIngredientImage(this.selectedImage)
-      //   .subscribe((res) => {
-      //     console.log(res.data);
-      //     this.ingredientForm.value.ImageURL=res.data;
-      //     console.log(this.ingredientForm.value);
-      //     this.service
       //       .updateIngredient(this.ingredientID, this.ingredientForm.value)
       //       .subscribe((res) => {
       //         window.location.href = '/admin/ingredients';
       //     });
-      //   });
-
-      this.service
-            .updateIngredient(this.ingredientID, this.ingredientForm.value, this.selectedImage)
-            .subscribe((res) => {
-              window.location.href = '/admin/ingredients';
-          });
     } else {
       this.error = 'Please enter values for all fields';
     }

@@ -55,4 +55,14 @@ export class AdminOrderServiceService {
     let apiUrl = 'http://localhost:3600/admin/orders/updateOrderStatusById/'+orderId;
     return this._http.put(apiUrl,data);
   }
+
+  getOrderForViewById(orderItemID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/getOrderForViewById/'+orderItemID;
+    return this._http.get(apiUrl);
+  }
+
+  getAllOrderItemsByOrderID(orderId:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/orders/getAllOrderItemsByOrderID/'+orderId;
+    return this._http.get(apiUrl);
+  }
 }

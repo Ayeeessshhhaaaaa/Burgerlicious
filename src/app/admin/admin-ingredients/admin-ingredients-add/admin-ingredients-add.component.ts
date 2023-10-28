@@ -13,6 +13,7 @@ export class AdminIngredientsAddComponent {
   selectedImage: any;
   customeFileScriptElement: HTMLScriptElement;
   loaderFixScriptElement: HTMLScriptElement;
+  allCategories : any;
 
   ingredientForm: FormGroup = new FormGroup({
     IngredientName: new FormControl('', Validators.required),
@@ -33,6 +34,13 @@ export class AdminIngredientsAddComponent {
     this.loaderFixScriptElement = document.createElement("script");
     this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
     document.body.appendChild(this.loaderFixScriptElement);
+  }
+
+
+  ngOnInit(): void {
+    this.service.getAllCategories().subscribe((res) => {
+      this.allCategories = res.data;
+    });
   }
 
   
