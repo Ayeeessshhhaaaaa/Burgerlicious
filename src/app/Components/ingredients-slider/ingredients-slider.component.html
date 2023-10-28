@@ -11,7 +11,7 @@
       </slide>
     </carousel>
    </div>
-    <div class="large-carousel-container">
+    <div class="large-carousel-container" *ngIf="ingredientItems">
       <carousel [itemsPerSlide]="1" [interval]="0" [showIndicators]="false">
           <slide *ngFor="let ingredientItem of ingredientItems">
               <div class="ingredient-card" (click) ="addToCustomization(ingredientItem)">

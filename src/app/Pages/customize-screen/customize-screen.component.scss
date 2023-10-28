@@ -62,46 +62,56 @@
 
     .imageContainer {
         width: 400px;
-        max-height: 400px;
+        max-height: 600px;
         padding: 2%;
         position: relative;
         justify-content: center;
         display: flex;
         flex-direction: column;
-    }
-    
-    .stacked-image {
+        bottom: 120px;
+        position: absolute;
+      }
+      
+      .stacked-image {
         margin-bottom: -10px; /* Add spacing between stacked images */
-    }
-    
-    .individualIngredient {
+      }
+      
+      .individualIngredient {
         max-width: 100%;
         display: block;
-        margin: 0 auto;
-    }
-
-    .image-wrapper {
+        margin: 0;
+        flex: 1; /* Occupy remaining space in .image-container */
+      }
+      
+      .image-wrapper {
         display: flex; /* Use flexbox to align items horizontally */
         align-items: center; /* Vertically center-align items within .image-wrapper */
       }
 
-      .burger-controller
+      .image-container
       {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .burger-controller {
         border-radius: 15px;
         border: 1px solid #5C2E0F;
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+        height: 40px;
+        margin-left: 20px;
 
-        .close-button {
-        margin-left: 10px; /* Add some spacing between the image and the button */
-        }
-
-        .arrow-button {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #5C2E0F;
-            border-radius: 50%;
+        .up-button 
+        {
             cursor: pointer;
+            &:hover{
+                color: #5C2E0F;
+            }
         }
-      }
+      }      
   
     h3
     {

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
 import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-customize-screen',
@@ -10,6 +12,9 @@ export class CustomizeScreenComponent implements OnInit {
   imageHeight: number = 50;
   sessionDataArray: any[] = [];
   totalPrice: number|undefined;
+  @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement> | undefined;
+
+
 
   constructor(private customizeSessionService: CustomizeSessionSeriveService) { }
 
@@ -22,10 +27,8 @@ export class CustomizeScreenComponent implements OnInit {
   }
 
   removeIngredient(index: number) {
-    // Remove the ingredient at the specified index
-    this.sessionDataArray.splice(index, 1);
     // Update local storage to reflect the changes
-    this.customizeSessionService.addToCustomization(this.sessionDataArray);
+    this.customizeSessionService.removeCustomizationFromContainer(index);
     this.totalPrice = this.calculateTotalPrice();
   }
 
@@ -65,10 +68,46 @@ export class CustomizeScreenComponent implements OnInit {
     return totalPrice;
   }
   
-
   clearCustomization(){
     console.log(this.sessionDataArray);
     this.sessionDataArray=[];
     console.log(this.sessionDataArray);
   }
+
+  saveImageToAssets(imageData: Blob, fileName: string) {
+    saveAs(imageData, fileName);
+  }
+  
+  generateImageData() {
+    const canvasElement = this.canvas;
+  
+    if (canvasElement) {
+      const canvas = canvasElement.nativeElement;
+      const context = canvas.getContext('2d');
+  
+      if (context) {
+        // Set canvas size (adjust as needed)
+        canvas.width = 300;
+        canvas.height = 200;
+  
+        // Draw something on the canvas (e.g., a red rectangle)
+        context.fillStyle = 'red';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+  
+        // Get the image data as a Blob
+        canvas.toBlob((blob) => {
+          if (blob) {
+            this.saveImageToAssets(blob, 'myImage.png');
+          } else {
+            console.error('Failed to create Blob.');
+          }
+        });
+      } else {
+        console.error('Canvas context is null. Cannot draw on the canvas.');
+      }
+    } else {
+      console.error('Canvas element is not available.');
+    }
+  }
+  
 }

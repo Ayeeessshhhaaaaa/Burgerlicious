@@ -165,6 +165,27 @@
       </li>
 
 
+                <!--Feedback Nav Bar-->
+                <li class="nav-item menu-open">
+                  <a class="nav-link" [routerLink]="['/admin/feedback']" routerLinkActive="active">
+                    <i class="material-symbols-outlined nav-icon">reviews</i>
+                    <p>
+                      Feedbacks
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/admin/feedback']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Feedbacks
+                        </p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

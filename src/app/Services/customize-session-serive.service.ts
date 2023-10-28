@@ -26,7 +26,7 @@ export class CustomizeSessionSeriveService {
   }
   
   removeCustomizationFromContainer(IngredientID: number) {
-    this.customizeIngredient = this.customizeIngredient.filter((item) => item.IngredientID !== IngredientID);
+    this.customizeIngredient.splice(IngredientID, 1);
     this.updatecustomizeStorage();
   }
 
