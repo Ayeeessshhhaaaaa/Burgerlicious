@@ -62,7 +62,9 @@
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.print.min.js",
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js",
               "node_modules/admin-lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js",
+              "node_modules/pdfmake/build/pdfmake.min.js",
+              "node_modules/pdfmake/build/vfs_fonts.js"
               
             ]
           },
