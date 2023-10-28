@@ -15,16 +15,22 @@
           <div class="image-wrapper">
             <div class="image-container">
               <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
-            </div>
-          </div>
-        </div>
-      </div>                               
-                <!----
+
+              <div class="burger-controller">
                 <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span>
                 </div>
                 <div (click)="moveImageDown(i)" class="arrow-button down-button"><span class="material-symbols-outlined">expand_more</span>
                 </div>
-                -->
+                <div (click)="removeIngredient(i)" class="close-button"><span class="material-symbols-outlined"> delete </span>
+              </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>                               
+
           <div class="price">
             <h3>Rs.{{ totalPrice }}</h3>
           </div>
