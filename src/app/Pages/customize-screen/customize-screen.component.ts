@@ -7,7 +7,7 @@ import { CustomizeSessionSeriveService } from 'src/app/Services/customize-sessio
   styleUrls: ['./customize-screen.component.scss']
 })
 export class CustomizeScreenComponent implements OnInit {
-  imageHeight: number = 70;
+  imageHeight: number = 50;
   sessionDataArray: any[] = [];
   totalPrice: number|undefined;
 
