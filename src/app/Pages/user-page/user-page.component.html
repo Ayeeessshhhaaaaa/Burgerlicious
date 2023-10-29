@@ -1,28 +1,43 @@
 <div class="Containers">
     <div class="left-container">
         <div class="card text-center" style="width: 380px; height: 650px;">
-            <img src="../../../assets/user-pic/images.png" class="card-img-top rounded-circle mx-auto mt-5" alt="..." style="width: 220px;">
+            <img src="../../../assets/user-pic/userimage.png" class="card-img-top rounded-circle mx-auto mt-5" alt="..."
+                style="width: 220px;">
             <div class="card-body">
                 <h5 class="card-title">User Name</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+
             </div>
         </div>
     </div>
 
     <div class="middle-container">
         <div class="card text-center">
-            <div class="card-title mt-0"><h3><b>User Information</b></h3></div>
+            <div class="card-title mt-0">
+                <h3><b>User Information</b></h3>
+            </div>
             <div class="card-body">
-                <div class="shadow-sm p-1 mb-3 rounded "><p><strong>Username: </strong> Dunessha123</p> </div>
-                <div class="shadow-sm p-1 mb-3 rounded"><p><strong>Full Name: </strong> Dunessha123</p> </div>
-                <div class="shadow-sm p-1 mb-3 rounded"><p><strong>Email: </strong> Dunessha123</p> </div>
-                <div class="shadow-sm p-1 mb-3 rounded"><p><strong>Contact: </strong> Dunessha123</p> </div>
+                <div class="shadow-sm p-1 mb-3 rounded ">
+                    <p><strong>Username: </strong> {{userDetails[0].Username}}</p>
+                </div>
+                <div class="shadow-sm p-1 mb-3 rounded">
+                    <p><strong>Full Name: </strong> {{userDetails[0].FirstName}} {{userDetails[0].LastName}}</p>
+                </div>
+                <div class="shadow-sm p-1 mb-3 rounded">
+                    <p><strong>Email: </strong> {{userDetails[0].Email}}</p>
+                </div>
+                <div class="shadow-sm p-1 mb-3 rounded">
+                    <p><strong>Contact: </strong> {{userDetails[0].Contact}}</p>
+                </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Update </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Update </button>
 
             </div>
             <!-- <div class="card-footer text-body-secondary">2 days ago</div> -->
@@ -32,58 +47,70 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title fs-5 mx-auto" id="staticBackdropLabel">Update Profile</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-4">
-        
-            <div class="mb-1">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="mb-1">
-                <label for="firstname" class="form-label">Firstname</label>
-                <input type="text" class="form-control" id="firstname" placeholder="firstname">
-            </div>
-             <div class="mb-1">
-                <label for="lastname" class="form-label">Lastname</label>
-                <input type="text" class="form-control" id="lastname" placeholder="lastname">
-            </div>
-            <div class="mb-1">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
-            </div>
-            <div class="mb-1">
-                <label for="contact" class="form-label">Contact Number</label>
-                <input type="tel" class="form-control" id="contact" placeholder="Contact Number">
-            </div>
-            <div class="mb-1">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-            <div class="mb-1">
-                <label for="conpassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="conpassword" placeholder="Contact Number">
-            </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fs-5 mx-auto" id="staticBackdropLabel">Update Profile</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form [formGroup]="updateUser" (ngSubmit)="updateUserSubmit()">
+                    <div class="modal-body p-4">
 
-        </div>
+                        <div class="mb-1">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="Username" formControlName="Username" value="{{userDetails[0].Username}}" [(ngModel)]="userDetails[0].Username">
+                        </div>
+                        <div class="mb-1">
+                            <label for="firstname" class="form-label">Firstname</label>
+                            <input type="text" class="form-control" id="FirstName" formControlName="FirstName" value="{{userDetails[0].FirstName}}" [(ngModel)]="userDetails[0].FirstName">
+                        </div>
+                        <div class="mb-1">
+                            <label for="lastname" class="form-label">Lastname</label>
+                            <input type="text" class="form-control" id="LastName" formControlName="LastName" value="{{userDetails[0].LastName}}" [(ngModel)]="userDetails[0].LastName">
+                        </div>
+                        <div class="mb-1">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="Email" formControlName="Email" value="{{userDetails[0].Email}}" [(ngModel)]="userDetails[0].Email">
+                        </div>
+                        <div class="mb-1">
+                            <label for="contact" class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="Contact" formControlName="Contact" value="{{userDetails[0].Contact}}" [(ngModel)]="userDetails[0].Contact">
+                        </div>
+                        <div class="mb-1">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="PasswordHash" id="PasswordHash"
+                                value="{{userDetails[0].PasswordHash}}" [(ngModel)]="userDetails[0].PasswordHash">
+                        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Update Now</button>
-        </div>
+                        <div class="mb-1">
+                            <label for="password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" formControlName="ConfirmPassword" id="ConfirmPassword">
+                        </div>
 
-      </div>
+                        <span class="text-danger" *ngIf="mismatch">
+                            Password and Confirm Password must match
+                        </span>
+
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Update Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-    
+
     <div class="right-container">
         <div class="card text-center">
-            <div class="card-header"><h3><b>Pass Order</b></h3></div>
+            <div class="card-header">
+                <h3><b>Pass Order</b></h3>
+            </div>
             <div class="card-body">
                 <button type="button" class="btn btn-primary">Pass Order</button>
             </div>
