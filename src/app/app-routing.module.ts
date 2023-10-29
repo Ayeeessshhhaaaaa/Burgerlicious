@@ -75,7 +75,7 @@ const routes: Routes = [
     component: ProductPageComponent
   },
   {
-    path: 'user-page',
+    path: 'user-page/:id',
     component: UserPageComponent
   },
   {
