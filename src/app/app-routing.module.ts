@@ -134,13 +134,10 @@ const routes: Routes = [
   path: 'admin/feedback',
   component: AdminFeedbackComponent,
 },
-<<<<<<< HEAD
-=======
 {
   path: 'cart', 
   component:  CartComponent
 },
->>>>>>> a89fcbe3458dc7ceb2b56b4d218eaa55a93b16b5
 ];
 
 @NgModule({
