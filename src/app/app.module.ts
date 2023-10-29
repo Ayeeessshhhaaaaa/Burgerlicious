@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -53,6 +53,9 @@ import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin
 import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
 import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+import { CartComponent } from './Pages/cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -92,8 +95,9 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
     ProductDetailsScreenComponent,
     AdminIngredientsUpdateComponent,
     AdminOrderViewComponent,
-    AdminOrderUpdateComponent
+    AdminOrderUpdateComponent,
     AdminFeedbackComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +116,9 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
     MatDialogModule,
     CarouselModule.forRoot(),
     MatProgressSpinnerModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
+    NoopAnimationsModule
   ],
   exports: [RouterModule],
   providers: [AdminOrderServiceService, AdminIngredientServiceService],
