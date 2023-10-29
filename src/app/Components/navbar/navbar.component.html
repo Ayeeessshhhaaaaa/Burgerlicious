@@ -15,11 +15,86 @@
         <div class="nav-item"  (click)="onClick('/feedback')">
             Feedback
         </div>
-        <div class="nav-item"  (click)="onClick('/cart-page')">
+
+        <div class="nav-item"  (click)="onClick('/cart')">
             <span class="material-symbols-outlined">
                 shopping_bag
             </span>
         </div>
+
+
+
+        <!-- <div class="dropdown" *ngIf="cartData.data.length > 0">
+            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Your Cart</span>
+              <div class="qty">{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}}</div>
+            </a>
+            <div class="cart-dropdown">
+              <div class="cart-list">
+                <div class="product-widget" *ngFor="let c of cartData.data; let i = index">
+                  <div class="product-img">
+                    <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" width="20px">
+                  </div>
+                  <div class="product-body">
+                    <h3 class="product-name"><a href="#">{{c.product.ProductName}}</a></h3>
+                    <h4 class="product-price"><span class="qty">{{c.numInCart}} x</span>{{c.product.Price | currency: 'LKR'}}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-summary">
+                <h5>TOTAL: {{cartTotal | currency : 'LKR'}}</h5>
+              </div>
+              <div class="cart-btns">
+                <a routerLink="/cart">View Cart</a>
+                <a routerLink="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="dropdown" *ngIf="cartData.data.length == 0">
+            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Your Cart</span>
+              <div class="qty">0</div>
+            </a>
+            <div class="cart-dropdown">
+              <div class="cart-list">
+                <div class="product-widget" *ngFor="let c of cartData.data; let i = index">
+                  <div class="product-img">
+                    <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" width="20px">
+                  </div>
+                  <div class="product-body">
+                    <h3 class="product-name"><a href="#">{{c.product.ProductName}}</a></h3>
+                    <h4 class="product-price"><span class="qty">{{c.numInCart}} x</span>{{c.product.Price | currency: 'LKR'}}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-summary">
+                <h5>TOTAL: {{cartTotal | currency : 'LKR'}}</h5>
+              </div>
+              <div class="cart-btns">
+                <a routerLink="/cart">View Cart</a>
+                <a routerLink="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div *ngIf="!userID" class="nav-item"  (click)="onClick('/signup')">
             <span class="material-symbols-outlined">
                 tv_signin

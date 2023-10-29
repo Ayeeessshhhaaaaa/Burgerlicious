@@ -5,15 +5,15 @@
     <div class="dark-container">
     <div class="textbox">Product Details</div> 
     <div class="light-container">
-        <!-- <div class="burger-name">{{feedbackData.burgerName}}</div> -->
+        <div class="burger-name">{{productData.ProductName}}</div>
         <div fxLayout="row" fxLayout.lt-md="column">
             <div class="left-column" fxLayout="column" fxFlex="40" >
-                <!-- <img [src]="feedbackData.imageURL" alt="burger" class="burger"> -->
-                <!-- <div class="description">{{feedbackData.Comment}}</div> -->
+                <img [src]="productData.ImageURL" alt="burger" class="burger">
+                <div class="description">{{productData.Description}}</div>
             </div>
             <div class="right-column" fxLayout="column" fxFlex="60">
                 <div class="ingredients">
-                    <span class="ingredient-heading">Ingredients Chosen to build the burger:</span>
+                    <!-- <span class="ingredient-heading">Ingredients Chosen to build the burger:</span> -->
                     <ul>
                       <!-- <li *ngFor="let ingredient of feedbackData.IngredientNames" class="ingredient-names">
                         {{ ingredient }}
@@ -23,14 +23,14 @@
                 <div fxLayout="row" class="burger-details">
                     <div class="burger-details-containers">
                         <!-- <div class="burger-details-text"> <span class="burger-details-text-heading"> Price: <br> </span>{{feedbackData.TotalAmount}}</div> -->
-                        <div class="burger-details-text"> <span class="burger-details-text-heading"> Price: <br> </span></div>
+                        <div class="burger-details-text"> <span class="burger-details-text-heading"> Price: {{productData.Price}}<br> </span></div>
                     </div>
-                    <div class="burger-details-containers">
+                    <!-- <div class="burger-details-containers">
                         <div class="burger-details-text"> <span class="burger-details-text-heading"> Size: <br> </span>  Large </div>
                     </div>
                     <div class="burger-details-containers">
                         <div class="burger-details-text"> <span class="burger-details-text-heading"> Energy: <br> </span>  1200 KCal </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div fxLayout="row" class="update-delete">

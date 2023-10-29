@@ -1,10 +1,11 @@
 <div class="container">
-    <div *ngIf="cartData.data[0].numInCart === 0;" class="text-center my-5">
+  <app-navbar></app-navbar>
+    <div *ngIf="cartTotal !== undefined && cartTotal === 0;" class="text-center my-5">
       <h4>Your Cart Is Empty</h4>
-      <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+      <button class="btn btn-primary btn-lg mt-3" routerLink="/product-page">GO TO SHOP</button>
     </div>
   
-    <ng-container *ngIf="cartData.data[0].numInCart !== 0">
+    <ng-container *ngIf="cartData.data[0] !== undefined && cartData.data[0].numInCart !== 0">
       <div class="row">
         <div class="col my-4">
           <table class="table">
@@ -17,7 +18,7 @@
               <th>Subtotal</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf = "cartData.data!==undefined">
             <tr *ngFor="let c of cartData.data; let i=index">
               <td class="d-flex align-items-center justify-content-around" >
                 <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" height="60" class="order-1">

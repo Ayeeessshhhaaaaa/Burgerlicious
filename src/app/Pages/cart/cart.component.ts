@@ -31,4 +31,9 @@ export class CartComponent implements OnInit {
     this.cartService.UpdateCartItems(index, increase);
   }
 
+  // DeleteProductFromCart(index: number) {
+  //   this.cartService.DeleteProductFromCart(index);
+  //   location.reload();
+  // }
+
 }

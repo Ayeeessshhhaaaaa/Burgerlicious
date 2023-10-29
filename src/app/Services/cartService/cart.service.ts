@@ -116,7 +116,7 @@ export class CartService {
       this.cartDataClient.total = this.cartDataServer.total;
 
       if (this.cartDataClient.total === 0) {
-        // this.cartDataClient = { total: 0, prodData: [{ incart: 0, id: 0 }] };
+        this.cartDataClient = { total: 0, prodData: [] };
         sessionStorage.setItem('cart', JSON.stringify(this.cartDataClient));
       } else {
         sessionStorage.setItem('cart', JSON.stringify(this.cartDataClient));
@@ -145,6 +145,8 @@ export class CartService {
         this.Total = (parseFloat((numInCart).toString()) * parseFloat((Price).toString()));
         this.TotalAdd += (parseFloat(this.Total));
       }
+
+      // this.TotalAdd += Price * numInCart;
 
     });
 
