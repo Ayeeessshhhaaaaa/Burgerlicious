@@ -1,4 +1,4 @@
-<div class="card" (click)="redirectToProductPage()">
+<div class="card">
     <div class="product-card">
         <div class="card-content">
             <div class="image-content">
@@ -6,6 +6,8 @@
             </div>
             <h2 class="burger-name">{{ProductName}}</h2>
             <h3 class="name">{{Price}}</h3>
+            <button (click)="redirectToProductPage()">View more details</button>
+            <button (click)="AddToCart(ProductID)">Add to Cart</button>
         </div>
     </div>
 </div>
