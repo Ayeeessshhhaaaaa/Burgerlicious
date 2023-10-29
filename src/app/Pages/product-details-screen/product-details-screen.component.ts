@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/Services/cartService/cart.service';
 import { ProductServiceService } from 'src/app/Services/product-service/product-service.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProductDetailsScreenComponent {
   productData: any;
   productId:any;
 
-  constructor(private ProductService: ProductServiceService,private router: Router, private route: ActivatedRoute) {
+  constructor(private ProductService: ProductServiceService,private router: Router, private route: ActivatedRoute, private cartService: CartService) {
   }
 
 
@@ -33,6 +34,10 @@ export class ProductDetailsScreenComponent {
         console.error(error);
       }
     );
+  }
+
+  AddToCart(id: any){
+    this.cartService.AddProductToCart(id);
   }
 
 
