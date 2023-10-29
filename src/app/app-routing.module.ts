@@ -27,6 +27,8 @@ import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin
 import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { CartComponent } from './Pages/cart/cart.component';
+import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
+import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
 
 
 const routes: Routes = [
@@ -138,6 +140,15 @@ const routes: Routes = [
   path: 'cart', 
   component:  CartComponent
 },
+{
+  path: 'admin/orders/updateOrder/:id',
+  component: AdminOrderUpdateComponent,
+},
+{
+  path: 'admin/orders/updateOrderItem/:id',
+  component: AdminOrderUpdateItemComponent,
+},
+
 ];
 
 @NgModule({

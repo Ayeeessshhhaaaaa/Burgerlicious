@@ -1,11 +1,11 @@
 <div class="hold-transition dark-mode layout-navbar-fixed">
-  <div class="wrapper">
+<div class="wrapper">
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center" id="preloader">
       <img class="animation__wobble" src="assets/img/by-removebg-preview 1.png" alt="Logo" height="60" width="60">
     </div>
-
+  
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
@@ -17,7 +17,7 @@
           <a href="index3.html" class="nav-link">Home</a>
         </li>
       </ul>
-
+  
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
@@ -44,10 +44,12 @@
       </ul>
     </nav>
     <!-- /.navbar -->
-
+  
     <!-- Main Sidebar Container -->
     <app-admin-navbar></app-admin-navbar>
-
+    <!--Main Side Bar ends-->
+    
+  
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -55,70 +57,75 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Orders</h1>
+              <h1 class="m-0">Order Update Item</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-
-      <div class="card">
+  
+      <!--Alerts-->
+      <div class="alert alert-danger alert-dismissible" *ngIf="error">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+        {{error}}
+      </div>
+  
+    <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">All Orders</h3>
+            <h3 class="card-title">Update Order Item Details</h3>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>User ID</th>
-                <th>Order Date</th>
-                <th>Total Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor='let order of allOrders'>
-                <td>{{order.OrderID}}</td>
-                <td>{{order.UserID}}</td>
-                <td>{{order.OrderDate}}</td>
-                <td>{{order.TotalAmount}}</td>
-                <td>{{order.Status}}</td>
-                <td>
-                  <button style="margin-left:15px;background:rgb(15, 90, 160);color:white;" (click)="viewOrder(order.OrderID)"><i class="fas fa-eye"></i></button>
-                  <button style="margin-left:15px;background:rgb(90, 15, 160);color:white;" (click)="downloadInvoice(order.OrderID)"><i class="fas fa-file-invoice"></i></button>
-                  <button style="margin-left:15px;background:rgb(187, 160, 7);color:white;" (click)="updateOrderStatus(order.OrderID)"><i class="fas fa-truck"></i></button>
-                  <button style="margin-left:15px;background:rgb(13, 102, 20);color:white;" (click)="updateOrder(order.OrderID)"><i class="fas fa-edit"></i></button>
-                  <button (click)="delete(order.OrderID)" style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Order ID</th>
-                <th>User ID</th>
-                <th>Order Date</th>
-                <th>Total Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
+    
+        <!-- form start -->
+        <form [formGroup]="updateOrderItem" (ngSubmit)="updateOrderItemSubmit()">
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" style="float:right">Update Order Item</button>
+            </div>
+    
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>OrderCustomization ID</label>
+                    <input type="text" class="form-control" id="OrderID" formControlName="OrderCustomizationID" value="{{orderItemID}}" [(ngModel)]="orderItemID" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Order ID</label>
+                    <input type="text" class="form-control" id="OrderID" formControlName="OrderID" value="{{orderItemDetails[0].OrderID}}" [(ngModel)]="orderItemDetails[0].OrderID" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Ingredient ID</label>
+                    <input type="text" class="form-control" id="IngredientID" formControlName="IngredientID" value="{{orderItemDetails[0].IngredientID}}" [(ngModel)]="orderItemDetails[0].IngredientID" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Ingredient Name</label>
+                  <input type="text" class="form-control" id="IngredientName" value="{{orderItemDetails[0].IngredientName}}" [(ngModel)]="orderItemDetails[0].IngredientName" disabled>
+              </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="Quantity" formControlName="Quantity" value="{{orderItemDetails[0].Quantity}}" [(ngModel)]="orderItemDetails[0].Quantity" (input)="onChangeQuantity()">
+                </div>
+                <div class="form-group">
+                    <label>Subtotal</label>
+                    <input type="text" class="form-control" id="Subtotal" formControlName="Subtotal" value="{{orderItemDetails[0].Subtotal}}" [(ngModel)]="orderItemDetails[0].Subtotal" readonly>
+                </div>
+
+            </div>
+        </form>
+    </div>
+      <!-- /.card -->
+
       <!-- /.content -->
+    
     </div>
     <!-- /.content-wrapper -->
-
+  
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-
+  
     <!-- Main Footer -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -128,6 +135,8 @@
       </div>
     </footer>
   </div>
-  <!-- ./wrapper -->
 </div>
-<router-outlet></router-outlet>
+  <!-- ./wrapper -->
+  <router-outlet></router-outlet>
+
+
