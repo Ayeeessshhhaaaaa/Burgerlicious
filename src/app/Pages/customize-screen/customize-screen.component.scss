@@ -61,7 +61,6 @@
     align-items: flex-end;
 
     .imageContainer {
-        width: 400px;
         max-height: 600px;
         padding: 2%;
         position: relative;
@@ -70,14 +69,32 @@
         flex-direction: column;
         bottom: 120px;
         position: absolute;
+        overflow-y: hidden; /* Hide the vertical scrollbar */
       }
+      
+      .scrollable-content {
+        max-height: 490px; /* Set the maximum height for the content */
+        overflow-y: auto; /* Add vertical scrollbar when content exceeds the container */
+        scrollbar-width: none; /* Style the scrollbar as needed */
+        scrollbar-color: transparent transparent;
+      }
+      
+      /* If you want to hide the scrollbar in WebKit browsers (like Chrome and Safari) */
+      .scrollable-content::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      .scrollable-content::-webkit-scrollbar-thumb {
+        background: transparent;
+      }
+      
       
       .stacked-image {
         margin-bottom: -10px; /* Add spacing between stacked images */
       }
       
       .individualIngredient {
-        max-width: 100%;
+        max-width: 400px;
         display: block;
         margin: 0;
         flex: 1; /* Occupy remaining space in .image-container */
@@ -101,7 +118,7 @@
         display: flex;
         flex-direction: row;
         padding: 3px;
-        height: 40px;
+        height: 30px;
         margin-left: 20px;
 
         .up-button 

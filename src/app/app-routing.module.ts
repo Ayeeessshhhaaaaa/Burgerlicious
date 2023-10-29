@@ -129,9 +129,10 @@ const routes: Routes = [
   path: 'admin/orders/viewOrder/:id',
   component: AdminOrderViewComponent,
 },
+{
   path: 'admin/feedback',
   component: AdminFeedbackComponent,
-}
+},
 ];
 
 @NgModule({

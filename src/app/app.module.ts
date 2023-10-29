@@ -92,7 +92,7 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
     ProductDetailsScreenComponent,
     AdminIngredientsUpdateComponent,
     AdminOrderViewComponent,
-    AdminOrderUpdateComponent
+    AdminOrderUpdateComponent,
     AdminFeedbackComponent,
   ],
   imports: [
