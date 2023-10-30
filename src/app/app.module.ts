@@ -57,6 +57,7 @@ import { CartComponent } from './Pages/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-
     AdminFeedbackComponent,
     CartComponent,
     AdminOrderUpdateItemComponent,
+    CustomizeConfirmComponent,
   ],
   imports: [
     BrowserModule,

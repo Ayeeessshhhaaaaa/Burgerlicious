@@ -70,6 +70,7 @@
         bottom: 120px;
         position: absolute;
         overflow-y: hidden; /* Hide the vertical scrollbar */
+        background-color: transparent;
       }
       
       .scrollable-content {
@@ -98,12 +99,12 @@
         display: block;
         margin: 0;
         flex: 1; /* Occupy remaining space in .image-container */
-        justify-content: center;
       }
       
       .image-wrapper {
         display: flex; /* Use flexbox to align items horizontally */
         align-items: center; /* Vertically center-align items within .image-wrapper */
+        justify-content: center;
       }
 
       .image-container
