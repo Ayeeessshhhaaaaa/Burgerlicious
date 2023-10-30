@@ -148,7 +148,6 @@ const routes: Routes = [
   path: 'admin/orders/updateOrderItem/:id',
   component: AdminOrderUpdateItemComponent,
 },
-
 ];
 
 @NgModule({

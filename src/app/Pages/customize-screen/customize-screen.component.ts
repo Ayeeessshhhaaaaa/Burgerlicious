@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
 import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
+import * as html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+
 
 
 @Component({
@@ -57,9 +59,7 @@ export class CustomizeScreenComponent implements OnInit {
   calculateTotalPrice(): number {
     let totalPrice = 0;
     for (const item of this.sessionDataArray) {
-      console.log('Before parsing:', item.Ingredient.Price);
       const priceAsNumber = parseFloat(item.Ingredient.Price);
-      console.log('After parsing:', priceAsNumber);
   
       if (!isNaN(priceAsNumber)) {
         totalPrice += priceAsNumber;
@@ -74,40 +74,22 @@ export class CustomizeScreenComponent implements OnInit {
     console.log(this.sessionDataArray);
   }
 
-  saveImageToAssets(imageData: Blob, fileName: string) {
-    saveAs(imageData, fileName);
-  }
   
-  generateImageData() {
-    const canvasElement = this.canvas;
+  captureAndSaveImage(): void {
+    const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
   
-    if (canvasElement) {
-      const canvas = canvasElement.nativeElement;
-      const context = canvas.getContext('2d');
-  
-      if (context) {
-        // Set canvas size (adjust as needed)
-        canvas.width = 300;
-        canvas.height = 200;
-  
-        // Draw something on the canvas (e.g., a red rectangle)
-        context.fillStyle = 'red';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-  
-        // Get the image data as a Blob
-        canvas.toBlob((blob) => {
-          if (blob) {
-            this.saveImageToAssets(blob, 'myImage.png');
-          } else {
-            console.error('Failed to create Blob.');
-          }
-        });
-      } else {
-        console.error('Canvas context is null. Cannot draw on the canvas.');
-      }
-    } else {
-      console.error('Canvas element is not available.');
-    }
+    // Use HTML2Canvas to capture the contents of .imageContainer
+    (html2canvas as any)(imageContainer).then((canvas: HTMLCanvasElement) => {
+      // Convert the canvas to a Blob
+      canvas.toBlob((blob: Blob | null) => {
+        if (blob) {
+          // Use FileSaver.js to save the Blob as an image file
+          saveAs(blob, 'burgerimg.png');
+        } else {
+          console.error('Failed to create Blob.');
+        }
+      });
+    });
   }
   
 }
