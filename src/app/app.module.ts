@@ -57,6 +57,9 @@ import { CartComponent } from './Pages/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
+import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
+import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
 
 @NgModule({
@@ -101,6 +104,9 @@ import { CustomizeConfirmComponent } from './Components/customize-confirm/custom
     AdminFeedbackComponent,
     CartComponent,
     AdminOrderUpdateItemComponent,
+    TrackOrderComponent,
+    AdminIngredientsViewComponent,
+    AdminProductsViewComponent
     CustomizeConfirmComponent,
   ],
   imports: [

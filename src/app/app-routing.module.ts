@@ -29,6 +29,9 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
 import { CartComponent } from './Pages/cart/cart.component';
 import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
 import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
+import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
+import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 
 
 const routes: Routes = [
@@ -147,6 +150,18 @@ const routes: Routes = [
 {
   path: 'admin/orders/updateOrderItem/:id',
   component: AdminOrderUpdateItemComponent,
+},
+{
+  path: 'track-order-page/:id',
+  component: TrackOrderComponent,
+},
+{
+  path: 'admin/ingredients/viewIngredient/:id',
+  component: AdminIngredientsViewComponent,
+},
+{
+  path: 'admin/products/viewProduct/:id',
+  component: AdminProductsViewComponent,
 },
 ];
 

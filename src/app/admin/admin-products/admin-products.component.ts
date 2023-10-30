@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminProductsServiceService } from 'src/app/Services/admin-products-service/admin-products-service.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class AdminProductsComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private service:AdminProductsServiceService){ 
+  constructor(private service:AdminProductsServiceService, private router: Router){ 
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -48,6 +49,11 @@ export class AdminProductsComponent {
         }
       });
     }
+  }
+
+
+  viewProduct(productId: number) {
+    this.router.navigateByUrl("admin/products/viewProduct/"+productId);
   }
 
 
