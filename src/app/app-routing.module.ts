@@ -29,6 +29,7 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
 import { CartComponent } from './Pages/cart/cart.component';
 import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
 import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
 
 
 const routes: Routes = [
@@ -147,6 +148,10 @@ const routes: Routes = [
 {
   path: 'admin/orders/updateOrderItem/:id',
   component: AdminOrderUpdateItemComponent,
+},
+{
+  path: 'track-order-page/:id',
+  component: TrackOrderComponent,
 },
 ];
 
