@@ -56,6 +56,7 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
 import { CartComponent } from './Pages/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ToastrModule } from 'ngx-toastr';
     AdminOrderUpdateComponent,
     AdminFeedbackComponent,
     CartComponent,
+    TrackOrderComponent,
   ],
   imports: [
     BrowserModule,
