@@ -106,8 +106,9 @@ import { CustomizeConfirmComponent } from './Components/customize-confirm/custom
     AdminOrderUpdateItemComponent,
     TrackOrderComponent,
     AdminIngredientsViewComponent,
-    AdminProductsViewComponent
+    AdminProductsViewComponent,
     CustomizeConfirmComponent,
+    //after adding a new component declaration please add a ',' at the end//
   ],
   imports: [
     BrowserModule,
