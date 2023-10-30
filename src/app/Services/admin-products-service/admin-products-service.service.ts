@@ -32,6 +32,10 @@ export class AdminProductsServiceService {
     return this._http.post(apiUrl, data);
   }
 
+  getProductForViewById(productID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/products/getProductForViewById/'+productID;
+    return this._http.get(apiUrl);
+  }
 
 
 
