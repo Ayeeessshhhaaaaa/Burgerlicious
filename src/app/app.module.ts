@@ -60,6 +60,7 @@ import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-
 import { TrackOrderComponent } from './Pages/track-order/track-order.component';
 import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
+import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { AdminProductsViewComponent } from './admin/admin-products/admin-product
     TrackOrderComponent,
     AdminIngredientsViewComponent,
     AdminProductsViewComponent
+    CustomizeConfirmComponent,
   ],
   imports: [
     BrowserModule,

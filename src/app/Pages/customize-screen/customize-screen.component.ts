@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
 import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
-import * as html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CustomizeConfirmComponent } from 'src/app/Components/customize-confirm/customize-confirm.component';
 
 
 
@@ -18,7 +20,7 @@ export class CustomizeScreenComponent implements OnInit {
 
 
 
-  constructor(private customizeSessionService: CustomizeSessionSeriveService) { }
+  constructor(private customizeSessionService: CustomizeSessionSeriveService, private dialog: MatDialog) { }
 
   ngOnInit() {
     // Get ingredients from local storage (without reversing the order)
@@ -74,20 +76,54 @@ export class CustomizeScreenComponent implements OnInit {
     console.log(this.sessionDataArray);
   }
 
+
   
   captureAndSaveImage(): void {
     const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
+
+    const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');
+
+    // Hide the burger controller buttons
+    burgerControllerElements.forEach((element: Element) => {
+      (element as HTMLElement).style.display = 'none';
+    });
   
-    // Use HTML2Canvas to capture the contents of .imageContainer
-    (html2canvas as any)(imageContainer).then((canvas: HTMLCanvasElement) => {
-      // Convert the canvas to a Blob
+    // Use HTML2Canvas to capture the contents of .imageContainer with a transparent background
+    html2canvas(imageContainer, { 
+      scale: 2, 
+      backgroundColor: 'transparent' 
+    }).then((canvas: HTMLCanvasElement) => {
       canvas.toBlob((blob: Blob | null) => {
         if (blob) {
-          // Use FileSaver.js to save the Blob as an image file
-          saveAs(blob, 'burgerimg.png');
+          //saveAs(blob, 'burgerimg.png');
+          const capturedImage = canvas.toDataURL('image/png');
+          this.openCaptureDialog(capturedImage);
         } else {
           console.error('Failed to create Blob.');
         }
+        
+        burgerControllerElements.forEach((element: Element) => {
+          (element as HTMLElement).style.display = 'block';
+        });
+      });
+    });
+  }
+  
+
+  openCaptureDialog(capturedImage: string) {
+    const dialogRef = this.dialog.open(CustomizeConfirmComponent, {
+      height: window.innerWidth < 968 ? '100vh' : '400px',
+      width: '40vw',
+      maxWidth: '100vw',
+      data: { capturedImage },
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      // Show the button controllers again when the dialog is closed
+      const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
+      const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');``
+      burgerControllerElements.forEach((element: Element) => {
+        (element as HTMLElement).style.display = 'block';
       });
     });
   }

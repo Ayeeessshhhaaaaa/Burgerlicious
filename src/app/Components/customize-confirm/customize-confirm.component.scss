@@ -1,0 +1,97 @@
+.main-container{
+    background-color: #D1BD9E;
+    height: 100%;
+    padding-right: 0px; 
+    padding-left:  0px;
+    display: flex;
+    flex-direction: row;
+
+    .sub-container-left{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .img-container{
+            width: 300px;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .saved-img{
+                width: 90%;
+                height: auto;
+            }
+        }
+    }
+
+    .sub-container-right{
+        background-color: #5C2E0F;
+        width: 50%;
+
+        .topic {
+            color: #D1BD9E;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: 'Paytone One', sans-serif;
+            padding-top: 30px;
+        }
+
+        .catchy-text{
+            color: #D1BD9E;
+            font-size: 15px;
+            font-family: 'Paytone One', sans-serif;
+            padding-top: 40px;
+            text-align: center;
+            width: 80%;
+        }
+
+        .burgername-container{
+            width: 60%;
+        input[type="text"] {
+            width: 100%; /* Take up the full width of the container */
+            padding: 10px; /* Add padding for spacing */
+            border: 1px solid #5C2E0F; /* Add a simple border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Adjust font size */
+            color: #5C2E0F;
+          }
+          
+          /* Style the input field when it has focus (clicked) */
+          input[type="text"]:focus {
+            outline: none; /* Remove the default focus outline */
+            border-color: #D1BD9E; /* Change border color when focused */
+            box-shadow: 0 0 5px #D1BD9E; /* Add a subtle shadow when focused */
+          }
+        }
+
+        .button-container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 50px;
+
+            .button-with-space {
+                margin-left: 10px; /* Adjust the value as needed to control the spacing */
+              }
+
+            .button, .material-symbols-outlined{
+                border-radius: 4px;
+                background-color: #D1BD9E;
+                font-family: 'Paytone One', sans-serif;
+                color: #5C2E0F;
+                font-size: 15px;
+                font-weight: 400;
+                border: none;
+
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+
+
+    }
+}
+
