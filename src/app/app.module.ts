@@ -100,6 +100,8 @@ import { TrackOrderComponent } from './Pages/track-order/track-order.component';
     AdminOrderUpdateComponent,
     AdminFeedbackComponent,
     CartComponent,
+    AdminOrderUpdateItemComponent,
+    TrackOrderComponent
   ],
   imports: [
     BrowserModule,

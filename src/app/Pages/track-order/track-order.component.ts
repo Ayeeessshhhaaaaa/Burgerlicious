@@ -8,7 +8,7 @@ import { CustomerOrderServiceService } from 'src/app/Services/customer-order-ser
   styleUrls: [
     '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css',
     '../../../../node_modules/bootstrap-icons/font/bootstrap-icons.css',
-    './track-order.component.css'],
+    './track-order.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class TrackOrderComponent implements OnInit {
