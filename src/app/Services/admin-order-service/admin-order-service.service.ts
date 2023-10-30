@@ -68,6 +68,11 @@ export class AdminOrderServiceService {
   }
 
   //For update
+  // getAllUsers2():Observable<any>{
+  //   let apiUrl = 'http://localhost:3600/api/users';
+  //   return this._http.get(apiUrl);
+  // }
+
   getAllUsers():Observable<any>{
     let apiUrl = 'http://localhost:3600/admin/orders/users';
     return this._http.get(apiUrl);
