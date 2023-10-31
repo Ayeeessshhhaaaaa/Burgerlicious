@@ -81,12 +81,13 @@ export class CustomizeScreenComponent implements OnInit {
   captureAndSaveImage(): void {
     const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
 
-    const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');
+  // Find all elements with the "burger-controller" class
+  const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');
 
-    // Hide the burger controller buttons
-    burgerControllerElements.forEach((element: Element) => {
-      (element as HTMLElement).style.display = 'none';
-    });
+  // Hide the burger controller buttons
+  burgerControllerElements.forEach((element: Element) => {
+    (element as HTMLElement).style.visibility = 'hidden';
+  });
   
     // Use HTML2Canvas to capture the contents of .imageContainer with a transparent background
     html2canvas(imageContainer, { 
@@ -103,7 +104,7 @@ export class CustomizeScreenComponent implements OnInit {
         }
         
         burgerControllerElements.forEach((element: Element) => {
-          (element as HTMLElement).style.display = 'block';
+          (element as HTMLElement).style.visibility = 'visible';
         });
       });
     });
@@ -123,7 +124,7 @@ export class CustomizeScreenComponent implements OnInit {
       const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
       const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');``
       burgerControllerElements.forEach((element: Element) => {
-        (element as HTMLElement).style.display = 'block';
+        (element as HTMLElement).style.visibility = 'visible';
       });
     });
   }
