@@ -1,0 +1,32 @@
+<div class="main-container">
+
+    <div class="sub-container-left">
+        <div class="img-container">
+            <img [src]="data.capturedImage" alt="saved img" class="saved-img"/>
+        </div>
+    </div>
+
+    <div class="sub-container-right" fxLayout="column" fxLayoutAlign=" center"  >
+        <div class="topic">
+            Customize Burger
+        </div>
+
+        <p class="catchy-text">
+            Congratulations! 🍔 Your burger masterpiece is ready to shine. Now, it's time to give it a name that'll make your taste buds tingle!
+        </p>
+
+        <div class="burgername-container">
+            <input type="text" placeholder="Enter a name" [(ngModel)]="burgerName" required>
+        </div>
+       
+
+        <div class="button-container" fxLayout="row" fxLayoutAlign="center center">
+            <button class="button" (click)="continueShopping()">View More</button>
+            <button class="button button-with-space" (click)="addToCart()">Add To Cart</button>
+            <button class="button button-with-space" (click)="closeDialog()"><span class="material-symbols-outlined">
+                close
+            </span></button>
+        </div>
+    </div>
+
+</div>
