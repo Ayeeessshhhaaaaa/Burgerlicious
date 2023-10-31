@@ -52,6 +52,10 @@ export class AdminProductsComponent {
   }
 
 
+  updateProduct(ProductID: number) {
+    this.router.navigateByUrl("admin/products/updateProduct/"+ProductID);
+  }
+
   viewProduct(productId: number) {
     this.router.navigateByUrl("admin/products/viewProduct/"+productId);
   }

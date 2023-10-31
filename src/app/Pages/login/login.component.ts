@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms'; // Import NgForm for form handling
 import { SnackbarComponent } from 'src/app/Components/snackbar/snackbar.component';
 import { AuthServiceService } from 'src/app/Services/authService/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   formData: any = {};
 
 
-  constructor(private sanitizer: DomSanitizer, private SnackBar: MatSnackBar, private authService: AuthServiceService) {
+  constructor(private sanitizer: DomSanitizer, private SnackBar: MatSnackBar, private authService: AuthServiceService, private route: Router) {
   this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
   }
 
@@ -26,8 +27,9 @@ export class LoginComponent {
       this.authService.login(Username, Password).subscribe(
         (response) => {
           // Handle successful login response
-          localStorage.setItem('userID', Username);
+          localStorage.setItem('Username', Username);
           console.log('Login Successful:', response);
+          this.route.navigate(['/product-page']);
         },
         (error) => {
           // Handle login error

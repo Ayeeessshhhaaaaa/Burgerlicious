@@ -32,6 +32,7 @@ import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-
 import { TrackOrderComponent } from './Pages/track-order/track-order.component';
 import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
+import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
 
 
 const routes: Routes = [
@@ -162,6 +163,10 @@ const routes: Routes = [
 {
   path: 'admin/products/viewProduct/:id',
   component: AdminProductsViewComponent,
+},
+{
+  path: 'admin/products/updateProduct/:id',
+  component: AdminProductsUpdateComponent,
 },
 ];
 

@@ -37,6 +37,24 @@ export class AdminProductsServiceService {
     return this._http.get(apiUrl);
   }
 
+  getProductById(id:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/products/'+id;
+    return this._http.get(apiUrl);
+  }
 
+  updateProductWithoutImage(id:any, data:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/products/updateProductWithoutImage/'+id;
+    return this._http.put(apiUrl,data);
+  }
+
+  updateProduct(id:any, data:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/products/updateProduct/'+id;
+    return this._http.put(apiUrl,data);
+  }
+
+  getAllCategories():Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/products/getAllCategories';
+    return this._http.get(apiUrl);
+  }
 
 }
