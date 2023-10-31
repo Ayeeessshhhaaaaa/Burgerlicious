@@ -55,4 +55,8 @@ export class AdminIngredientsComponent {
     this.router.navigateByUrl("admin/ingredients/updateIngredient/"+IngredientID);
   }
 
+  viewIngredient(ingredientId: number) {
+    this.router.navigateByUrl("admin/ingredients/viewIngredient/"+ingredientId);
+  }
+
 }

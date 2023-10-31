@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -50,7 +50,17 @@ import { AdminProductsAddComponent } from './admin/admin-products/admin-products
 import { UserPageComponent } from './Pages/user-page/user-page.component';
 import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
+import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
+import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+import { CartComponent } from './Pages/cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
+import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
+import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
+import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +99,16 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
     UserPageComponent,
     ProductDetailsScreenComponent,
     AdminIngredientsUpdateComponent,
+    AdminOrderViewComponent,
+    AdminOrderUpdateComponent,
     AdminFeedbackComponent,
+    CartComponent,
+    AdminOrderUpdateItemComponent,
+    TrackOrderComponent,
+    AdminIngredientsViewComponent,
+    AdminProductsViewComponent,
+    CustomizeConfirmComponent,
+    //after adding a new component declaration please add a ',' at the end//
   ],
   imports: [
     BrowserModule,
@@ -108,6 +127,9 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
     MatDialogModule,
     CarouselModule.forRoot(),
     MatProgressSpinnerModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
+    NoopAnimationsModule
   ],
   exports: [RouterModule],
   providers: [AdminOrderServiceService, AdminIngredientServiceService],

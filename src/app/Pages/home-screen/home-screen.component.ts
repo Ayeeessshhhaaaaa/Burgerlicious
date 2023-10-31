@@ -12,6 +12,10 @@ imageUrl: string = 'assets/homescreen-image.png';
 sanitizedImageUrl: SafeUrl;
 constructor(private sanitizer: DomSanitizer, private router: Router) {
 this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
+//sessionStorage.setItem('Token', response.token);
+sessionStorage.setItem('userID', '1');
+sessionStorage.setItem('userType', 'user');
+sessionStorage.setItem('username', 'user1');
 }
 redirectToCustomize(){
   this.router.navigate(['customize-screen']);

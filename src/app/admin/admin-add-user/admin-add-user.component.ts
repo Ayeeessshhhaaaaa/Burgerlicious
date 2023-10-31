@@ -12,8 +12,9 @@ import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user
 export class AdminAddUserComponent {
   error: any;
   userForm: FormGroup = new FormGroup({
-    UserID: new FormControl('', Validators.required),
     Name: new FormControl('', Validators.required),
+    FirstName: new FormControl('', Validators.required),
+    LastName: new FormControl('', Validators.required),
     Email: new FormControl('', [Validators.required, Validators.email]),
     Contact: new FormControl('', Validators.required),
     Password: new FormControl('', Validators.required),

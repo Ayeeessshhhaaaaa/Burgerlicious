@@ -53,5 +53,9 @@ export class AdminIngredientServiceService {
     return this._http.get(apiUrl);
   }
   
+  getIngredientForViewById(ingredientID:any):Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/ingredients/getIngredientForViewById/'+ingredientID;
+    return this._http.get(apiUrl);
+  }
 
 }

@@ -1,5 +1,5 @@
 <div class="container" fxLayout="column">
-    <div class="carousel-container">
+    <div class="carousel-container" *ngIf="ingredients">
     <carousel [itemsPerSlide]="3" [interval]="0" [showIndicators]="false">
       <slide *ngFor="let ingredient of ingredients">
         <div class="card" fxLayout="column" (click)="onItemClick(ingredient.CategoryID)">

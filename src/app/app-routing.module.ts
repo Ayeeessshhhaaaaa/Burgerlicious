@@ -24,7 +24,15 @@ import { AdminProductsAddComponent } from './admin/admin-products/admin-products
 import { UserPageComponent } from './Pages/user-page/user-page.component';
 import { ProductDetailsScreenComponent } from './Pages/product-details-screen/product-details-screen.component';
 import { AdminIngredientsUpdateComponent } from './admin/admin-ingredients/admin-ingredients-update/admin-ingredients-update.component';
+import { AdminOrderViewComponent } from './admin/admin-orders/admin-order-view/admin-order-view.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+import { CartComponent } from './Pages/cart/cart.component';
+import { AdminOrderUpdateComponent } from './admin/admin-orders/admin-order-update/admin-order-update.component';
+import { AdminOrderUpdateItemComponent } from './admin/admin-orders/admin-order-update-item/admin-order-update-item.component';
+import { TrackOrderComponent } from './Pages/track-order/track-order.component';
+import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
+import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
+
 
 const routes: Routes = [
   {
@@ -72,7 +80,7 @@ const routes: Routes = [
     component: ProductPageComponent
   },
   {
-    path: 'user-page',
+    path: 'user-page/:id',
     component: UserPageComponent
   },
   {
@@ -124,9 +132,37 @@ const routes: Routes = [
   component: AdminIngredientsUpdateComponent,
 },
 {
+  path: 'admin/orders/viewOrder/:id',
+  component: AdminOrderViewComponent,
+},
+{
   path: 'admin/feedback',
   component: AdminFeedbackComponent,
-}
+},
+{
+  path: 'cart', 
+  component:  CartComponent
+},
+{
+  path: 'admin/orders/updateOrder/:id',
+  component: AdminOrderUpdateComponent,
+},
+{
+  path: 'admin/orders/updateOrderItem/:id',
+  component: AdminOrderUpdateItemComponent,
+},
+{
+  path: 'track-order-page/:id',
+  component: TrackOrderComponent,
+},
+{
+  path: 'admin/ingredients/viewIngredient/:id',
+  component: AdminIngredientsViewComponent,
+},
+{
+  path: 'admin/products/viewProduct/:id',
+  component: AdminProductsViewComponent,
+},
 ];
 
 @NgModule({

@@ -1,0 +1,142 @@
+<div class="hold-transition dark-mode layout-navbar-fixed">
+<div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center" id="preloader">
+      <img class="animation__wobble" src="assets/img/by-removebg-preview 1.png" alt="Logo" height="60" width="60">
+    </div>
+  
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-dark">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+      </ul>
+  
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="fas fa-search"></i>
+          </a>
+          <div class="navbar-search-block">
+            <form class="form-inline">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+    <app-admin-navbar></app-admin-navbar>
+    <!--Main Side Bar ends-->
+    
+  
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Order Update Item</h1>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+  
+      <!--Alerts-->
+      <div class="alert alert-danger alert-dismissible" *ngIf="error">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+        {{error}}
+      </div>
+  
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Update Order Item Details</h3>
+        </div>
+        <!-- /.card-header -->
+    
+        <!-- form start -->
+        <form [formGroup]="updateOrderItem" (ngSubmit)="updateOrderItemSubmit()">
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" style="float:right">Update Order Item</button>
+            </div>
+    
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>OrderCustomization ID</label>
+                    <input type="text" class="form-control" id="OrderID" formControlName="OrderCustomizationID" value="{{orderItemID}}" [(ngModel)]="orderItemID" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Order ID</label>
+                    <input type="text" class="form-control" id="OrderID" formControlName="OrderID" value="{{orderItemDetails[0].OrderID}}" [(ngModel)]="orderItemDetails[0].OrderID" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Ingredient ID</label>
+                    <input type="text" class="form-control" id="IngredientID" formControlName="IngredientID" value="{{orderItemDetails[0].IngredientID}}" [(ngModel)]="orderItemDetails[0].IngredientID" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Ingredient Name</label>
+                  <input type="text" class="form-control" id="IngredientName" value="{{orderItemDetails[0].IngredientName}}" [(ngModel)]="orderItemDetails[0].IngredientName" disabled>
+              </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="Quantity" formControlName="Quantity" value="{{orderItemDetails[0].Quantity}}" [(ngModel)]="orderItemDetails[0].Quantity" (input)="onChangeQuantity()">
+                </div>
+                <div class="form-group">
+                    <label>Subtotal</label>
+                    <input type="text" class="form-control" id="Subtotal" formControlName="Subtotal" value="{{orderItemDetails[0].Subtotal}}" [(ngModel)]="orderItemDetails[0].Subtotal" readonly>
+                </div>
+
+            </div>
+        </form>
+    </div>
+      <!-- /.card -->
+
+      <!-- /.content -->
+    
+    </div>
+    <!-- /.content-wrapper -->
+  
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+  </div>
+</div>
+  <!-- ./wrapper -->
+  <router-outlet></router-outlet>
+
+

@@ -12,10 +12,10 @@
 
      
       <div class="imageContainer">
-      <canvas #canvas> 
+      <div class="scrollable-content">
         <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image">
           <div class="image-wrapper">
-            <div class="image-container" fxLayout="direction">
+            <div class="image-container" fxLayout="row">
               <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
               <div class="burger-controller">
                 <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span></div>
@@ -25,7 +25,7 @@
             </div>
           </div>
         </div>
-        </canvas>
+      </div>
       </div> 
                                    
           <div class="price">
@@ -33,7 +33,7 @@
           </div>
           
             <div class="button-container">
-                <button mat-raised-button class="button" (click)="generateImageData()">Finish Building</button>
+                <button mat-raised-button class="button" (click)="captureAndSaveImage()">Finish Building</button>
             </div>
      </div>
 </div>

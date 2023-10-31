@@ -386,4 +386,13 @@ export class AdminOrdersComponent {
       pdfMake.createPdf(dd).download('Invoice'+this.orderDetails[0].OrderID+'.pdf');
     
   }
+
+  viewOrder(orderID: number) {
+    this.router.navigateByUrl("admin/orders/viewOrder/"+orderID);
+  }
+
+  updateOrder(orderID: number) {
+    this.router.navigateByUrl("admin/orders/updateOrder/"+orderID);
+  }
+  
 }

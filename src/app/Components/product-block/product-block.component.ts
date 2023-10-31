@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/Services/cartService/cart.service';
 
 @Component({
   selector: 'app-product-block',
@@ -18,7 +19,7 @@ export class ProductBlockComponent {
   @Input() CategoryID: number | undefined;
 
 
-  constructor(private sanitizer: DomSanitizer, private router:Router){
+  constructor(private sanitizer: DomSanitizer, private router:Router, private cartService: CartService){
   }
 
 
@@ -28,6 +29,11 @@ export class ProductBlockComponent {
     {
       this.router.navigate(['/product-details',this.ProductID]);
     } 
+  }
+
+
+  AddToCart(id: any){
+    this.cartService.AddProductToCart(id);
   }
 
 
