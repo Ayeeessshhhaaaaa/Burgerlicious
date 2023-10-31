@@ -2,12 +2,16 @@
     <div class="product-card">
         <div class="card-content">
             <div class="image-content">
-                <img [src]="ImageURL" alt="Name" class="featured-image">    
+                <img [src]="ImageURL" alt="Name" class="featured-image rounded-circle">    
             </div>
             <h2 class="burger-name">{{ProductName}}</h2>
             <h3 class="name">{{Price}}</h3>
-            <button (click)="redirectToProductPage()">View more details</button>
-            <button (click)="AddToCart(ProductID)">Add to Cart</button>
+
+            <div class="button-group">
+                <button class="btn btn-primary mb-2 mt-3 rounded" (click)="redirectToProductPage()"> <i class="bi bi-eye-fill"></i> </button>
+                <button class="btn btn-primary mb-2 mt-3 ml-2 rounded" (click)="AddToCart(ProductID)"><i class="bi bi-cart-fill"></i></button>
+            </div>
+
         </div>
     </div>
 </div>

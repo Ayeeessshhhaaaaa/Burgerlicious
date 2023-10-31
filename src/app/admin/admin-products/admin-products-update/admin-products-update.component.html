@@ -55,7 +55,7 @@
             <div class="container-fluid">
               <div class="row mb-2">
                 <div class="col-sm-6">
-                  <h1 class="m-0">New Product</h1>
+                  <h1 class="m-0">Update Product</h1>
                 </div><!-- /.col -->
               </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -71,35 +71,56 @@
       
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">New Products Details</h3>
+              <h3 class="card-title">Update Product Details</h3>
             </div>
             <!-- /.card-header -->
       
             <!-- form start -->
             <form [formGroup]="productForm" (ngSubmit)="productSubmit()">
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary" style="float:right">Submit Product</button>
+                <button type="submit" class="btn btn-primary" style="float:right">Update Product</button>
               </div>
               <div class="card-body">
     
                 <div class="form-group">
                   <label for="IngredientName">Product Name</label>
-                  <input type="text" class="form-control" id="ProductName" formControlName="ProductName"
-                    placeholder="Enter Product Name">
+                  <input type="text" class="form-control" id="ProductName" formControlName="ProductName" 
+                  value="{{productDetails[0].ProductName}}" [(ngModel)]="productDetails[0].ProductName">
                 </div>
     
                 <div class="form-group">
                     <label for="Price">Product Price</label>
-                    <input type="text" class="form-control" id="Price" formControlName="Price"
-                      placeholder="Enter Price">
+                    <input type="text" class="form-control" id="Price" formControlName="Price" 
+                    value="{{productDetails[0].Price}}" [(ngModel)]="productDetails[0].Price">
                   </div>
     
                   <div class="form-group">
                     <label for="Description">Product Description</label>
-                    <input type="text" class="form-control" id="Description" formControlName="Description"
-                      placeholder="Enter Description">
+                    <input type="text" class="form-control" id="Description" formControlName="Description" 
+                    value="{{productDetails[0].Description}}" [(ngModel)]="productDetails[0].Description">
                   </div>
-    
+
+                  <div class="form-group">
+                    <label for="Description">Product Rating</label>
+                    <input type="text" class="form-control" id="Rating" formControlName="Rating" 
+                    value="{{productDetails[0].Rating}}" [(ngModel)]="productDetails[0].Rating">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Product Category</label>
+                    <select class="form-control" formControlName="CategoryID" [(ngModel)]="productDetails[0].CategoryID">
+                      <option *ngFor='let category of allCategories' value="{{category.CategoryID}}">
+                        {{category.CategoryName}}
+                      </option>
+                    </select>
+                  </div>
+
+
+
+                  <div>
+                    <img src="http://localhost:3600/productImages/{{productDetails[0].ImageURL}}" alt="Product Image" style="width:100px; height: 100px;">
+                  </div>
+                  
                   <div class="form-group">
                     <label for="ImageURL">Product Image</label>
                     <div class="input-group">
@@ -110,21 +131,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="Description">Product Rating</label>
-                    <input type="text" class="form-control" id="Rating" formControlName="Rating"
-                      placeholder="Enter Rating">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Product Category</label>
-                    <select class="form-control" formControlName="CategoryID">
-                      <option *ngFor='let category of allCategories' value="{{category.CategoryID}}">
-                        {{category.CategoryName}}
-                      </option>
-                    </select>
-                  </div>
-    
+                  
               </div>
              
             </form>
