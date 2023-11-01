@@ -17,7 +17,10 @@ export class AuthServiceService {
   }
 
   login(username: string, password: string): Observable<any> {
-    const body = { username, password };
+    const body ={
+      "Username" : username,
+      "Password": password
+      }
     return this.http.post(`${this.apiUrl}/signin`, body);
   }
 }
