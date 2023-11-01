@@ -20,25 +20,25 @@ export class AdminOrderServiceService {
     return this._http.post(apiUrl, data);
   }
 
-  getAllIngredients(): Observable<any> {
-    let apiUrl = 'http://localhost:3600/admin/orders/ingredients';
+  getAllProducts(): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/orders/products';
     return this._http.get(apiUrl);
   }
 
-  getIngredientById(id: any): Observable<any> {
-    let apiUrl = 'http://localhost:3600/admin/orders/ingredients/' + id;
+  getProductById(id: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/orders/products/' + id;
     return this._http.get(apiUrl);
   }
 
-  createOrderCustomizations(data: any, orderId: any): Observable<any> {
-    let apiUrl = 'http://localhost:3600/admin/orders/addOrderCustomizations';
-    //we need to pass the last inserted order Id to insert for the orderCustomizations table
+  createOrderItems(data: any, orderId: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/orders/addOrderItems';
+    //we need to pass the last inserted order Id to insert for the orderItems table
     let finalData = {
       orderId: orderId,
       data: data
 
     }
-    console.log(finalData, 'create order ingredients')
+    console.log(finalData, 'create order products')
     return this._http.post(apiUrl, finalData);
   }
 

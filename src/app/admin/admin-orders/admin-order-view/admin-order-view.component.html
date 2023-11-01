@@ -117,27 +117,27 @@
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
-            <th>OrderCustomization ID</th>
+            <th>OrderItem ID</th>
             <th>Order ID</th>
-            <th>Ingredient ID</th>
+            <th>Product ID</th>
             <th>Quantity</th>
             <th>Subtotal (Rs)</th>
           </tr>
           </thead>
           <tbody>
             <tr *ngFor ='let item of allOrderItems'>
-              <td>{{item.OrderCustomizationID}}</td>
+              <td>{{item.OrderItemID}}</td>
               <td>{{item.OrderID}}</td>
-              <td>{{item.IngredientID}}</td>
+              <td>{{item.ProductID}}</td>
               <td>{{item.Quantity}}</td>
               <td>{{item.Subtotal}}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-                <th>OrderCustomization ID</th>
+                <th>OrderItem ID</th>
                 <th>Order ID</th>
-                <th>IngredientID</th>
+                <th>ProductID</th>
                 <th>Quantity</th>
                 <th>Subtotal (Rs)</th>
               </tr>

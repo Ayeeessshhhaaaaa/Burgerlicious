@@ -250,6 +250,43 @@
 
           <!-- Revenue Per Year Report Ends -->
 
+          <!-- Top 10 Best Selling Ingredients -->
+          
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Top 10 Best Selling Products</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Product Name</th>
+                  <th>Total Sales</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor ='let i of Top10SellingProducts ; index as index'>
+                    <td>{{index+1}}</td>
+                    <td>{{i.ProductName}}</td>
+                    <td>{{i.TotalSales}}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rank</th>
+                  <th>Product Name</th>
+                  <th>Total Sales</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+          <!-- Top 10 Best Selling Ingredients Ends -->
+
         </div><!--/. container-fluid -->
 
       </section>
