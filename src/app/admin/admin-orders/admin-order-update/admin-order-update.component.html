@@ -123,9 +123,9 @@
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
-            <th>OrderCustomization ID</th>
+            <th>OrderItem ID</th>
             <th>Order ID</th>
-            <th>Ingredient Name</th>
+            <th>Product Name</th>
             <th>Quantity</th>
             <th>Subtotal (Rs)</th>
             <th>Action</th>
@@ -133,22 +133,22 @@
           </thead>
           <tbody>
             <tr *ngFor ='let item of allOrderItems'>
-              <td>{{item.OrderCustomizationID}}</td>
+              <td>{{item.OrderItemID}}</td>
               <td>{{item.OrderID}}</td>
-              <td>{{item.IngredientName}}</td>
+              <td>{{item.ProductName}}</td>
               <td>{{item.Quantity}}</td>
               <td>{{item.Subtotal}}</td>
               <td>
-                <button style="margin-left:15px;background:rgb(13, 102, 20);color:white;" (click)="updateOrderItem(item.OrderCustomizationID)"><i class="fas fa-edit"></i></button>
+                <button style="margin-left:15px;background:rgb(13, 102, 20);color:white;" (click)="updateOrderItem(item.OrderItemID)"><i class="fas fa-edit"></i></button>
                 <!-- <button style="margin-left:15px;background:rgb(207, 16, 16);color:white;"><i class="fas fa-trash"></i></button> -->
                 </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-                <th>OrderCustomization ID</th>
+                <th>OrderItem ID</th>
                 <th>Order ID</th>
-                <th>Ingredient Name</th>
+                <th>Product Name</th>
                 <th>Quantity</th>
                 <th>Subtotal (Rs)</th>
                 <th>Action</th>

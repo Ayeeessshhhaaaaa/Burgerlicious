@@ -39,9 +39,18 @@ export class AdminComponent implements OnInit {
   revenuePerYearChartLabelData: any = [];
   revenuePerYearChartData: any = [];
 
+  //Top 10 best selling ingredeints variable
+  Top10SellingProducts:any;
+
+  myScriptElement: HTMLScriptElement;
+
   loaderFixScriptElement: HTMLScriptElement;
 
   constructor(private service: AdminDashboardServiceService) { 
+    this.myScriptElement = document.createElement("script");
+    this.myScriptElement.src = "assets/scripts/datatable.js";
+    document.body.appendChild(this.myScriptElement);
+
     this.loaderFixScriptElement = document.createElement("script");
     this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
     document.body.appendChild(this.loaderFixScriptElement);
@@ -127,6 +136,9 @@ export class AdminComponent implements OnInit {
       this.RenderRevenuePerYearChart(this.revenuePerYearChartLabelData, this.revenuePerYearChartData);
     });
 
+    this.service.Top10BestSellingProducts().subscribe((res)=>{
+      this.Top10SellingProducts=res.data;
+    });
   }
 
   RenderRatingChart(labelData: any, realData: any) {

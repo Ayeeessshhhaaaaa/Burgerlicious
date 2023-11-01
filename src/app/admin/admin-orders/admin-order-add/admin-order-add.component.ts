@@ -11,13 +11,19 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
 export class AdminOrderAddComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
+  myScriptElement: HTMLScriptElement;
 
   constructor(private service: AdminOrderServiceService, private router: Router) {
+    this.myScriptElement = document.createElement("script");
+    this.myScriptElement.src = "assets/scripts/datatableUserOrder.js";
+    document.body.appendChild(this.myScriptElement);
+
     this.loaderFixScriptElement = document.createElement("script");
     this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
     document.body.appendChild(this.loaderFixScriptElement);
   }
 
+  allUsers: any;
   allProducts: any;
   productNo: any;
   price: any;
@@ -32,26 +38,26 @@ export class AdminOrderAddComponent {
 
 
   ngOnInit(): void {
-    this.service.getAllIngredients().subscribe((res) => {
+    this.service.getAllProducts().subscribe((res) => {
       // console.log(res.data);
       this.allProducts = res.data;
+    });
+    this.service.getAllUsers().subscribe((res) => {
+      // console.log(res.data);
+      this.allUsers = res.data;
     });
     this.total = 0;
   }
 
   orderForm = new FormGroup({
     'UserID': new FormControl('', Validators.required),
-    // 'customerName': new FormControl('', Validators.required),
-    // 'phoneNumber': new FormControl('', Validators.required),
-    // 'email': new FormControl('', Validators.required),
-    // 'specialNotes': new FormControl('', Validators.required),
     'TotalAmount': new FormControl(this.finalTotal, Validators.required)
 
   });
 
   orderProductForm = new FormGroup({
-    'IngredientID': new FormControl('', Validators.required),
-    'IngredientName': new FormControl('', Validators.required),
+    'ProductID': new FormControl('', Validators.required),
+    'ProductName': new FormControl('', Validators.required),
     'Quantity': new FormControl('', Validators.required),
     'Subtotal': new FormControl(this.total, Validators.required)
 
@@ -67,7 +73,7 @@ export class AdminOrderAddComponent {
         console.log(this.cartProductArray, "cartProductArray");
         let lastInsertID = res.data.insertId;
         let productArray = this.cartProductArray;
-        this.service.createOrderCustomizations(productArray, lastInsertID).subscribe((res2) => {
+        this.service.createOrderItems(productArray, lastInsertID).subscribe((res2) => {
           // this.router.navigate(['admin/orders']); //does not seem to load properly, hangs up at burger load logo
           window.location.href = "/admin/orders";
         });
@@ -104,11 +110,11 @@ export class AdminOrderAddComponent {
 
   onChange() {
 
-    this.service.getIngredientById(this.productNo).subscribe((res) => {
+    this.service.getProductById(this.productNo).subscribe((res) => {
       this.quantity = 1;
       this.price = res.data[0].Price;
       this.total = res.data[0].Price;
-      this.product_name = res.data[0].IngredientName;
+      this.product_name = res.data[0].ProductName;
     });
 
 
