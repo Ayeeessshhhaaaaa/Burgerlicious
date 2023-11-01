@@ -11,13 +11,19 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
 export class AdminOrderAddComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
+  myScriptElement: HTMLScriptElement;
 
   constructor(private service: AdminOrderServiceService, private router: Router) {
+    this.myScriptElement = document.createElement("script");
+    this.myScriptElement.src = "assets/scripts/datatableUserOrder.js";
+    document.body.appendChild(this.myScriptElement);
+
     this.loaderFixScriptElement = document.createElement("script");
     this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
     document.body.appendChild(this.loaderFixScriptElement);
   }
 
+  allUsers: any;
   allProducts: any;
   productNo: any;
   price: any;
@@ -36,15 +42,15 @@ export class AdminOrderAddComponent {
       // console.log(res.data);
       this.allProducts = res.data;
     });
+    this.service.getAllUsers().subscribe((res) => {
+      // console.log(res.data);
+      this.allUsers = res.data;
+    });
     this.total = 0;
   }
 
   orderForm = new FormGroup({
     'UserID': new FormControl('', Validators.required),
-    // 'customerName': new FormControl('', Validators.required),
-    // 'phoneNumber': new FormControl('', Validators.required),
-    // 'email': new FormControl('', Validators.required),
-    // 'specialNotes': new FormControl('', Validators.required),
     'TotalAmount': new FormControl(this.finalTotal, Validators.required)
 
   });

@@ -80,32 +80,55 @@
           <div class="card-footer">
             <button type="submit" class="btn btn-primary" style="float:right">Submit Order</button>
           </div>
-          <div class="card-body">
+          <!-- <div class="card-body">
             <div class="form-group">
               <label for="UserID">User ID</label>
               <input type="text" class="form-control" id="UserID" formControlName="UserID"
                 placeholder="Enter Customer Name">
             </div>
-            <!-- <div class="form-group">
-              <label for="customerName">Customer Name</label>
-              <input type="text" class="form-control" id="customerName" formControlName="customerName"
-                placeholder="Enter Customer Name">
-            </div>
+            
+          </div> -->
+          <!-- /.card-body -->
+          <!-- /.card-header -->
+          <div class="card-body">
             <div class="form-group">
-              <label for="phoneNumber">Customer Phone Number</label>
-              <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"
-                placeholder="Enter Customer Phone Number">
+              <label>Select User</label>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let user of allUsers'>
+                    <td>{{user.Username}}</td>
+                    <td>{{user.Contact}}</td>
+                    <td>{{user.Email}}</td>
+                    <td><input type="radio" name="UserID" value="{{user.UserID}}" formControlName="UserID"></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Username</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
-            </div> -->
           </div>
           <!-- /.card-body -->
 
-          <!-- <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Add Order</button>
-            </div> -->
+
+
+
+
+
+
         </form>
       </div>
       <!-- /.card -->

@@ -48,4 +48,8 @@ export class AdminDashboardServiceService {
     return this._http.get(apiUrl);
   }
   
+  Top10BestSellingProducts():Observable<any>{
+    let apiUrl = 'http://localhost:3600/admin/dashboard/Top10BestSellingProducts';
+    return this._http.get(apiUrl);
+  }
 }
