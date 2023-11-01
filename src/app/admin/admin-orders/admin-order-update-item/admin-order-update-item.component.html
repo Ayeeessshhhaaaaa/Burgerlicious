@@ -86,20 +86,20 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <label>OrderCustomization ID</label>
-                    <input type="text" class="form-control" id="OrderID" formControlName="OrderCustomizationID" value="{{orderItemID}}" [(ngModel)]="orderItemID" readonly>
+                    <label>OrderItem ID</label>
+                    <input type="text" class="form-control" id="OrderID" formControlName="OrderItemID" value="{{orderItemID}}" [(ngModel)]="orderItemID" readonly>
                 </div>
                 <div class="form-group">
                     <label>Order ID</label>
                     <input type="text" class="form-control" id="OrderID" formControlName="OrderID" value="{{orderItemDetails[0].OrderID}}" [(ngModel)]="orderItemDetails[0].OrderID" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Ingredient ID</label>
-                    <input type="text" class="form-control" id="IngredientID" formControlName="IngredientID" value="{{orderItemDetails[0].IngredientID}}" [(ngModel)]="orderItemDetails[0].IngredientID" readonly>
+                    <label>Product ID</label>
+                    <input type="text" class="form-control" id="ProductID" formControlName="ProductID" value="{{orderItemDetails[0].ProductID}}" [(ngModel)]="orderItemDetails[0].ProductID" readonly>
                 </div>
                 <div class="form-group">
-                  <label>Ingredient Name</label>
-                  <input type="text" class="form-control" id="IngredientName" value="{{orderItemDetails[0].IngredientName}}" [(ngModel)]="orderItemDetails[0].IngredientName" disabled>
+                  <label>Product Name</label>
+                  <input type="text" class="form-control" id="ProductName" value="{{orderItemDetails[0].ProductName}}" [(ngModel)]="orderItemDetails[0].ProductName" disabled>
               </div>
                 <div class="form-group">
                     <label>Quantity</label>

@@ -66,7 +66,7 @@ export class AdminOrderUpdateComponent {
     }
   }
 
-  updateOrderItem(orderCustomizationID: number) {
-    this.router.navigateByUrl("admin/orders/updateOrderItem/"+orderCustomizationID);
+  updateOrderItem(orderItemID: number) {
+    this.router.navigateByUrl("admin/orders/updateOrderItem/"+orderItemID);
   }
 }
