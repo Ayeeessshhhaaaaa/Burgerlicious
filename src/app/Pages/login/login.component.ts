@@ -28,6 +28,9 @@ export class LoginComponent {
         (response) => {
           // Handle successful login response
           localStorage.setItem('Username', Username);
+          sessionStorage.setItem('Username', response.Username);
+          sessionStorage.setItem('UserID', response.UserID);
+          sessionStorage.setItem('token', response.token);
           console.log('Login Successful:', response);
           this.route.navigate(['/product-page']);
         },

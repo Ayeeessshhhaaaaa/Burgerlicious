@@ -13,9 +13,19 @@ export class FeedbackDetailsScreenComponent implements OnInit {
   ReviewID: number|undefined;
   feedbackData:any;
   showLoader: boolean=false;
+  sessionuserID: number | undefined;
+  orderreviewuserID: number|undefined;
+
   constructor(private router: ActivatedRoute, private feedbackService: FeedbackServiceService, private datashare: DataSharingService, private route: Router) {
 }
 ngOnInit(): void {
+  //get userid from session
+  const sessionData = sessionStorage.getItem('UserID');
+  //converting to int
+  this.sessionuserID = sessionData ? parseInt(sessionData, 10) : 0;
+  
+  
+
   //this.loader(true, 6000);
   this.router.paramMap.subscribe((params) => {
     this.ReviewID = Number(params.get('ReviewID'));

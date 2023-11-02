@@ -13,6 +13,9 @@ import { blob } from 'stream/consumers';
 })
 export class CustomizeConfirmComponent {
   burgerName: string = '';
+  customizeImg: string = '';
+  ingredientID: Number = 0 ;
+
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private route: Router, private dialogRef: MatDialogRef<CustomizeConfirmComponent>, private snackBar: MatSnackBar, private customizeService: CustomizeServiceService) {}
 
@@ -20,16 +23,39 @@ export class CustomizeConfirmComponent {
     if (this.burgerName.trim() === '') {
       this.openErrorSnackBar('Ooopsyyy. Lets add a yummy name to your Burger.');
     } else {
-      this.customizeService.saveImageToAssets(this.data.blob).subscribe(
+
+
+      this.customizeService.uploadIngredientImage(this.burgerName, this.data.blob).subscribe(
         (response) => {
-          console.log('Image saved successfully');
-          this.route.navigate(['/cart']);
-          this.dialogRef.close(this.burgerName);
+          console.log('Image upload success:', response);
+
+          const requestBody = {
+            customizeName: this.burgerName, 
+            customizeImg: response.data, // Replace with the actual value for customizeImg
+            ingredientID: 12 // Replace with the actual value for ingredientID
+          };
+          
+
+          
+          this.customizeService.sendCustomize(requestBody).subscribe(
+            (response) => {
+    
+              console.log('customization added successfully:', response);
+            },
+            (error) => {
+              console.error('Error sending customization:', error);
+            }
+          );
         },
+
+
         (error) => {
-          console.error('Failed to save the image:', error);
+          // Handle API error.
+          console.error('Image upload failed:', error);
         }
       );
+
+
     }
   }
 

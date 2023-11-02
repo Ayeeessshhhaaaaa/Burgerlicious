@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div fxLayout="row" class="update-delete">
+                <div fxLayout="row" class="update-delete" *ngIf="sessionuserID === feedbackData.UserID">
                     <div class="button" fxLayout.lt-md="row"  fxLayout.lt-sm="column" fxLayoutAlign="center center">
                         <button mat-raised-button (click)="onUpdateFeedback(feedbackData)">Update your Feedback</button>
                         <button mat-raised-button (click)="onDelete(feedbackData.ReviewID)">Delete your Feedback</button>
