@@ -1,6 +1,8 @@
 <app-page-loader *ngIf="showLoader"></app-page-loader>
 <div class="Containers" fxLayout="row" fxLayout.lt-md="column">
     <app-navbar></app-navbar>
+    <app-menu-navbar></app-menu-navbar>
+
     <div class="left-container" fxFlex="50" fxFlex.lt-md="60" fxFlex.lt-sm="60" fxLayout="column">
         <div class="card">
           <form class="Feedback" (ngSubmit)="onSubmit(form)" #form="ngForm">

@@ -62,6 +62,7 @@ import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-i
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
 import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
+import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { CustomizeConfirmComponent } from './Components/customize-confirm/custom
     AdminProductsViewComponent,
     AdminProductsUpdateComponent,
     CustomizeConfirmComponent,
+    MenuNavbarComponent,
   ],
   imports: [
     BrowserModule,

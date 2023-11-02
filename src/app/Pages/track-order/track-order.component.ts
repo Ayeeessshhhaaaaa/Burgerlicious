@@ -75,4 +75,7 @@ export class TrackOrderComponent implements OnInit {
     console.log(this.percentageWidth);
   }
 
+  addfeedbackPage(){
+    this.router.navigate(['/feedback-form']);
+  }
 }
