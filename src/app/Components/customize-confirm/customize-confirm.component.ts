@@ -49,6 +49,7 @@ export class CustomizeConfirmComponent {
             sessionStorage.setItem('customizationData', JSON.stringify(requestBody));
             console.log('requestbody', requestBody);
             this.route.navigate(['/cart']);
+            this.closeDialog();
           }
           
           
