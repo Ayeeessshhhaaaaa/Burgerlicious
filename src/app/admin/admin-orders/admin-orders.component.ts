@@ -93,7 +93,7 @@ export class AdminOrdersComponent {
       finalArrayOfItems.push(bodySection);
       for(let item of this.allOrderItems){
         let singleItem={
-          text: item.IngredientName,
+          text: item.ProductName,
           border: [false, false, false, true],
           margin: [0, 5, 0, 5],
           alignment: 'left',

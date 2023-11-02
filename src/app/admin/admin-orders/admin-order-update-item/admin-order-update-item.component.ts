@@ -15,10 +15,10 @@ export class AdminOrderUpdateItemComponent {
   totalAmountCalculate:any=0;
 
   updateOrderItem = new FormGroup({
-    'OrderCustomizationID': new FormControl('', Validators.required),
+    'OrderItemID': new FormControl('', Validators.required),
     'Subtotal': new FormControl('', Validators.required),
     'OrderID': new FormControl('', Validators.required),
-    'IngredientID': new FormControl('', Validators.required),
+    'ProductID': new FormControl('', Validators.required),
     'Quantity': new FormControl('', Validators.required),
 
   });
