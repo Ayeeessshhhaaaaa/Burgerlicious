@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
-import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
+import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session/customize-session-serive.service';
 import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomizeConfirmComponent } from 'src/app/Components/customize-confirm/customize-confirm.component';
 import { SnackbarComponent } from 'src/app/Components/snackbar/snackbar.component';
@@ -85,8 +84,6 @@ export class CustomizeScreenComponent implements OnInit {
 
   
   captureAndSaveImage(): void {
-    console.log('something',this.sessionDataArray);
-    console.log('something else',this.sessionDataArray[0].Ingredient.CategoryID);
 
     if (
       this.sessionDataArray.length > 0 &&
@@ -112,7 +109,7 @@ export class CustomizeScreenComponent implements OnInit {
         if (blob) {
           //saveAs(blob, 'burgerimg.png');
           const capturedImage = canvas.toDataURL('image/png');
-          this.openCaptureDialog(capturedImage, blob);
+          this.openCaptureDialog(capturedImage, blob, this.sessionDataArray);
         } else {
           console.error('Failed to create Blob.');
         }
@@ -136,12 +133,12 @@ export class CustomizeScreenComponent implements OnInit {
     });
   }
   
-  openCaptureDialog(capturedImage: string, blob: Blob) {
+  openCaptureDialog(capturedImage: string, blob: Blob, sessionDataArray: any) {
     const dialogRef = this.dialog.open(CustomizeConfirmComponent, {
       height: window.innerWidth < 968 ? '100vh' : '400px',
       width: '40vw',
       maxWidth: '100vw',
-      data: { capturedImage, blob },
+      data: { capturedImage, blob, sessionDataArray},
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -153,4 +150,5 @@ export class CustomizeScreenComponent implements OnInit {
       });
     });
   }
+
 }

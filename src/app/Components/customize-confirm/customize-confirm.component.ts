@@ -17,13 +17,20 @@ export class CustomizeConfirmComponent {
   ingredientID: Number = 0 ;
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private route: Router, private dialogRef: MatDialogRef<CustomizeConfirmComponent>, private snackBar: MatSnackBar, private customizeService: CustomizeServiceService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private route: Router, private dialogRef: MatDialogRef<CustomizeConfirmComponent>, private snackBar: MatSnackBar, private customizeService: CustomizeServiceService) {
+    if (data.capturedImage) {
+     
+      console.log("cominggg00");
+    } else {
+      // Data is not provided, handle this case (e.g., show an error message)
+      console.error('No capturedImage data provided.');
+    }
+  }
 
   addToCart(): void {
     if (this.burgerName.trim() === '') {
       this.openErrorSnackBar('Ooopsyyy. Lets add a yummy name to your Burger.');
     } else {
-
 
       this.customizeService.uploadIngredientImage(this.burgerName, this.data.blob).subscribe(
         (response) => {
@@ -31,21 +38,20 @@ export class CustomizeConfirmComponent {
 
           const requestBody = {
             customizeName: this.burgerName, 
-            customizeImg: response.data, // Replace with the actual value for customizeImg
-            ingredientID: 12 // Replace with the actual value for ingredientID
-          };
-          
+            customizeImg: response.data, 
+            ingredientID: this.data.sessionDataArray,
+            price: this.calculateTotalPrice(this.data.sessionDataArray)
 
+          };
+
+          if (response && response.data) {
+            // Save requestBody in sessionStorage
+            sessionStorage.setItem('customizationData', JSON.stringify(requestBody));
+            console.log('requestbody', requestBody);
+            this.route.navigate(['/cart']);
+          }
           
-          this.customizeService.sendCustomize(requestBody).subscribe(
-            (response) => {
-    
-              console.log('customization added successfully:', response);
-            },
-            (error) => {
-              console.error('Error sending customization:', error);
-            }
-          );
+          
         },
 
 
@@ -60,9 +66,55 @@ export class CustomizeConfirmComponent {
   }
 
 
+  calculateTotalPrice(sessionDataArray: any): number {
+    let totalPrice = 0;
+    for (const item of sessionDataArray) {
+      const priceAsNumber = parseFloat(item.Ingredient.Price);
+  
+      if (!isNaN(priceAsNumber)) {
+        totalPrice += priceAsNumber;
+      }
+    }
+    return totalPrice;
+  }
+
   continueShopping(){
-    this.route.navigate(['/product-page']);
-    this.closeDialog();
+    if (this.burgerName.trim() === '') {
+      this.openErrorSnackBar('Ooopsyyy. Lets add a yummy name to your Burger.');
+    } else {
+
+      this.customizeService.uploadIngredientImage(this.burgerName, this.data.blob).subscribe(
+        (response) => {
+          console.log('Image upload success:', response);
+
+          const requestBody = {
+            customizeName: this.burgerName, 
+            customizeImg: response.data, 
+            ingredientID: this.data.sessionDataArray,
+            price: this.calculateTotalPrice(this.data.sessionDataArray)
+
+          };
+
+          if (response && response.data) {
+            // Save requestBody in sessionStorage
+            sessionStorage.setItem('customizationData', JSON.stringify(requestBody));
+            console.log('requestbody', requestBody);
+            this.route.navigate(['/product-page']);
+            this.closeDialog();
+          }
+          
+          
+        },
+
+
+        (error) => {
+          // Handle API error.
+          console.error('Image upload failed:', error);
+        }
+      );
+
+
+    }
   }
 
   openErrorSnackBar(message: string) {
