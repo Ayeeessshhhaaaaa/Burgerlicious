@@ -4,6 +4,8 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomizeConfirmComponent } from 'src/app/Components/customize-confirm/customize-confirm.component';
+import { SnackbarComponent } from 'src/app/Components/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -20,7 +22,7 @@ export class CustomizeScreenComponent implements OnInit {
 
 
 
-  constructor(private customizeSessionService: CustomizeSessionSeriveService, private dialog: MatDialog) { }
+  constructor(private customizeSessionService: CustomizeSessionSeriveService, private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     // Get ingredients from local storage (without reversing the order)
@@ -41,6 +43,8 @@ export class CustomizeScreenComponent implements OnInit {
       const temp = this.sessionDataArray[index];
       this.sessionDataArray[index] = this.sessionDataArray[index - 1];
       this.sessionDataArray[index - 1] = temp;
+      // Update local storage after swapping
+      this.customizeSessionService.updatecustomizeStorage();
     }
   }
   
@@ -49,6 +53,8 @@ export class CustomizeScreenComponent implements OnInit {
       const temp = this.sessionDataArray[index];
       this.sessionDataArray[index] = this.sessionDataArray[index + 1];
       this.sessionDataArray[index + 1] = temp;
+    // Update local storage after swapping
+    this.customizeSessionService.updatecustomizeStorage();
     }
   }
 
@@ -79,6 +85,14 @@ export class CustomizeScreenComponent implements OnInit {
 
   
   captureAndSaveImage(): void {
+    console.log('something',this.sessionDataArray);
+    console.log('something else',this.sessionDataArray[0].Ingredient.CategoryID);
+
+    if (
+      this.sessionDataArray.length > 0 &&
+      this.sessionDataArray[0].Ingredient.CategoryID === 12 &&
+      this.sessionDataArray[this.sessionDataArray.length - 1].Ingredient.CategoryID === 6
+    ) {
     const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
 
   // Find all elements with the "burger-controller" class
@@ -98,7 +112,7 @@ export class CustomizeScreenComponent implements OnInit {
         if (blob) {
           //saveAs(blob, 'burgerimg.png');
           const capturedImage = canvas.toDataURL('image/png');
-          this.openCaptureDialog(capturedImage);
+          this.openCaptureDialog(capturedImage, blob);
         } else {
           console.error('Failed to create Blob.');
         }
@@ -109,14 +123,25 @@ export class CustomizeScreenComponent implements OnInit {
       });
     });
   }
-  
+  else{
+    this.openErrorSnackBar('Please build the burger in the correct order');
+  }
+  }
 
-  openCaptureDialog(capturedImage: string) {
+  openErrorSnackBar(message: string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: { message },
+      duration: 2000,
+      panelClass: 'error-snackbar',
+    });
+  }
+  
+  openCaptureDialog(capturedImage: string, blob: Blob) {
     const dialogRef = this.dialog.open(CustomizeConfirmComponent, {
       height: window.innerWidth < 968 ? '100vh' : '400px',
       width: '40vw',
       maxWidth: '100vw',
-      data: { capturedImage },
+      data: { capturedImage, blob },
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -128,5 +153,4 @@ export class CustomizeScreenComponent implements OnInit {
       });
     });
   }
-  
 }
