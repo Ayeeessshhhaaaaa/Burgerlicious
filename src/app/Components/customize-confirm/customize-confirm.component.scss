@@ -18,10 +18,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
 
             .saved-img{
                 width: 90%;
                 height: auto;
+                margin-left: 40px;
             }
         }
     }
@@ -29,6 +31,9 @@
     .sub-container-right{
         background-color: #5C2E0F;
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .topic {
             color: #D1BD9E;
@@ -71,6 +76,7 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 50px;
+            flex-direction: row;
 
             .button-with-space {
                 margin-left: 10px; /* Adjust the value as needed to control the spacing */

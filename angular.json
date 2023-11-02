@@ -30,9 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
               "node_modules/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",

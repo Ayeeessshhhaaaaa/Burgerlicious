@@ -45,7 +45,7 @@ export class CustomizeSessionSeriveService {
     localStorage.removeItem('customizeItems');
   }
 
-  private updatecustomizeStorage() {
+  updatecustomizeStorage() {
     localStorage.setItem('customizeItems', JSON.stringify(this.customizeIngredient));
   }
 

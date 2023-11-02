@@ -14,14 +14,14 @@
         >
           <div class="data-blocks" *ngFor="let result of searchData"  (click)="closeDialog()">
             <app-feedback-block
-            [ReviewID]="data.ReviewID"
-            [OrderID]="data.OrderID"
-            [UserID]="data.UserID"
-            [Name]="data.Name"
-            [burgerName]="data.burgerName"
-            [Comment]="data.Comment"
-            [Rating]="data.Rating"
-            [imageURL]="data.imageURL"
+            [ReviewID]="result.ReviewID"
+            [OrderID]="result.OrderID"
+            [UserID]="result.UserID"
+            [Name]="result.Name"
+            [burgerName]="result.burgerName"
+            [Comment]="result.Comment"
+            [Rating]="result.Rating"
+            [imageURL]="result.imageURL"
           ></app-feedback-block>
           </div>
         </ng-container>
