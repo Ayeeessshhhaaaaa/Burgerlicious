@@ -1,0 +1,32 @@
+  <div class="mobile-navbar" fxHide.gt-sm>
+    <div class="menu-icon" (click)="toggleNav()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="nav-links" [ngClass]="{'active': isNavOpen}">
+      <div class="nav-item"  (click)="onClick('/home')">
+        Home
+    </div>
+    <div class="nav-item"  (click)="onClick('/customize-screen')">
+        Customize
+    </div>
+    <div class="nav-item"  (click)="onClick('/product-page')">
+        Shop
+    </div>
+    <div class="nav-item"  (click)="onClick('/feedback')">
+        Feedback
+    </div>
+
+    <div class="nav-item"  (click)="onClick('/cart')">
+          Cart
+    </div>
+
+    <div class="nav-item"  (click)="onClick('/cart')">
+      Account
+    </div>
+
+    </ul>
+  </div>
+  
+  

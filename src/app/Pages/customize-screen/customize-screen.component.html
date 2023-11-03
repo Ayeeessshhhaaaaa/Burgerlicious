@@ -1,5 +1,7 @@
 <div class="Containers" fxLayout.lt-md="column">
     <app-navbar> </app-navbar>
+    <app-menu-navbar></app-menu-navbar>
+
     <div class="textbox">
         Customize &nbsp;<span class="cream"> Burger</span>
     </div>
@@ -10,13 +12,12 @@
 
     <div class="right-container" fxFlex="588px" fxFlex="45" fxLayout="center center">
 
-     
       <div class="imageContainer">
       <div class="scrollable-content">
         <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image">
           <div class="image-wrapper">
             <div class="image-container" fxLayout="row">
-              <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
+              <img [src]="'assets/' +itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
               <div class="burger-controller">
                 <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span></div>
                 <div (click)="moveImageDown(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_more </span></div>

@@ -1,0 +1,44 @@
+.mobile-navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.nav-links {
+  list-style: none;
+  display: none;
+}
+
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  left: 0;
+}
+
+.nav-links.active .nav-item {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links.active .nav-item:hover {
+  color: #e74c3c;
+}
