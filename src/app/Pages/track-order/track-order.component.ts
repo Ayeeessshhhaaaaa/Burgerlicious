@@ -73,7 +73,9 @@ export class TrackOrderComponent implements OnInit {
       this.check3 = 'bi bi-check-circle-fill';
     }
     console.log(this.percentageWidth);
-
   }
 
+  addfeedbackPage(){
+    this.router.navigate(['/feedback-form']);
+  }
 }

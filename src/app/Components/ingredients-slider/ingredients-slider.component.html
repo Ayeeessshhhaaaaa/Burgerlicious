@@ -16,7 +16,7 @@
           <slide *ngFor="let ingredientItem of ingredientItems">
               <div class="ingredient-card" (click) ="addToCustomization(ingredientItem)">
                   <div class="ingredients-images">
-                      <img [src]="ingredientItem.ImageURL" alt="ingredient" class="ingredient-image">
+                      <img [src]="'assets/' + ingredientItem.ImageURL" alt="ingredient" class="ingredient-image">
                   </div>
               </div>
           </slide>

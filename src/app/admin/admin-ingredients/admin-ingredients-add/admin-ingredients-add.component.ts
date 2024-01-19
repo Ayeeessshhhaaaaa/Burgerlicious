@@ -69,4 +69,6 @@ export class AdminIngredientsAddComponent {
       this.error = 'Please enter values for all fields';
     }
   }
+
+  
 }

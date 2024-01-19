@@ -17,7 +17,7 @@ export class AuthServiceService {
   }
 
   login(username: string, password: string): Observable<any> {
-    const body ={
+    const body = {
       "Username" : username,
       "Password": password
       }

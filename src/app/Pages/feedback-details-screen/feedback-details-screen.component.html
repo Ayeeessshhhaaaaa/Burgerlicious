@@ -1,6 +1,8 @@
 <app-page-loader *ngIf="showLoader"></app-page-loader>
 <div class="containers">
     <app-navbar></app-navbar> 
+    <app-menu-navbar></app-menu-navbar>
+
     <div class="dark-container">
     <div class="textbox">Feedback & Review Details</div> 
     <div class="light-container">
@@ -31,7 +33,7 @@
                     </div>
                 </div>
 
-                <div fxLayout="row" class="update-delete">
+                <div fxLayout="row" class="update-delete" *ngIf="sessionuserID === feedbackData.UserID">
                     <div class="button" fxLayout.lt-md="row"  fxLayout.lt-sm="column" fxLayoutAlign="center center">
                         <button mat-raised-button (click)="onUpdateFeedback(feedbackData)">Update your Feedback</button>
                         <button mat-raised-button (click)="onDelete(feedbackData.ReviewID)">Delete your Feedback</button>

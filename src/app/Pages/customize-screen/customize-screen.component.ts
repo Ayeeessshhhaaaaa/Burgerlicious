@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session-serive.service';
+import { CustomizeSessionSeriveService } from 'src/app/Services/customize-session/customize-session-serive.service';
 import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomizeConfirmComponent } from 'src/app/Components/customize-confirm/customize-confirm.component';
 import { SnackbarComponent } from 'src/app/Components/snackbar/snackbar.component';
@@ -85,11 +84,6 @@ export class CustomizeScreenComponent implements OnInit {
   }
 
   captureAndSaveImage(): void {
-    console.log('something', this.sessionDataArray);
-    console.log(
-      'something else',
-      this.sessionDataArray[0].Ingredient.CategoryID
-    );
 
     if (
       this.sessionDataArray.length > 0 &&
@@ -106,45 +100,34 @@ export class CustomizeScreenComponent implements OnInit {
       const burgerControllerElements =
         imageContainer.querySelectorAll('.burger-controller');
 
-      // Hide the burger controller buttons
-      burgerControllerElements.forEach((element: Element) => {
-        (element as HTMLElement).style.visibility = 'hidden';
-      });
-
-
-      // var canvar_bar = document.getElementById("ratingChart") as HTMLCanvasElement;
-      // var dataurl3 = canvar_bar.toDataURL('image/png');
-      // var link = document.createElement('a');
-      // link.download = 'ratingChart.png';
-      // link.href = dataurl3;
-      // link.click();
-
-
-
-
-      // Use HTML2Canvas to capture the contents of .imageContainer with a transparent background
-      html2canvas(imageContainer, {
-        // scale: 2,
-        //backgroundColor: 'transparent',
-      }).then((canvas: HTMLCanvasElement) => {
-        canvas.toBlob((blob: Blob | null) => {
-          if (blob) {
-            //saveAs(blob, 'burgerimg.png');
-            const capturedImage = canvas.toDataURL('image/png');
-            console.log(capturedImage);
-            this.openCaptureDialog(capturedImage, blob);
-          } else {
-            console.error('Failed to create Blob.');
-          }
-
-          burgerControllerElements.forEach((element: Element) => {
-            (element as HTMLElement).style.visibility = 'visible';
-          });
+  // Hide the burger controller buttons
+  burgerControllerElements.forEach((element: Element) => {
+    (element as HTMLElement).style.visibility = 'hidden';
+  });
+  
+    // Use HTML2Canvas to capture the contents of .imageContainer with a transparent background
+    html2canvas(imageContainer, { 
+      scale: 2, 
+      backgroundColor: 'transparent' 
+    }).then((canvas: HTMLCanvasElement) => {
+      canvas.toBlob((blob: Blob | null) => {
+        if (blob) {
+          //saveAs(blob, 'burgerimg.png');
+          const capturedImage = canvas.toDataURL('image/png');
+          this.openCaptureDialog(capturedImage, blob, this.sessionDataArray);
+        } else {
+          console.error('Failed to create Blob.');
+        }
+        
+        burgerControllerElements.forEach((element: Element) => {
+          (element as HTMLElement).style.visibility = 'visible';
         });
       });
-    } else {
-      this.openErrorSnackBar('Please build the burger in the correct order');
-    }
+    });
+  }
+  else{
+    this.openErrorSnackBar('Please build the burger in the correct order');
+  }
   }
 
   openErrorSnackBar(message: string) {
@@ -154,13 +137,13 @@ export class CustomizeScreenComponent implements OnInit {
       panelClass: 'error-snackbar',
     });
   }
-
-  openCaptureDialog(capturedImage: string, blob: Blob) {
+  
+  openCaptureDialog(capturedImage: string, blob: Blob, sessionDataArray: any) {
     const dialogRef = this.dialog.open(CustomizeConfirmComponent, {
       height: window.innerWidth < 968 ? '100vh' : '400px',
       width: '40vw',
       maxWidth: '100vw',
-      data: { capturedImage, blob },
+      data: { capturedImage, blob, sessionDataArray},
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -176,4 +159,5 @@ export class CustomizeScreenComponent implements OnInit {
       });
     });
   }
+
 }
