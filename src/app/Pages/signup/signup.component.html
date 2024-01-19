@@ -9,7 +9,7 @@
             </div>
 
             <div class="card" style="padding: 10px">
-                <form class="Feedback"(ngSubmit)="onSubmit(form)" #form="ngForm" style="flex-direction: row;box-sizing: border-box;display: flex;align-content: space-around;flex-wrap: wrap;justify-content: space-evenly;align-items: flex-end;">
+                <form class="Feedback"(ngSubmit)="onSubmit(form)" #form="ngForm" style="flex-direction: row; box-sizing: border-box; display: flex; align-content: space-around; flex-wrap: wrap; justify-content: space-evenly; align-items: flex-end;">
                     <div fxLayout="row" fxFlex="100">
 
                         <mat-form-field appearance="outline" fxFlex="50">
@@ -32,7 +32,7 @@
                     <div class="row" fxFlex="100">
                         <mat-form-field appearance="outline" fxFlex="100">
                             <mat-label>Email Address</mat-label>
-                            <input matInput [(ngModel)]="formData.Email" name="Email" placeholder="Enter your E-mail address" required>
+                            <input matInput [(ngModel)]="formData.Email" name="Email" placeholder="Enter your E-mail address" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
                         </mat-form-field>
                     </div>
 
@@ -48,23 +48,23 @@
                     <div class="row" fxFlex="100">
                         <mat-form-field appearance="outline" fxFlex="100">
                             <mat-label>Password</mat-label>
-                            <input matInput [(ngModel)]="formData.Password" name="Password" placeholder="Please enter your Password" required>
+                            <input matInput [(ngModel)]="formData.Password" type="password" name="Password" placeholder="Please enter your Password" required>
                         </mat-form-field>
                     </div>
-                    <div fxLayout="row" fxFlex="100">
-                        <div fxFlex="50">
-                    <button mat-raised-button color="primary" type="submit" class="mb-4">
-                        Sign Up Now
-                       </button>
+
+                    <div fxLayout="row" fxFlex="100" class="text-center">
+                        <div fxFlex="40" class="mx-auto">
+                            <button mat-raised-button color="primary" type="submit" class="mb-3">Sign Up Now</button>
+                        </div>
                     </div>
-                    <div fxFlex="50">
-                       <button mat-raised-button color="primary" type="submit" class="mb-4" (click)="login()">
-                        Login Now
-                       </button>
-                    </div>
-                    </div>
-                </form>      
+
+                </form> 
+
+                <div class="login" (click)="login()">
+                    <p>Login Now</p>
+                </div>
             </div>
+
         </div>
     </div>
 

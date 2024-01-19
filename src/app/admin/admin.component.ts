@@ -14,6 +14,8 @@ Chart.register(...registerables);
 })
 export class AdminComponent implements OnInit {
 
+  adminUser:any;
+
   noOfUsers: any;
   noOfOrders: any;
   noOfFeedbacks: any;
@@ -57,6 +59,8 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
 
     this.service.getUsersCount().subscribe((res) => {
 

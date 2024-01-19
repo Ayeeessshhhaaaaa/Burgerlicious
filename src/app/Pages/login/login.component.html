@@ -24,14 +24,17 @@
             
               <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput [(ngModel)]="formData.Password" name="Password" placeholder="Please enter your Password" required>
+                <input matInput [(ngModel)]="formData.Password" type="password" name="Password" placeholder="Please enter your Password" required>
               </mat-form-field>
   
-              <button mat-raised-button color="primary" type="submit" class="mb-4">
-               Login Now
-              </button>
+              <button mat-raised-button color="primary" type="submit" class="mb-4 mt-2">Login Now</button>
+
             </form>      
                 
+          </div>
+
+          <div class="signUp" (click)="signUp()">
+            <p>Create Account</p>
           </div>
 
     </div>

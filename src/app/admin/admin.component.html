@@ -1,3 +1,4 @@
+<div *ngIf=adminUser>
 <div class="hold-transition dark-mode layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
 
@@ -330,5 +331,9 @@
     </footer>
   </div>
   <!-- ./wrapper -->
+</div>
+</div>
+<div *ngIf=!adminUser>
+  <h1>Not an admin user </h1>
 </div>
 <router-outlet></router-outlet>
