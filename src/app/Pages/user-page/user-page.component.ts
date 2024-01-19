@@ -57,6 +57,10 @@ export class UserPageComponent {
     }
   }
 
+  pastOrders(){
+    this.router.navigate(['/past-order/'+localStorage.getItem('UserID')]);
+  }
+
 
 
 }

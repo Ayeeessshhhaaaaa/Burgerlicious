@@ -8,6 +8,9 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
   styleUrls: ['./admin-order-view.component.scss']
 })
 export class AdminOrderViewComponent {
+
+  adminUser:any;
+
   orderId:any;
   orderDetails:any;
   allOrderItems:any;
@@ -22,6 +25,9 @@ export class AdminOrderViewComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.orderId = this.route.snapshot.paramMap.get('id');
 
     this.service.getOrderForViewById(this.orderId).subscribe((res)=>{

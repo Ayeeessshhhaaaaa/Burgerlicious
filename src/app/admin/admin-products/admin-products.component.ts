@@ -9,6 +9,7 @@ import { AdminProductsServiceService } from 'src/app/Services/admin-products-ser
 })
 export class AdminProductsComponent {
 
+  adminUser:any;
 
   allProducts:any;
   myScriptElement: HTMLScriptElement;
@@ -26,6 +27,9 @@ export class AdminProductsComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllProducts().subscribe((res)=>{
       console.log(res.data);
       this.allProducts=res.data;

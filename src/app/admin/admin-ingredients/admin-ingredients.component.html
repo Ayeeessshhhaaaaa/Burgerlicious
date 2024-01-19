@@ -1,3 +1,4 @@
+<div *ngIf=adminUser>
 <div class="hold-transition dark-mode layout-navbar-fixed">
   <div class="wrapper">
   
@@ -129,7 +130,11 @@
       </footer>
     </div>
     <!-- ./wrapper -->
-  </div>
+</div>
+</div>
+<div *ngIf=!adminUser>
+  <app-admin-error-page/>
+</div>
     <router-outlet></router-outlet>
   
   

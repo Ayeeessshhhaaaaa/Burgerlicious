@@ -65,6 +65,7 @@ import { CustomizeConfirmComponent } from './Components/customize-confirm/custom
 import { PastOrderComponent } from './Pages/past-order/past-order.component';
 import { PastOrderBlockComponent } from './Components/past-order-block/past-order-block.component';
 import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.component';
+import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.compon
     PastOrderComponent,
     PastOrderBlockComponent,
     MenuNavbarComponent,
-    CustomizeScreenComponent
+    CustomizeScreenComponent,
+    AdminErrorPageComponent
   ],
   imports: [
     BrowserModule,

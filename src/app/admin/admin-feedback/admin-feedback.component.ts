@@ -8,6 +8,9 @@ import { FeedbackServiceService } from 'src/app/Services/feedback-service/feedba
   styleUrls: ['./admin-feedback.component.scss']
 })
 export class AdminFeedbackComponent {
+
+  adminUser:any;
+
   myScriptElement: HTMLScriptElement;
   allFeedbacks: any;
 
@@ -24,6 +27,9 @@ export class AdminFeedbackComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.feedbackService.getFeedback().subscribe(
       (data) => {
         // Handle the API response data here

@@ -10,8 +10,11 @@ import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user
   styleUrls: ['./admin-add-user.component.scss']
 })
 export class AdminAddUserComponent {
-  error: any;
-  userForm: FormGroup = new FormGroup({
+
+    adminUser:any;
+
+    error: any;
+    userForm: FormGroup = new FormGroup({
     Name: new FormControl('', Validators.required),
     FirstName: new FormControl('', Validators.required),
     LastName: new FormControl('', Validators.required),
@@ -27,6 +30,10 @@ export class AdminAddUserComponent {
     this.loaderFixScriptElement = document.createElement("script");
     this.loaderFixScriptElement.src = "assets/scripts/preLoaderFix.js";
     document.body.appendChild(this.loaderFixScriptElement);
+  }
+
+  ngOnInit(): void {
+    this.adminUser = localStorage.getItem('Username')==="admin";
   }
 
   Submit() {

@@ -7,6 +7,9 @@ import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user
   styleUrls: ['./admin-users.component.scss']
 })
 export class AdminUsersComponent {
+
+  adminUser:any;
+
   myScriptElement: HTMLScriptElement;
   allUsers: any;
 
@@ -23,6 +26,9 @@ export class AdminUsersComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.userService.getAllUsers().subscribe(
       (data) => {
         // Handle the API response data here

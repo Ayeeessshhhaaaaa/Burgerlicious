@@ -10,6 +10,8 @@ import { AdminProductsServiceService } from 'src/app/Services/admin-products-ser
 })
 export class AdminProductsUpdateComponent {
 
+  adminUser:any;
+
   error: any;
   selectedImage: any;
   customeFileScriptElement: HTMLScriptElement;
@@ -42,6 +44,9 @@ export class AdminProductsUpdateComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.productID = this.route.snapshot.paramMap.get('id');
 
     this.service.getProductById(this.productID).subscribe((res)=>{

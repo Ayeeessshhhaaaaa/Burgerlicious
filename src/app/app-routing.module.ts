@@ -34,6 +34,7 @@ import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-i
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
 import { PastOrderComponent } from './Pages/past-order/past-order.component';
+import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
 
 
 const routes: Routes = [
@@ -170,8 +171,12 @@ const routes: Routes = [
   component: AdminProductsUpdateComponent,
 },
 {
-  path: 'past-order',
+  path: 'past-order/:id',
   component: PastOrderComponent,
+},
+{
+  path: 'admin-error-page',
+  component: AdminErrorPageComponent,
 },
 ];
 

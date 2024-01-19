@@ -9,6 +9,7 @@ import { AdminIngredientServiceService } from 'src/app/Services/admin-ingredient
 })
 export class AdminIngredientsViewComponent {
 
+  adminUser:any;
 
   ingredientId:any;
   ingredientDetails:any;
@@ -24,6 +25,8 @@ export class AdminIngredientsViewComponent {
 
   ngOnInit(): void {
     this.ingredientId = this.route.snapshot.paramMap.get('id');
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
 
     this.service.getIngredientForViewById(this.ingredientId).subscribe((res)=>{
       this.ingredientDetails=res.data;

@@ -9,6 +9,8 @@ import { AdminIngredientServiceService } from 'src/app/Services/admin-ingredient
 })
 export class AdminIngredientsComponent {
 
+  adminUser:any;
+
   allIngredients:any;
   myScriptElement: HTMLScriptElement;
 
@@ -25,6 +27,9 @@ export class AdminIngredientsComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllIngredients().subscribe((res)=>{
       console.log(res.data);
       this.allIngredients=res.data;

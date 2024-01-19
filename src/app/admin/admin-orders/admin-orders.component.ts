@@ -12,6 +12,9 @@ import { TDocumentDefinitions } from 'pdfmake/interfaces';
   styleUrls: ['./admin-orders.component.scss']
 })
 export class AdminOrdersComponent {
+
+  adminUser:any;
+
   myScriptElement: HTMLScriptElement;
   allOrders: any;
 
@@ -31,6 +34,9 @@ export class AdminOrdersComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllOrders().subscribe((res) => {
       // console.log(res.data);
       this.allOrders = res.data;

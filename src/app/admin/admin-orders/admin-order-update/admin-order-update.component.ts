@@ -9,6 +9,9 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
   styleUrls: ['./admin-order-update.component.scss']
 })
 export class AdminOrderUpdateComponent {
+
+  adminUser:any;
+
   orderId:any;
   orderDetails:any;
   allOrderItems:any;
@@ -31,6 +34,9 @@ export class AdminOrderUpdateComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.orderId = this.route.snapshot.paramMap.get('id');
 
     this.service.getAllUsers().subscribe((res) => {
