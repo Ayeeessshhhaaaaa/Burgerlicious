@@ -114,6 +114,7 @@ import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.compon
     PastOrderComponent,
     PastOrderBlockComponent,
     MenuNavbarComponent,
+    CustomizeScreenComponent
   ],
   imports: [
     BrowserModule,
