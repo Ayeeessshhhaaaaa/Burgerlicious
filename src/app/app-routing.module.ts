@@ -35,6 +35,7 @@ import { AdminProductsViewComponent } from './admin/admin-products/admin-product
 import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
 import { PastOrderComponent } from './Pages/past-order/past-order.component';
 import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
+import { ViewOrderComponent } from './Pages/view-order/view-order.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'admin/login',
     component: LoginComponent
   },
   {
@@ -177,6 +182,10 @@ const routes: Routes = [
 {
   path: 'admin-error-page',
   component: AdminErrorPageComponent,
+},
+{
+  path: 'view-order',
+  component: ViewOrderComponent,
 },
 ];
 
