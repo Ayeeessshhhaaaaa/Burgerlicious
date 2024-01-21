@@ -39,6 +39,17 @@ export class IngredientsSliderComponent implements OnInit{
     // Make an API call to get the ingredient details based on its ID
     this.customizeService.getItems(CategoryID).subscribe(
       (data) => {
+
+        for (let i=0; i<data.length;i++)
+        {
+          this.customizeService.getImageAsBase64(data[i].ImageURL)
+              .subscribe(base64 => {
+                data[i].ImageURL = 'data:image/png;base64,' + base64;
+          });
+        }
+
+
+
         this.ingredientItems = data; 
         this.ingredientItemsCheck=true;
         console.log(this.ingredientItems);
