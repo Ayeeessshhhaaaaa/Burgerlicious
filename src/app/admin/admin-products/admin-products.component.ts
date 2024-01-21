@@ -64,9 +64,9 @@ export class AdminProductsComponent {
     this.router.navigateByUrl("admin/products/viewProduct/"+productId);
   }
 
-
-
-
-
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }

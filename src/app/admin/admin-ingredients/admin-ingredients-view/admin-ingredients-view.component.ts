@@ -34,4 +34,9 @@ export class AdminIngredientsViewComponent {
     });
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

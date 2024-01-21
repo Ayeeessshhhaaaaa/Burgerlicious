@@ -38,9 +38,11 @@ export class AdminOrderViewComponent {
     this.service.getAllOrderItemsByOrderID(this.orderId).subscribe((res)=>{
       this.allOrderItems=res.data;
     });
-
-
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
   
 }

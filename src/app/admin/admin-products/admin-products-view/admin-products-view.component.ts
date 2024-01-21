@@ -35,4 +35,9 @@ export class AdminProductsViewComponent {
     });
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

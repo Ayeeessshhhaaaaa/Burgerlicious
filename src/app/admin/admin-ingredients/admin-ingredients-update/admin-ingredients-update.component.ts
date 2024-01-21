@@ -104,7 +104,10 @@ export class AdminIngredientsUpdateComponent {
   }
 
 
-
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 
 

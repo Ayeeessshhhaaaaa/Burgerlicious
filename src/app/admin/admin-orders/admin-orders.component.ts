@@ -400,5 +400,10 @@ export class AdminOrdersComponent {
   updateOrder(orderID: number) {
     this.router.navigateByUrl("admin/orders/updateOrder/"+orderID);
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
   
 }

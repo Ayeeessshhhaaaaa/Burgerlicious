@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AdminUsersComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private userService: AdminUserService) {
+  constructor(private userService: AdminUserService, private route: Router) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -57,6 +58,11 @@ export class AdminUsersComponent {
         }
       );
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
   }
 
 }

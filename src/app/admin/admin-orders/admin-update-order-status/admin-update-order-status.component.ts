@@ -78,4 +78,10 @@ export class AdminUpdateOrderStatusComponent {
     }
 
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

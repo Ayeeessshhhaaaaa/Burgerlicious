@@ -64,4 +64,9 @@ export class AdminIngredientsComponent {
     this.router.navigateByUrl("admin/ingredients/viewIngredient/"+ingredientId);
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

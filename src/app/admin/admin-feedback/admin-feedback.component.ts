@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminFeedbackServiceService } from 'src/app/Services/admin-feedback-service/admin-feedback-service.service';
 import { FeedbackServiceService } from 'src/app/Services/feedback-service/feedback-service.service';
 
@@ -16,7 +17,7 @@ export class AdminFeedbackComponent {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private feedbackService: AdminFeedbackServiceService) {
+  constructor(private feedbackService: AdminFeedbackServiceService, private route: Router) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -58,6 +59,11 @@ export class AdminFeedbackComponent {
         }
       );
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
   }
 
 }

@@ -99,6 +99,11 @@ export class AdminProductsUpdateComponent {
   }
 
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 
 
 

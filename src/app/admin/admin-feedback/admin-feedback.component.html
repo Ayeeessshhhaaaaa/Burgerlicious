@@ -21,11 +21,19 @@
     
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-          <!-- Navbar Search -->
+          <!-- Navbar Search and Logout -->
           <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-              <i class="fas fa-search"></i>
-            </a>
+            <span class="nav-link">
+    
+              <a class="navbar-icon" data-widget="navbar-search" role="button">
+                <i class="fas fa-search mr-3" style="color: #CED4D9;"></i>
+              </a>
+    
+              <a class="navbar-icon" role="button">
+                <i class="fas fa-sign-out-alt" style="color: #CED4D9;" (click)="logoutAdmin()"></i>
+              </a>
+    
+            </span>
             <div class="navbar-search-block">
               <form class="form-inline">
                 <div class="input-group input-group-sm">
@@ -43,6 +51,7 @@
             </div>
           </li>
         </ul>
+
       </nav>
       <!-- /.navbar -->
     

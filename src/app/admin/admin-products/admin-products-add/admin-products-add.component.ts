@@ -74,5 +74,9 @@ export class AdminProductsAddComponent {
     }
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }

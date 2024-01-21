@@ -55,4 +55,10 @@ export class AdminAddUserComponent {
       );
     }
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
+  }
+
 }

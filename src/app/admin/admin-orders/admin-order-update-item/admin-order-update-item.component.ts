@@ -93,4 +93,10 @@ export class AdminOrderUpdateItemComponent {
     //this.orderItemDetails[0].Quantity == null || this.orderItemDetails[0].Quantity == undefined || this.orderItemDetails[0].Quantity.length==0
 
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }
