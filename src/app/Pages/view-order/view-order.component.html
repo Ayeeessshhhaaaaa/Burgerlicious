@@ -1,4 +1,27 @@
 <div class="container">
     <h1>View Orders</h1>
+
+    <div class="card mt-4 mb-5 pb-1 rounded" style="width: 85%;">
+        <div class="card-header p-4" style="border-bottom: 3px solid silver;">    
+            <div class="row mb-1">        
+                <div class="col-md-9">          
+                    <h3 class="card-text">Order ID : <h4 class="text-secondary" style="display: inline;">Example Order</h4></h3>        
+                </div>        
+                <div class="col-md-3">          
+                    <h3 class="card-text">Sub Total : <h4 class="text-secondary" style="display: inline;">Example Order</h4></h3> 
+                </div>    
+            </div>  
+            <div class="row pt-2 mb-3">
+                <div class="col">          
+                    <h3 class="card-text">Order Name : <h4 class="text-secondary" style="display: inline;">Example Order</h4></h3> 
+                </div> 
+            </div>  
+        </div>  
+        <div class="card-body">   
+            <app-view-order-block/> 
+        </div>  
+    </div>
+
 </div>
+
 <router-outlet></router-outlet>
