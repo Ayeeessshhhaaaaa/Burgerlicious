@@ -114,6 +114,7 @@ export class CustomizeScreenComponent implements OnInit {
         if (blob) {
           //saveAs(blob, 'burgerimg.png');
           const capturedImage = canvas.toDataURL('image/png');
+          console.log(capturedImage);
           this.openCaptureDialog(capturedImage, blob, this.sessionDataArray);
         } else {
           console.error('Failed to create Blob.');

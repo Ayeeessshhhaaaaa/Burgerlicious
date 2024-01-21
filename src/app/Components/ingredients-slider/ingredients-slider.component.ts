@@ -12,6 +12,8 @@ export class IngredientsSliderComponent implements OnInit{
 
   ingredients: any[]=[];
   ingredientItems: any[]=[];
+  ingredientsCheck:any=false;
+  ingredientItemsCheck:any=false;
 
   @Output() itemAdded = new EventEmitter<void>();
   
@@ -23,6 +25,8 @@ export class IngredientsSliderComponent implements OnInit{
     this.customizeService.getIngredients().subscribe(
       (data) => {
         this.ingredients = data; 
+        this.ingredientsCheck=true;
+        console.log(this.ingredients);
       },
       (error) => {
         console.error('Error fetching data:', error);
@@ -36,6 +40,7 @@ export class IngredientsSliderComponent implements OnInit{
     this.customizeService.getItems(CategoryID).subscribe(
       (data) => {
         this.ingredientItems = data; 
+        this.ingredientItemsCheck=true;
         console.log(this.ingredientItems);
       },
       (error) => {
