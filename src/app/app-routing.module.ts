@@ -36,6 +36,7 @@ import { AdminProductsUpdateComponent } from './admin/admin-products/admin-produ
 import { PastOrderComponent } from './Pages/past-order/past-order.component';
 import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
 import { ViewOrderComponent } from './Pages/view-order/view-order.component';
+import { OrderSuccessfullyComponent } from './Pages/order-successfully/order-successfully.component';
 
 
 const routes: Routes = [
@@ -186,6 +187,10 @@ const routes: Routes = [
 {
   path: 'view-order/:id',
   component: ViewOrderComponent,
+},
+{
+  path: 'order-successfully',
+  component: OrderSuccessfullyComponent,
 },
 ];
 
