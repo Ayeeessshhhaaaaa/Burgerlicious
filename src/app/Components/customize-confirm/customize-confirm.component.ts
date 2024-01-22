@@ -19,8 +19,7 @@ export class CustomizeConfirmComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private route: Router, private dialogRef: MatDialogRef<CustomizeConfirmComponent>, private snackBar: MatSnackBar, private customizeService: CustomizeServiceService) {
     if (data.capturedImage) {
-     
-      console.log("cominggg00");
+
     } else {
       // Data is not provided, handle this case (e.g., show an error message)
       console.error('No capturedImage data provided.');

@@ -21,9 +21,10 @@ export class FeedbackDetailsScreenComponent implements OnInit {
 ngOnInit(): void {
   //get userid from session
   const sessionData = sessionStorage.getItem('UserID');
+  console.log('userid',sessionData);
   //converting to int
   this.sessionuserID = sessionData ? parseInt(sessionData, 10) : 0;
-  
+  console.log('userid',this.sessionuserID);
   
 
   //this.loader(true, 6000);
