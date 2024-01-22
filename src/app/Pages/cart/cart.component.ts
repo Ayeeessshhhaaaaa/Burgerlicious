@@ -36,4 +36,37 @@ export class CartComponent implements OnInit {
   //   location.reload();
   // }
 
+  placeOrder(){
+
+    let data ={
+      UserID : localStorage.getItem('UserID'),
+      TotalAmount : this.cartTotal
+    };
+
+    console.log(this.cartData.data);
+
+    this.cartService.createOrder(data).subscribe((res) => {
+
+      let lastInsertID = res.data.insertId;
+      let OrderItems:any=[];
+
+      for (let i=0;i<this.cartData.data.length;i++){
+        let OrderItemRow = {
+          Subtotal : this.cartService.CalculateSubTotal(i),
+          Quantity : this.cartData.data[i].numInCart,
+          ProductID : this.cartData.data[i].product.ProductID
+        };
+        OrderItems.push(OrderItemRow);
+      }
+
+
+      this.cartService.createOrderItems(OrderItems, lastInsertID).subscribe((res2) => {
+        // window.location.href = "/order-success";
+      });
+
+
+    });
+
+  }
+
 }
