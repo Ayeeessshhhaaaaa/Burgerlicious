@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CartModelPublic, CartModelServer } from 'src/app/Models/cart.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 import { ProductModelServer } from 'src/app/Models/product.model';
 import { ProductService } from '../productService/product.service';
@@ -209,6 +209,26 @@ export class CartService {
     return subTotal;
 
   }
+
+  createOrder(data: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/orders/addOrder';
+    console.log(data, 'create order')
+    return this.http.post(apiUrl, data);
+  }
+
+  createOrderItems(data: any, orderId: any): Observable<any> {
+    let apiUrl = 'http://localhost:3600/admin/orders/addOrderItems';
+    //we need to pass the last inserted order Id to insert for the orderItems table
+    let finalData = {
+      orderId: orderId,
+      data: data
+
+    }
+    console.log(finalData, 'create order products')
+    return this.http.post(apiUrl, finalData);
+  }
+
+
 }
 
 interface OrderResponse {
