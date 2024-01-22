@@ -189,7 +189,7 @@ const routes: Routes = [
   component: ViewOrderComponent,
 },
 {
-  path: 'order-successfully',
+  path: 'order-successfully/:id',
   component: OrderSuccessfullyComponent,
 },
 ];

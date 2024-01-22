@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { CartModelServer } from 'src/app/Models/cart.model';
 import { CartService } from 'src/app/Services/cartService/cart.service';
 
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit {
   cartTotal: number = 0;
   subTotal!: number;
 
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService, private router: Router) {
   }
 
   ngOnInit() {
@@ -61,7 +62,7 @@ export class CartComponent implements OnInit {
 
 
       this.cartService.createOrderItems(OrderItems, lastInsertID).subscribe((res2) => {
-        // window.location.href = "/order-success";
+        this.router.navigate(['order-successfully/'+lastInsertID]);
       });
 
 
