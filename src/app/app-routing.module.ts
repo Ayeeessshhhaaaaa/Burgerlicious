@@ -184,7 +184,7 @@ const routes: Routes = [
   component: AdminErrorPageComponent,
 },
 {
-  path: 'view-order',
+  path: 'view-order/:id',
   component: ViewOrderComponent,
 },
 ];

@@ -4,7 +4,7 @@
     <p>Order Date: {{order.OrderDate}}</p>
 
     <div class="button-group">
-        <button>View Order</button>
+        <button (click)="viewOrder(order.OrderID)">View Order</button>
         <button (click)="trackOrder(order.OrderID)">Track Order</button>
     </div>
 </div>

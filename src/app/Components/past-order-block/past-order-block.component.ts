@@ -29,6 +29,10 @@ export class PastOrderBlockComponent {
     this.router.navigate(['/track-order-page/'+id]);
   }
 
+  viewOrder(id:any){
+    this.router.navigate(['/view-order/'+id]);
+  }
+
 
 
 
