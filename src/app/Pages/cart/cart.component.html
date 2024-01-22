@@ -27,7 +27,7 @@
                 </td>
                 <td><p>{{c.product.ProductName}}</p></td>
                 <td>
-                  <p>{{c.product.Price | currency:'USD'}}</p>
+                  <p>{{c.product.Price | currency:'LKR '}}</p>
                 </td>
                 <td>
                   <form>
@@ -41,7 +41,7 @@
                   </form>
                 </td>
                 <td>
-                  <p>{{cartService.CalculateSubTotal(i) | currency:'USD'}}</p>
+                  <p>{{cartService.CalculateSubTotal(i) | currency:'LKR '}}</p>
                 </td>
               </tr>
               <tr class="border-0">
@@ -49,7 +49,7 @@
                 <td></td>
                 <td></td>
                 <td>TOTAL</td>
-                <td>{{cartTotal | currency:'USD'}}</td>
+                <td>{{cartTotal | currency:'LKR '}}</td>
     
               </tr>
     
