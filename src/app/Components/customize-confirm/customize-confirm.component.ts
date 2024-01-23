@@ -56,7 +56,7 @@ export class CustomizeConfirmComponent {
               requestBody.customizeName,
               requestBody.ingredientID
             );
-            console.log('burgeri', burgerId);
+            console.log('burger', burgerId);
             const cartItem = {
               id: burgerId,
               item: requestBody,

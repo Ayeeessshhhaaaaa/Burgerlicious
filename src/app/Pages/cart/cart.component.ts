@@ -12,11 +12,18 @@ export class CartComponent implements OnInit {
   cartData!: CartModelServer;
   cartTotal: number = 0;
   subTotal!: number;
+  customizeData: any = '';
 
   constructor(public cartService: CartService, private router: Router) {
   }
 
   ngOnInit() {
+
+    const burgerData = localStorage.getItem('cartItems');
+    if(burgerData){
+      this.customizeData = burgerData;
+      console.log('mm', this.customizeData);
+    }
      this.cartService.cartData$.subscribe((data: CartModelServer) => {
       this.cartData = data;
       this.cartTotal = 0;

@@ -6,7 +6,7 @@
         <button class="btn btn-lg mt-3 shadow-lg  custom-btn" routerLink="/product-page">GO TO SHOP</button>
       </div>
     
-      <ng-container *ngIf="cartData.data[0] !== undefined && cartData.data[0].numInCart !== 0">
+      <ng-container *ngIf="cartData.data[0] !== undefined && cartData.data[0].numInCart !== 0 || customizeData.length > 0">
         <div class="row">
           <div class="col my-4">
             <div class="table-container mt-4" style="border-radius: 15px;">
@@ -20,7 +20,7 @@
                 <th class="text-center py-4" style="border: none;">Subtotal</th>
               </tr>
               </thead>
-              <tbody *ngIf = "cartData.data!==undefined">
+              <tbody *ngIf = "cartData.data!==undefined || customizeData.length > 0">
               <tr *ngFor="let c of cartData.data; let i=index">
                 <td class="d-flex align-items-center justify-content-around"  style="border: none;">
                   <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" height="60" class="order-1">
@@ -47,6 +47,20 @@
                   <p>{{cartService.CalculateSubTotal(i) | currency:'LKR '}}</p>
                 </td>
               </tr>
+
+
+
+
+            <!-- Loop through customizedata -->
+            <tr *ngFor="let customItem of customizeData; let j=index">
+              <td class="d-flex align-items-center justify-content-around"  style="border: none;">
+                <img [src]="customItem.item.ImageURL" height="60" class="order-1">
+                <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(j)"></i></span>
+              </td>
+              <td style="border: none;"><p>{{customItem.id}}</p></td>
+            </tr>
+
+
               <tr class="rounded-bottom" >
                 <td class="py-3" style="border: none;"></td>
                 <td class="py-3" style="border: none;"></td>
