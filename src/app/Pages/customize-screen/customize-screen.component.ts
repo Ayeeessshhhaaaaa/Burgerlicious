@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomizeConfirmComponent } from 'src/app/Components/customize-confirm/customize-confirm.component';
 import { SnackbarComponent } from 'src/app/Components/snackbar/snackbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-customize-screen',
@@ -18,11 +19,13 @@ export class CustomizeScreenComponent implements OnInit {
   @ViewChild('canvas', { static: true }) canvas:
     | ElementRef<HTMLCanvasElement>
     | undefined;
+    showLoader: boolean= false;
 
   constructor(
     private customizeSessionService: CustomizeSessionSeriveService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit() {
@@ -82,44 +85,37 @@ export class CustomizeScreenComponent implements OnInit {
     this.sessionDataArray = [];
     console.log(this.sessionDataArray);
   }
-
   captureAndSaveImage(): void {
 
     if (
       this.sessionDataArray.length > 0 &&
       this.sessionDataArray[0].Ingredient.CategoryID === 12 &&
-      this.sessionDataArray[this.sessionDataArray.length - 1].Ingredient
-        .CategoryID === 6
+      this.sessionDataArray[this.sessionDataArray.length - 1].Ingredient.CategoryID === 6
     ) {
-      const imageContainer = document.querySelector(
-        '.imageContainer'
-      ) as HTMLElement;
-      console.log(imageContainer);
+    const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
 
-      // Find all elements with the "burger-controller" class
-      const burgerControllerElements =
-        imageContainer.querySelectorAll('.burger-controller');
+  // Find all elements with the "burger-controller" class
+  const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');
 
   // Hide the burger controller buttons
   burgerControllerElements.forEach((element: Element) => {
     (element as HTMLElement).style.visibility = 'hidden';
   });
-  
+
     // Use HTML2Canvas to capture the contents of .imageContainer with a transparent background
-    html2canvas(imageContainer, { 
-      scale: 2, 
-      backgroundColor: 'transparent' 
+    html2canvas(imageContainer, {
+      scale: 2,
+      backgroundColor: 'transparent'
     }).then((canvas: HTMLCanvasElement) => {
       canvas.toBlob((blob: Blob | null) => {
         if (blob) {
           //saveAs(blob, 'burgerimg.png');
           const capturedImage = canvas.toDataURL('image/png');
-          console.log(capturedImage);
-          this.openCaptureDialog(capturedImage, blob, this.sessionDataArray);
+          this.openCaptureDialogAfterLoader(capturedImage, blob, this.sessionDataArray);
         } else {
           console.error('Failed to create Blob.');
         }
-        
+
         burgerControllerElements.forEach((element: Element) => {
           (element as HTMLElement).style.visibility = 'visible';
         });
@@ -139,26 +135,45 @@ export class CustomizeScreenComponent implements OnInit {
     });
   }
   
+  openCaptureDialogAfterLoader(capturedImage: string, blob: Blob, sessionDataArray: any) {
+    this.loader(true, 2000, () => { // Change the duration as needed
+      this.openCaptureDialog(capturedImage, blob, sessionDataArray);
+    });
+  }
+
   openCaptureDialog(capturedImage: string, blob: Blob, sessionDataArray: any) {
     const dialogRef = this.dialog.open(CustomizeConfirmComponent, {
       height: window.innerWidth < 968 ? '100vh' : '400px',
       width: '40vw',
       maxWidth: '100vw',
-      data: { capturedImage, blob, sessionDataArray},
+      data: { capturedImage, blob, sessionDataArray },
     });
 
     dialogRef.afterClosed().subscribe(() => {
       // Show the button controllers again when the dialog is closed
-      const imageContainer = document.querySelector(
-        '.imageContainer'
-      ) as HTMLElement;
-      const burgerControllerElements =
-        imageContainer.querySelectorAll('.burger-controller');
-      ``;
+      const imageContainer = document.querySelector('.imageContainer') as HTMLElement;
+      const burgerControllerElements = imageContainer.querySelectorAll('.burger-controller');
       burgerControllerElements.forEach((element: Element) => {
         (element as HTMLElement).style.visibility = 'visible';
       });
     });
   }
+
+  loader(state: boolean, duration: number, callback?: () => void) {
+    this.ngZone.run(() => {
+      this.showLoader = state;
+
+      if (state) {
+        setTimeout(() => {
+          this.showLoader = false;
+          if (callback) {
+            callback(); // Execute the callback function if provided
+          }
+        }, duration);
+      }
+    });
+  }
+
+  
 
 }

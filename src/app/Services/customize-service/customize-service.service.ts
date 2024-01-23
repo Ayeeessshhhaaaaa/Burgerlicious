@@ -17,8 +17,9 @@ export class CustomizeServiceService {
 
   getItems(CategoryID: number)
   {
-    return this.http.get<any[]> (`${this.apiUrl}/customize-categories/${CategoryID}`);
+    return this.http.get<any[]> (`${this.apiUrl}/customizeuser-categories/${CategoryID}`);
   }
+
 
   sendCustomize(customizeData: any) {
     return this.http.post(`${this.apiUrl}/ordercustomizations`, customizeData);
@@ -34,8 +35,17 @@ export class CustomizeServiceService {
     return this.http.post(`${this.apiUrl}/ordercustomizations/save-image`, formData);
   }
   */
+//mosquito biting me
 
+  uploadBurgerImage(burgerName: string, payload: { capturedImage: string }): Observable<any> {
+    const url = `${this.apiUrl}/ordercustomizations/save-image`;
+    return this.http.post(url, { burgerName, ...payload });
+  }
 
+  getImage(imagePath: string): Observable<string> {
+    const url = `${this.apiUrl}/ordercustomizations/${encodeURIComponent(imagePath)}`;
+    return this.http.get(url, { responseType: 'text' });
+  }
 
 
   uploadIngredientImage(burgerName: string, image: File): Observable<any> {

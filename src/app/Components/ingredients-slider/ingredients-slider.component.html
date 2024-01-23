@@ -1,25 +1,25 @@
 <div class="container" fxLayout="column">
-    <div class="carousel-container" *ngIf="ingredientsCheck">
-    <carousel [itemsPerSlide]="3" [interval]="0" [showIndicators]="false">
-      <slide *ngFor="let ingredient of ingredients">
-        <div class="card" fxLayout="column" (click)="onItemClick(ingredient.CategoryID)">
-          <div class="ingredients" fxLayoutAlign="center center" fxLayout="column">
-            <img [src]="ingredient?.imageURL" alt="ingredient" class="ingredient">
-            <div class="ingredient-name">{{ ingredient.CategoryName }}</div>
-          </div>
+  <div class="carousel-container" *ngIf="ingredients">
+  <carousel [itemsPerSlide]="3" [interval]="0" [showIndicators]="false">
+    <slide *ngFor="let ingredient of ingredients">
+      <div class="card" fxLayout="column" (click)="onItemClick(ingredient.CategoryID)">
+        <div class="ingredients" fxLayoutAlign="center center" fxLayout="column">
+          <img [src]="ingredient.imageURL" alt="ingredient.CategoryName" class="ingredient">
+          <div class="ingredient-name">{{ ingredient.CategoryName }}</div>
         </div>
-      </slide>
+      </div>
+    </slide>
+  </carousel>
+ </div>
+  <div class="large-carousel-container" *ngIf="ingredientItems">
+    <carousel [itemsPerSlide]="1" [interval]="0" [showIndicators]="false">
+        <slide *ngFor="let ingredientItem of ingredientItems">
+            <div class="ingredient-card" (click) ="addToCustomization(ingredientItem)">
+                <div class="ingredients-images">
+                    <img [src]="ingredientItem.ImageURL" alt="ingredient" class="ingredient-image">
+                </div>
+            </div>
+        </slide>
     </carousel>
-   </div>
-    <div class="large-carousel-container" *ngIf="ingredientItemsCheck">
-      <carousel [itemsPerSlide]="1" [interval]="0" [showIndicators]="false">
-          <slide *ngFor="let ingredientItem of ingredientItems">
-              <div class="ingredient-card" (click) ="addToCustomization(ingredientItem)">
-                  <div class="ingredients-images">
-                      <img [src]="ingredientItem?.ImageURL" alt="ingredient" class="ingredient-image">
-                  </div>
-              </div>
-          </slide>
-      </carousel>
-  </div>
+</div>
 </div>
