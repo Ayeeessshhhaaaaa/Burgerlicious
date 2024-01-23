@@ -21,6 +21,7 @@ export class FeedbackFormComponent implements OnInit {
   selectedStar: number | null = null;
   hoveredStar: number | null = null;
   showLoader: boolean=false;
+  customizeImage: string = '';
 
 constructor(private sanitizer: DomSanitizer, private service: FeedbackServiceService, private snackBar: MatSnackBar, private datashare: DataSharingService) {
 this.sanitizedImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl);
@@ -42,6 +43,12 @@ ngOnInit(): void {
 }
 onSubmit(form: NgForm) {
   if (form.valid) {
+    const customizedImageUrl = localStorage.getItem('cartItems');
+    // Check if the customized image URL is available
+    if (customizedImageUrl) {
+      const customizeData = JSON.parse(customizedImageUrl);
+      this.customizeImage = customizeData[0].item.customizeImg;
+    }
     if (this.editStatus) {
       this.loader(true, 6000);
       this.formData.Rating = this.selectedStar; // Set the selected star number in formData
@@ -62,6 +69,7 @@ onSubmit(form: NgForm) {
     } else {
       this.loader(true, 6000);
       this.formData.Rating = this.selectedStar; // Set the selected star number in formData
+      this.formData.customizeImg = this.customizeImage;
       this.service.sendFeedback(this.formData).subscribe(
         (response) => {
           console.log('Feedback sent successfully:', response);

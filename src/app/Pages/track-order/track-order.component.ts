@@ -24,6 +24,8 @@ export class TrackOrderComponent implements OnInit {
   check2:any="";
   check3:any="";
 
+  showButton: boolean=false;
+
   constructor(private router: Router, private service:CustomerOrderServiceService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -67,7 +69,7 @@ export class TrackOrderComponent implements OnInit {
       this.status1='btn-primary';
       this.status2='btn-primary';
       this.status3='btn-primary';
-
+      this.showButton=true;
       this.check1 = 'bi bi-check-circle-fill';
       this.check2 = 'bi bi-check-circle-fill';
       this.check3 = 'bi bi-check-circle-fill';

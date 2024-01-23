@@ -1,7 +1,7 @@
 <div class="backgroundColor vh-100">
   <div class="container">
     <app-navbar></app-navbar>
-      <div *ngIf="cartTotal !== undefined && cartTotal === 0;" class="text-center my-5">
+      <div *ngIf="cartTotal !== undefined && cartTotal === 0 && customizeData.length == 0;" class="text-center my-5">
         <h4 class="custom-cart-text">Your Cart Is Empty</h4>
         <button class="btn btn-lg mt-3 shadow-lg  custom-btn" routerLink="/product-page">GO TO SHOP</button>
       </div>
@@ -54,10 +54,31 @@
             <!-- Loop through customizedata -->
             <tr *ngFor="let customItem of customizeData; let j=index">
               <td class="d-flex align-items-center justify-content-around"  style="border: none;">
-                <img [src]="customItem.item.ImageURL" height="60" class="order-1">
-                <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(j)"></i></span>
+                <img [src]="customItem.item.customizeImg" height="60" class="order-1">
+                <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="DeleteProductFromCart(customItem.id)"></i></span>
               </td>
               <td style="border: none;"><p>{{customItem.id}}</p></td>
+
+              <td style="border: none;">
+                <p>{{customItem.item.price | currency:'LKR '}}</p>
+              </td>
+
+              <td style="border: none;">
+                <form>
+                  <div class="value-button" id="decrease" (click)="ChangeQuantity(j, false)">
+                    <i class="fa fa-minus"></i>
+                  </div>
+                  <input type="number" id="number" [value]="customItem.quantity" readonly/>
+                  <div class="value-button" id="increase" (click)="ChangeQuantity(j, true)">
+                    <i class="fa fa-plus"></i>
+                  </div>
+                </form>
+              </td>
+
+              <td style="border: none;">
+                <p>{{customItem.item.price | currency:'LKR '}}</p>
+              </td>
+
             </tr>
 
 

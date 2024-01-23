@@ -35,7 +35,7 @@
                     style="width: 100%; text-align: center; margin-top: 10px;"><i
                     class="{{check3}}"></i> Completed</div>
 
-                    <button mat-raised-button color="primary" class="feedbackpage-btn"  (click)="addfeedbackPage()">Add Feedback</button>
+                    <button *ngIf="showButton" mat-raised-button color="primary" class="feedbackpage-btn"  (click)="addfeedbackPage()">Add Feedback</button>
             </div>
         </div>
     </div>

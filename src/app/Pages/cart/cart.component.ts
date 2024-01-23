@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   cartData!: CartModelServer;
   cartTotal: number = 0;
   subTotal!: number;
-  customizeData: any = '';
+  customizeData: any[] = [];
 
   constructor(public cartService: CartService, private router: Router) {
   }
@@ -21,8 +21,8 @@ export class CartComponent implements OnInit {
 
     const burgerData = localStorage.getItem('cartItems');
     if(burgerData){
-      this.customizeData = burgerData;
-      console.log('mm', this.customizeData);
+      this.customizeData = JSON.parse(burgerData);
+      console.log('customizeData from local storage', this.customizeData);
     }
      this.cartService.cartData$.subscribe((data: CartModelServer) => {
       this.cartData = data;
@@ -39,10 +39,25 @@ export class CartComponent implements OnInit {
     this.cartService.UpdateCartItems(index, increase);
   }
 
-  // DeleteProductFromCart(index: number) {
-  //   this.cartService.DeleteProductFromCart(index);
-  //   location.reload();
-  // }
+  DeleteProductFromCart(customizeId: string) {
+    // Remove the object from customizeData with the matching customizeId
+    this.customizeData = this.customizeData.filter(item => item.customizeId !== customizeId);
+  
+    // Save the updated customizeData to local storage
+    localStorage.setItem('cartItems', JSON.stringify(this.customizeData));
+  
+    // Permanently remove the item from local storage
+    localStorage.removeItem('cartItems' + customizeId);
+  
+    location.reload();
+  }
+
+  getTotalPrice(): number {
+    return this.customizeData.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+  
+  
+  
 
   placeOrder(){
 
