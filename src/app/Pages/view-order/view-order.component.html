@@ -1,8 +1,8 @@
 <div class="container">
     <h1>View Orders</h1>
 
-    <div class="card mt-4 mb-5 pb-1 rounded" style="width: 85%;">
-        <div class="card-header p-4" style="border-bottom: 3px solid silver;">    
+    <div class="card mt-4 mb-5 pb-1 custom-card" style="width: 85%; background-color: #D1BD9E; border-radius: 15px;">
+        <div class="card-header p-4" style="border-bottom: 4px solid #5C2D0F;">    
             <div class="row mb-1">        
                 <div class="col-md-9">          
                     <h3 class="card-text">Order ID : <h4 class="text-secondary" style="display: inline;">{{orderId}}</h4></h3>        
@@ -13,36 +13,32 @@
             </div>   
         </div>  
         <div class="card-body">   
-            <!-- view block -->
-            <div class="card shadow" *ngFor ='let item of allOrderItems'>
+
+            <!-- view block start-->
+            <div class="card shadow custom-card-block" *ngFor='let item of allOrderItems' style="background-color: #D5C8B5;">
                 <div class="row no-gutters">
                   <div class="col-md-2">
-                    <img src="http://localhost:3600/productImages/{{item.ImageURL}}" class="card-img rounded m-3 img-thumbnail" alt="Image" style="width: 200px; height: 200px;"/>
+                    <img src="http://localhost:3600/productImages/{{item.ImageURL}}" class="card-img rounded m-4 img-thumbnail" alt="Image" style="width: 180px; height: 180px;"/>
                   </div>
                   <div class="col-md-10">
                     <div class="card-body mt-3 ml-3">
-              
-              
-                      <div class="row">        
-                          <div class="col-md-10">          
-                              <h3 class="card-text text-secondary">{{item.ProductName}}</h3>      
-                          </div>        
-                          <div class="col-md-2">          
-                              <h4 class="card-text">Rs {{item.Subtotal}}</h4>
-                          </div>    
-                      </div>  
-                      <div class="row">        
-                          <div class="col-md-10 text-right ml-5">          
-                              <h6 class="card-text text-body-secondary mt-1 pl-5">Qty : {{item.Quantity}}</h6>      
-                          </div>          
-                      </div>  
-              
-              
+                      <div class="row">
+                        <div class="col-md-10">
+                          <h3 class="card-text text-secondary">{{item.ProductName}}</h3>
+                        </div>
+                        <div class="col-md-2 text-right">
+                          <h4 class="card-text mr-4">Rs {{item.Subtotal}}</h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-right">
+                          <h6 class="card-text text-body-secondary mt-1 mr-4">Qty : {{item.Quantity}}</h6>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-            </div>
-
+              </div>              
             <!-- view block end -->
               
         </div>  
