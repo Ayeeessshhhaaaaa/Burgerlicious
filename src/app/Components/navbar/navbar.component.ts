@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit{
   finalCartData!: CartModelServer;
 
   constructor(private router: ActivatedRoute, private route: Router, public cartService: CartService){
-   this.userID = localStorage.getItem('userID');
+   this.userID = localStorage.getItem('UserID');
    this.route.events.subscribe((event) => {
     if (event instanceof NavigationEnd) {
       this.isCustomizePage = event.url.includes('/customize-screen');
@@ -44,6 +44,15 @@ export class NavbarComponent implements OnInit{
   onClick(Path: string)
   {
     this.route.navigate([Path])
+  }
+
+  userProfile(){
+    this.route.navigate(['/user-page/'+localStorage.getItem('UserID')]);
+  }
+
+  logoutUser(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
   }
 
 }

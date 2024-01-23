@@ -12,6 +12,8 @@ export class IngredientsSliderComponent implements OnInit{
 
   ingredients: any[]=[];
   ingredientItems: any[]=[];
+  ingredientsCheck:any=false;
+  ingredientItemsCheck:any=false;
 
   @Output() itemAdded = new EventEmitter<void>();
   
@@ -23,6 +25,8 @@ export class IngredientsSliderComponent implements OnInit{
     this.customizeService.getIngredients().subscribe(
       (data) => {
         this.ingredients = data; 
+        this.ingredientsCheck=true;
+        console.log(this.ingredients);
       },
       (error) => {
         console.error('Error fetching data:', error);
@@ -35,7 +39,19 @@ export class IngredientsSliderComponent implements OnInit{
     // Make an API call to get the ingredient details based on its ID
     this.customizeService.getItems(CategoryID).subscribe(
       (data) => {
+
+        for (let i=0; i<data.length;i++)
+        {
+          this.customizeService.getImageAsBase64(data[i].ImageURL)
+              .subscribe(base64 => {
+                data[i].ImageURL = 'data:image/png;base64,' + base64;
+          });
+        }
+
+
+
         this.ingredientItems = data; 
+        this.ingredientItemsCheck=true;
         console.log(this.ingredientItems);
       },
       (error) => {

@@ -10,6 +10,8 @@ import { AdminIngredientServiceService } from 'src/app/Services/admin-ingredient
 })
 export class AdminIngredientsUpdateComponent {
 
+  adminUser:any;
+
   error: any;
   selectedImage: any;
   customeFileScriptElement: HTMLScriptElement;
@@ -41,6 +43,9 @@ export class AdminIngredientsUpdateComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.ingredientID = this.route.snapshot.paramMap.get('id');
 
     this.service.getIngredientById(this.ingredientID).subscribe((res)=>{
@@ -99,7 +104,10 @@ export class AdminIngredientsUpdateComponent {
   }
 
 
-
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 
 

@@ -10,6 +10,7 @@ import { AdminProductsServiceService } from 'src/app/Services/admin-products-ser
 })
 export class AdminProductsAddComponent {
 
+  adminUser:any;
 
   error: any;
   selectedImage: any;
@@ -40,6 +41,9 @@ export class AdminProductsAddComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllCategories().subscribe((res) => {
       this.allCategories = res.data;
     });
@@ -70,5 +74,9 @@ export class AdminProductsAddComponent {
     }
   }
 
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }

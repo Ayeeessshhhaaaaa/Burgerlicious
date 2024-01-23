@@ -3,6 +3,7 @@ import { Chart, registerables } from 'chart.js';
 import * as pdfMake from "pdfmake/build/pdfMake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { AdminDashboardServiceService } from '../Services/admin-dashboard-service/admin-dashboard-service.service';
+import { Router } from '@angular/router';
 Chart.register(...registerables);
 
 (pdfMake as any).vfs=pdfFonts.pdfMake.vfs;
@@ -13,6 +14,8 @@ Chart.register(...registerables);
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  adminUser:any;
 
   noOfUsers: any;
   noOfOrders: any;
@@ -46,7 +49,7 @@ export class AdminComponent implements OnInit {
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private service: AdminDashboardServiceService) { 
+  constructor(private service: AdminDashboardServiceService, private route: Router) { 
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -57,6 +60,8 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
 
     this.service.getUsersCount().subscribe((res) => {
 
@@ -301,4 +306,11 @@ export class AdminComponent implements OnInit {
 
 
   }
+
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
+  }
+
 }

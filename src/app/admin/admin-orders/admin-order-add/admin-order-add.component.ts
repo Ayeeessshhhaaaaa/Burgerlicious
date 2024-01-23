@@ -10,6 +10,8 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
 })
 export class AdminOrderAddComponent {
 
+  adminUser:any;
+
   loaderFixScriptElement: HTMLScriptElement;
   myScriptElement: HTMLScriptElement;
 
@@ -38,6 +40,9 @@ export class AdminOrderAddComponent {
 
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllProducts().subscribe((res) => {
       // console.log(res.data);
       this.allProducts = res.data;
@@ -138,6 +143,11 @@ export class AdminOrderAddComponent {
     for (let i = 0; i < this.cartProductArray.length; i++) {
       this.finalTotal = (parseFloat(this.finalTotal) + parseFloat(this.cartProductArray[i].Subtotal)).toFixed(2); //to 2 decimal places
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

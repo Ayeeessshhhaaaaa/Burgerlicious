@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user.service';
 
 @Component({
@@ -7,12 +8,15 @@ import { AdminUserService } from 'src/app/Services/admin-user-service/admin-user
   styleUrls: ['./admin-users.component.scss']
 })
 export class AdminUsersComponent {
+
+  adminUser:any;
+
   myScriptElement: HTMLScriptElement;
   allUsers: any;
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private userService: AdminUserService) {
+  constructor(private userService: AdminUserService, private route: Router) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -23,6 +27,9 @@ export class AdminUsersComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.userService.getAllUsers().subscribe(
       (data) => {
         // Handle the API response data here
@@ -51,6 +58,11 @@ export class AdminUsersComponent {
         }
       );
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
   }
 
 }

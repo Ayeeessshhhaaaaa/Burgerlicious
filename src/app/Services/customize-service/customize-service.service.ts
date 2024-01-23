@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 
 @Injectable({
@@ -42,6 +42,22 @@ export class CustomizeServiceService {
     const formData = new FormData();
     formData.append('image', image);
     return this.http.post(`${this.apiUrl}/ordercustomizations/save-image`, formData);
+  }
+
+
+  getImageAsBase64(url: string): Observable<string> {
+    return this.http.get(url, { responseType: 'arraybuffer' })
+      .pipe(map(buffer => this.arrayBufferToBase64(buffer)));
+  }
+
+  private arrayBufferToBase64(buffer: ArrayBuffer): string {
+    let binary = '';
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
   }
   
 

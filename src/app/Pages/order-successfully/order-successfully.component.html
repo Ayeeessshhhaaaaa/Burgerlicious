@@ -1,0 +1,14 @@
+<div class="container d-flex justify-content-center align-items-center vh-100" style="background-color: #5C2D0F; max-width: 100%;">
+    <div class="card w-50 shadow-lg" style="border-radius: 15px; background-color: #D5C8B5;">
+        <div class="card-header pt-5 pb-3 text-center" style="border-bottom: 3px solid #5C2D0F;">
+            <i class="fas fa-check-circle mb-3" style="font-size: 40px; color: green;"></i>
+            <p>Hey there!</p>
+        </div>
+        <div class="card-body text-center">
+            <h1>Your order is confirmed!</h1>
+            <h5>We are making your order. Please stay tuned!.</h5>
+            <p>Your Order No : {{orderId}}</p>
+            <a (click)="viewOrder(orderId)" class="btn mb-4 mt-1 shadow" style="background-color: #5C2D0F; color: white; padding: 12px; width: 170px; border-radius: 10px;">View Order</a>
+        </div>
+    </div>
+</div>

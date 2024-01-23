@@ -10,10 +10,15 @@
           type="text"
           class="form-control form-input"
           placeholder="Search products..."
+          [(ngModel)]="searchQuery" 
+          (input)="filterProducts()"
         />
       </div>
     </div>
   </div>
+
+
+
 
   <ul class="nav nav-pills justify-content-center">
     <li class="nav-item">
@@ -46,7 +51,9 @@
         fxLayoutGap="-50px"
         fxLayoutAlign="space-evenly"
       >
-        <ng-container
+
+
+        <!-- <ng-container
           *ngIf="productData && productData.length > 0; else noResults"
         >
           <div class="data-blocks" *ngFor="let data of productData">
@@ -60,7 +67,26 @@
               [CategoryID]="data.CategoryID"
             ></app-product-block>
           </div>
+          
+        </ng-container> -->
+
+
+        <ng-container *ngIf="filteredProducts && filteredProducts.length > 0; else noResults">
+          <div class="data-blocks" *ngFor="let data of filteredProducts">
+            <app-product-block
+              [ProductID]="data.ProductID"
+              [ProductName]="data.ProductName"
+              [Price]="data.Price"
+              [Description]="data.Description"
+              [ImageURL]="data.ImageURL"
+              [Rating]="data.Rating"
+              [CategoryID]="data.CategoryID"
+            ></app-product-block>
+          </div>
+          <!-- {{ filteredProducts.length }} -->
         </ng-container>
+
+
 
         <ng-template #noResults>
           <div
@@ -72,9 +98,12 @@
             No Products Available
           </div>
         </ng-template>
+
+        
       </div>
     </div>
   </div>
 
 
 </div>
+

@@ -62,7 +62,12 @@ import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-i
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
 import { CustomizeConfirmComponent } from './Components/customize-confirm/customize-confirm.component';
+import { PastOrderComponent } from './Pages/past-order/past-order.component';
+import { PastOrderBlockComponent } from './Components/past-order-block/past-order-block.component';
 import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.component';
+import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
+import { ViewOrderComponent } from './Pages/view-order/view-order.component';
+import { OrderSuccessfullyComponent } from './Pages/order-successfully/order-successfully.component';
 
 @NgModule({
   declarations: [
@@ -85,10 +90,8 @@ import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.compon
     AdminAddUserComponent,
     CartPageComponent,
     SnackbarComponent,
-    CustomizeScreenComponent,
     IngredientsSliderComponent,
     AdminIngredientsComponent,
-    CustomizeScreenComponent,
     AdminNavbarComponent,
     AdminIngredientsAddComponent,
     PageLoaderComponent,
@@ -111,7 +114,13 @@ import { MenuNavbarComponent } from './Components/menu-navbar/menu-navbar.compon
     AdminProductsViewComponent,
     AdminProductsUpdateComponent,
     CustomizeConfirmComponent,
+    PastOrderComponent,
+    PastOrderBlockComponent,
     MenuNavbarComponent,
+    CustomizeScreenComponent,
+    AdminErrorPageComponent,
+    ViewOrderComponent,
+    OrderSuccessfullyComponent,
   ],
   imports: [
     BrowserModule,

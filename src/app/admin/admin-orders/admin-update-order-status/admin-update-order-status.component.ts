@@ -9,6 +9,9 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
   styleUrls: ['./admin-update-order-status.component.scss']
 })
 export class AdminUpdateOrderStatusComponent {
+
+  adminUser:any;
+
   orderId:any;
   orderDetails:any;
 
@@ -33,6 +36,9 @@ export class AdminUpdateOrderStatusComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.orderId = this.route.snapshot.paramMap.get('id');
 
     this.service.getOrderById(this.orderId).subscribe((res)=>{
@@ -72,4 +78,10 @@ export class AdminUpdateOrderStatusComponent {
     }
 
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

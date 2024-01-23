@@ -9,6 +9,9 @@ import { AdminIngredientServiceService } from 'src/app/Services/admin-ingredient
   styleUrls: ['./admin-ingredients-add.component.scss'],
 })
 export class AdminIngredientsAddComponent {
+
+  adminUser:any;
+
   error: any;
   selectedImage: any;
   customeFileScriptElement: HTMLScriptElement;
@@ -38,6 +41,9 @@ export class AdminIngredientsAddComponent {
 
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.service.getAllCategories().subscribe((res) => {
       this.allCategories = res.data;
     });
@@ -68,6 +74,11 @@ export class AdminIngredientsAddComponent {
     } else {
       this.error = 'Please enter values for all fields';
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   

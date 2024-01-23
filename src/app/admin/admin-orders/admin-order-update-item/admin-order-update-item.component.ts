@@ -9,6 +9,9 @@ import { AdminOrderServiceService } from 'src/app/Services/admin-order-service/a
   styleUrls: ['./admin-order-update-item.component.scss']
 })
 export class AdminOrderUpdateItemComponent {
+
+  adminUser:any;
+
   orderItemID:any;
   orderItemDetails:any;
   oneItemPrice:any; //calculate without sending another db request
@@ -33,6 +36,9 @@ export class AdminOrderUpdateItemComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.orderItemID = this.route.snapshot.paramMap.get('id');
 
     this.service.getOrderItemById(this.orderItemID).subscribe((res)=>{
@@ -87,4 +93,10 @@ export class AdminOrderUpdateItemComponent {
     //this.orderItemDetails[0].Quantity == null || this.orderItemDetails[0].Quantity == undefined || this.orderItemDetails[0].Quantity.length==0
 
   }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

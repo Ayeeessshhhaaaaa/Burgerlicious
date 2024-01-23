@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminFeedbackServiceService } from 'src/app/Services/admin-feedback-service/admin-feedback-service.service';
 import { FeedbackServiceService } from 'src/app/Services/feedback-service/feedback-service.service';
 
@@ -8,12 +9,15 @@ import { FeedbackServiceService } from 'src/app/Services/feedback-service/feedba
   styleUrls: ['./admin-feedback.component.scss']
 })
 export class AdminFeedbackComponent {
+
+  adminUser:any;
+
   myScriptElement: HTMLScriptElement;
   allFeedbacks: any;
 
   loaderFixScriptElement: HTMLScriptElement;
 
-  constructor(private feedbackService: AdminFeedbackServiceService) {
+  constructor(private feedbackService: AdminFeedbackServiceService, private route: Router) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "assets/scripts/datatable.js";
     document.body.appendChild(this.myScriptElement);
@@ -24,6 +28,9 @@ export class AdminFeedbackComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.feedbackService.getFeedback().subscribe(
       (data) => {
         // Handle the API response data here
@@ -52,6 +59,11 @@ export class AdminFeedbackComponent {
         }
       );
     }
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.route.navigate(['/login']);
   }
 
 }

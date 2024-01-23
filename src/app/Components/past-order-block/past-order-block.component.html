@@ -1,0 +1,10 @@
+<div class="card" *ngFor ='let order of allOrders'>
+    <p id="p1">Order Number : #{{order.OrderID}}</p>
+    <p>Order Status : {{order.Status}}</p>
+    <p>Order Date: {{order.OrderDate}}</p>
+
+    <div class="button-group">
+        <button (click)="viewOrder(order.OrderID)">View Order</button>
+        <button (click)="trackOrder(order.OrderID)">Track Order</button>
+    </div>
+</div>

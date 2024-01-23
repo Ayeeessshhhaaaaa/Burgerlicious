@@ -9,6 +9,8 @@ import { AdminProductsServiceService } from 'src/app/Services/admin-products-ser
 })
 export class AdminProductsViewComponent {
 
+  adminUser:any;
+
   productId:any;
   productDetails:any;
 
@@ -22,12 +24,20 @@ export class AdminProductsViewComponent {
   }
 
   ngOnInit(): void {
+
+    this.adminUser = localStorage.getItem('Username')==="admin";
+
     this.productId = this.route.snapshot.paramMap.get('id');
 
     this.service.getProductForViewById(this.productId).subscribe((res)=>{
       this.productDetails=res.data;
       //console.log(this.orderDetails);
     });
+  }
+
+  logoutAdmin(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

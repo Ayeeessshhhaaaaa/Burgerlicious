@@ -33,6 +33,10 @@ import { TrackOrderComponent } from './Pages/track-order/track-order.component';
 import { AdminIngredientsViewComponent } from './admin/admin-ingredients/admin-ingredients-view/admin-ingredients-view.component';
 import { AdminProductsViewComponent } from './admin/admin-products/admin-products-view/admin-products-view.component';
 import { AdminProductsUpdateComponent } from './admin/admin-products/admin-products-update/admin-products-update.component';
+import { PastOrderComponent } from './Pages/past-order/past-order.component';
+import { AdminErrorPageComponent } from './admin/admin-error-page/admin-error-page.component';
+import { ViewOrderComponent } from './Pages/view-order/view-order.component';
+import { OrderSuccessfullyComponent } from './Pages/order-successfully/order-successfully.component';
 
 
 const routes: Routes = [
@@ -70,6 +74,10 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'admin/login',
     component: LoginComponent
   },
   {
@@ -167,6 +175,22 @@ const routes: Routes = [
 {
   path: 'admin/products/updateProduct/:id',
   component: AdminProductsUpdateComponent,
+},
+{
+  path: 'past-order/:id',
+  component: PastOrderComponent,
+},
+{
+  path: 'admin-error-page',
+  component: AdminErrorPageComponent,
+},
+{
+  path: 'view-order/:id',
+  component: ViewOrderComponent,
+},
+{
+  path: 'order-successfully/:id',
+  component: OrderSuccessfullyComponent,
 },
 ];
 

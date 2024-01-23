@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.container {
+    background-color: #5C2E0F;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+  
+h1 {
+    color: #d1bd9e;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Paytone One";
+    margin-top: 15px;
+}
+
+.custom-card{
+    border-radius: 20px;
+}
+
+.custom-card-block{
+    border-radius: 17px;
+}
+
+h3{
+    font-family: "Paytone One", sans-serif;
+    color: #5c2e0f;
+}
+
+.qty-value{
+    margin-left: 50px;
+}
+  

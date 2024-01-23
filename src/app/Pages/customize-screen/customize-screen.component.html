@@ -6,35 +6,57 @@
         Customize &nbsp;<span class="cream"> Burger</span>
     </div>
 
-    <div class="left-container" fxFlex="55">
-        <app-ingredients-slider (itemAdded)="recalculateTotalAmount()"></app-ingredients-slider>
-    </div>
+  <div class="left-container" fxFlex="55">
+    <app-ingredients-slider
+      (itemAdded)="recalculateTotalAmount()"
+    ></app-ingredients-slider>
+  </div>
 
     <div class="right-container" fxFlex="588px" fxFlex="45" fxLayout="center center">
 
       <div class="imageContainer">
       <div class="scrollable-content">
-        <div *ngFor="let itemImage of sessionDataArray; let i = index" class="stacked-image">
+        
+        <div
+          *ngFor="let itemImage of sessionDataArray; let i = index"
+          class="stacked-image"
+        >
           <div class="image-wrapper">
             <div class="image-container" fxLayout="row">
-              <img [src]="itemImage.Ingredient.ImageURL" alt="burger" class="individualIngredient">
+              <img
+                [src]="itemImage.Ingredient.ImageURL"
+                alt="burger"
+                class="individualIngredient"
+              />
               <div class="burger-controller">
-                <div (click)="moveImageUp(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_less </span></div>
-                <div (click)="moveImageDown(i)" class="arrow-button up-button"><span class="material-symbols-outlined">expand_more </span></div>
-                <div (click)="removeIngredient(i)" class="close-button up-button"><span class="material-symbols-outlined"> delete </span></div>
+                <div (click)="moveImageUp(i)" class="arrow-button up-button">
+                  <span class="material-symbols-outlined">expand_less </span>
+                </div>
+                <div (click)="moveImageDown(i)" class="arrow-button up-button">
+                  <span class="material-symbols-outlined">expand_more </span>
+                </div>
+                <div
+                  (click)="removeIngredient(i)"
+                  class="close-button up-button"
+                >
+                  <span class="material-symbols-outlined"> delete </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div> 
-                                   
-          <div class="price">
-            <h3>Rs.{{ totalPrice }}</h3>
-          </div>
-          
-            <div class="button-container">
-                <button mat-raised-button class="button" (click)="captureAndSaveImage()">Finish Building</button>
-            </div>
-     </div>
+      
+    </div>
+
+    <div class="price">
+      <h3>Rs.{{ totalPrice }}</h3>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button class="button" (click)="captureAndSaveImage()">
+        Finish Building
+      </button>
+    </div>
+  </div>
 </div>

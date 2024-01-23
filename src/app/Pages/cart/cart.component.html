@@ -1,71 +1,75 @@
-<div class="container">
-  <app-navbar></app-navbar>
-    <div *ngIf="cartTotal !== undefined && cartTotal === 0;" class="text-center my-5">
-      <h4>Your Cart Is Empty</h4>
-      <button class="btn btn-primary btn-lg mt-3" routerLink="/product-page">GO TO SHOP</button>
-    </div>
-  
-    <ng-container *ngIf="cartData.data[0] !== undefined && cartData.data[0].numInCart !== 0">
-      <div class="row">
-        <div class="col my-4">
-          <table class="table">
-            <thead class="table-dark">
-            <tr class="text-center">
-              <th>Image</th>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
-            </tr>
-            </thead>
-            <tbody *ngIf = "cartData.data!==undefined">
-            <tr *ngFor="let c of cartData.data; let i=index">
-              <td class="d-flex align-items-center justify-content-around" >
-                <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" height="60" class="order-1">
-                <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(i)"></i></span>
-              </td>
-              <td><p>{{c.product.ProductName}}</p></td>
-              <td>
-                <p>{{c.product.Price | currency:'USD'}}</p>
-              </td>
-              <td>
-                <form>
-                  <div class="value-button" id="decrease" (click)="ChangeQuantity(i, false)">
-                    <i class="fa fa-minus"></i>
-                  </div>
-                  <input type="number" id="number" [value]="c.numInCart" readonly/>
-                  <div class="value-button" id="increase" (click)="ChangeQuantity(i, true)">
-                    <i class="fa fa-plus"></i>
-                  </div>
-                </form>
-              </td>
-              <td>
-                <p>{{cartService.CalculateSubTotal(i) | currency:'USD'}}</p>
-              </td>
-            </tr>
-            <tr class="border-0">
-              <td style="border: none;"></td>
-              <td></td>
-              <td></td>
-              <td>TOTAL</td>
-              <td>{{cartTotal | currency:'USD'}}</td>
-  
-            </tr>
-  
-            </tbody>
-          </table>
-  
-  
-        </div>
-  
-        <div class="col-md-12 d-flex mb-5">
-          <div class="d-flex w-100 justify-content-between flex-sm-column flex-md-row">
-            <a routerLink="/checkout" class="btn btn-danger btn-sm order-1">Checkout</a>
-            <a routerLink="/" class="btn btn-success btn-sm order-0">Continue Shopping</a>
-          </div>
-        </div>
-  
+<div class="backgroundColor vh-100">
+  <div class="container">
+    <app-navbar></app-navbar>
+      <div *ngIf="cartTotal !== undefined && cartTotal === 0;" class="text-center my-5">
+        <h4 class="custom-cart-text">Your Cart Is Empty</h4>
+        <button class="btn btn-lg mt-3 shadow-lg  custom-btn" routerLink="/product-page">GO TO SHOP</button>
       </div>
-    </ng-container>
-  
-  </div>
+    
+      <ng-container *ngIf="cartData.data[0] !== undefined && cartData.data[0].numInCart !== 0">
+        <div class="row">
+          <div class="col my-4">
+            <div class="table-container mt-4" style="border-radius: 15px;">
+            <table class="table shadow overflow-hidden custom-table">
+              <thead class="custom-thead">
+              <tr class="custom-tr">
+                <th class="text-center py-4" style="border: none;">Image</th>
+                <th class="text-center py-4" style="border: none;">Title</th>
+                <th class="text-center py-4" style="border: none;">Price</th>
+                <th class="text-center py-4" style="border: none;">Quantity</th>
+                <th class="text-center py-4" style="border: none;">Subtotal</th>
+              </tr>
+              </thead>
+              <tbody *ngIf = "cartData.data!==undefined">
+              <tr *ngFor="let c of cartData.data; let i=index">
+                <td class="d-flex align-items-center justify-content-around"  style="border: none;">
+                  <img [src]="c.product.ImageURL" alt="{{c.product.ProductName}}" height="60" class="order-1">
+                  <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(i)"></i></span>
+                </td>
+                <td style="border: none;"><p>{{c.product.ProductName}}</p></td>
+                <td style="border: none;">
+                  <p>{{c.product.Price | currency:'LKR '}}</p>
+                </td>
+
+                <td style="border: none;">
+                  <form>
+                    <div class="value-button" id="decrease" (click)="ChangeQuantity(i, false)">
+                      <i class="fa fa-minus"></i>
+                    </div>
+                    <input type="number" id="number" [value]="c.numInCart" readonly/>
+                    <div class="value-button" id="increase" (click)="ChangeQuantity(i, true)">
+                      <i class="fa fa-plus"></i>
+                    </div>
+                  </form>
+                </td>
+
+                <td style="border: none;">
+                  <p>{{cartService.CalculateSubTotal(i) | currency:'LKR '}}</p>
+                </td>
+              </tr>
+              <tr class="rounded-bottom" >
+                <td class="py-3" style="border: none;"></td>
+                <td class="py-3" style="border: none;"></td>
+                <td class="py-3" style="border: none;"></td>
+                <td class="py-3" style="border: none;">TOTAL</td>
+                <td class="py-3" style="border: none;">{{cartTotal | currency:'LKR '}}</td>
+              </tr>
+    
+              </tbody>
+            </table>
+          </div>
+            
+          </div>
+    
+          <div class="col-md-12 d-flex mb-5">
+            <div class="d-flex w-100 justify-content-between flex-sm-column flex-md-row">
+              <a (click)="placeOrder()" class="btn btn-danger btn-sm order-1">Checkout</a>
+              <a routerLink="/product-page" class="btn btn-success btn-sm order-0">Continue Shopping</a>
+            </div>
+          </div>
+    
+        </div>
+      </ng-container>
+    
+    </div>
+</div>
